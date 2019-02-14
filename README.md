@@ -45,8 +45,8 @@ By default, staticman comments are disabled. If you would like to enable them,
 ...
 [params]
   staticman = true
-+++
 ...
++++
 ```
 
 Then proceed to setup staticman in **staticman.yml**. See the example site and the [staticman docs](https://staticman.net/docs/) for reference.
