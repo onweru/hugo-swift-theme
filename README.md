@@ -28,5 +28,7 @@ See the **data** files inside the data directory
 
 > Follow the exampleSite
 
+This theme is designed to work with data files. Feel free to extend/alter as you would like.
+
 ## License
 The code is available under the [MIT license](https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md).
