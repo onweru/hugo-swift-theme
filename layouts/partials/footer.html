@@ -1,7 +1,7 @@
 <footer class = 'footer'>
   <div>{{ partial "mailchimp.html" . }}</div>
   <div class = 'footer_inner'>
-    <p>&copy; {{ .Site.Title }} . <span class = 'year'></span></p>
+    <p>&copy;<span class = 'year'></span> . {{ .Site.Title }}</p>
     <p class = 'mute'>Designed by <a href = '{{ .Site.Data.designer.url }}' target = '_blank' title = 'Linkedin Profile' rel = 'nonopener'> {{ .Site.Data.designer.name }}</a></p>
   </div>
 </footer>
