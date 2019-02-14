@@ -35,5 +35,23 @@ See the **data** files inside the data directory
 
 This theme is designed to work with data files. Feel free to extend/alter as you would like.
 
+## Staticman Comments
+By default, staticman comments are disabled. If you would like to enable them,
+
+1. Toggle the *staticman* param inside the config.toml to ```true``` like so
+
+```toml
++++
+...
+[params]
+  staticman = true
++++
+...
+```
+
+Then proceed to setup staticman in **staticman.yml**. See the example site and the [staticman docs](https://staticman.net/docs/) for reference.
+
+This [Binary Mist article](https://binarymist.io/blog/2018/02/24/hugo-with-staticman-commenting-and-subscriptions/) could also be quite helpful :)
+
 ## License
 The code is available under the [MIT license](https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md).
