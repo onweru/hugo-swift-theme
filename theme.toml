@@ -1,6 +1,6 @@
 name = "Swift"
 license = "MIT"
-licenselink = "https://github.com/onweru/swift/blob/master/LICENSE.md"
+licenselink = "https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md"
 description = "A simple open source theme for publishing with hugo"
 homepage = "https://neuralvibes.com"
 tags = ["blog", "clean", "responsive", "simple", "staticman"]
