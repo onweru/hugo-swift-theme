@@ -40,7 +40,7 @@ By default, staticman comments are disabled. If you would like to enable them,
 
 1. Toggle the *staticman* param inside the config.toml to ```true``` like so
 
-```toml
+```yaml
 +++
 ...
 [params]
