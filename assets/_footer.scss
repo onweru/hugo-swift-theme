@@ -1,0 +1,30 @@
+.footer{
+  padding:0;
+  color:$light;
+  margin:0;
+  background: $dark;
+  width:100%;
+  font-size: 1.05rem;
+  min-height:75px;
+  a {
+    color: $hover;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+      text-decoration: underline;
+      opacity: 1;
+    } 
+  }
+  p{
+    padding:0 10px;
+  }
+  &_inner{
+    width:90%;
+    @include viewport(1024px);
+    display: flex;
+    justify-content: space-around;
+    @media screen and (max-width: 567px) {
+      flex-direction: column;
+    }
+  }
+}

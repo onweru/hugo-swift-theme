@@ -1,0 +1,41 @@
+@keyframes showMenu{
+  0% {
+    top: 100%; 
+    opacity: 0;
+  }
+  100% {
+    top:0;  
+    opacity: 1;  
+  }
+}
+@keyframes hideMenu {
+  0% {
+    top: 0; 
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+@keyframes showShare{
+  0% {
+    height: 0; 
+    opacity: 0;
+  }
+  100% {
+    height:initial;  
+    opacity: 1;  
+  }
+}
+
+@keyframes hideShare{
+  0% {
+    height: initial; 
+    opacity: 1;
+  }
+  100% {
+    height: 0;  
+    opacity: 0;  
+  }
+}

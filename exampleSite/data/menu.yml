@@ -1,0 +1,10 @@
+- item: Author
+  url: /author/
+- item: Blog
+  url: /
+- item: Category A
+  url: /categories/development/
+- item: Category B
+  url: /categories/golang/
+- item: Tag B
+  url: /tags/go/

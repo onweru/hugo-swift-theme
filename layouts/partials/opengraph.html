@@ -1,0 +1,39 @@
+<meta property = 'og:image' content = '{{ .Site.BaseURL }}images/{{ with .Params.image }}{{ . }}{{ else }}{{ .Site.Params.image }}{{ end }}'/>
+{{ if eq .Section "blog" -}}
+  {{ $date := (time .Date)  }}
+  <meta property = 'article:published_time' content = '{{ $date }}' />
+  <script type = "application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage":"{{ .Permalink }}",
+      "name": "{{ .Site.Title }}",
+      "headline": "{{  .Title  }}",
+      "description": "{{ .Summary | truncate 150 }}",
+      "url": "{{ .Permalink }}",
+      "datePublished": "{{ $date }}",
+      "dateModified": "{{ $date }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ .Params.author }}"
+      },
+      "image":{  
+        "@type":"ImageObject",
+          "url":"{{ .Site.BaseURL }}images/{{ .Params.image }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "logo": {
+          "@type":"ImageObject",
+          "url":"{{ .Site.BaseURL }}images/{{ .Site.Params.logo }}",
+        },
+        "name": "{{ .Site.Title }}"
+      }
+    }
+  </script>
+  <meta name = 'twitter:card' content = 'summary_large_image' />
+  <meta name = 'twitter:creator' content = '@onweru'>
+  <meta name = 'twitter:title' content = '{{ .Title }}' />
+  <meta property = 'twitter:description'  content = '{{ .Summary | truncate 250 }}'/>
+  <meta name = 'twitter:image' content = '{{ .Site.BaseURL }}images/{{ .Params.image }}' />
+{{ end }}

@@ -1,0 +1,12 @@
+name = "Swift"
+license = "MIT"
+licenselink = "https://github.com/onweru/swift/blob/master/LICENSE.md"
+description = "A simple open source theme for publishing with hugo"
+homepage = "https://neuralvibes.com"
+tags = ["blog", "clean", "responsive", "simple", "staticman"]
+features = ["blog", "responsive", "staticmain"]
+min_version = 0.13
+
+[author]
+    name ="weru"
+    homepage = "https://neuralvibes.com"

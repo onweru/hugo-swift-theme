@@ -1,0 +1,27 @@
+<head>
+  <title>{{ .Site.Title }}</title>
+  <meta charset='utf-8'>
+  <meta name="google-site-verification" content="5jb-rxeTfITeJQHOuUss3ud6FPGTxXkCho-ZN5qlrZg" />
+  <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+  <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+  <meta name = 'SKYPE_TOOLBAR' content = 'SKYPE_TOOLBAR_PARSER_COMPATIBLE' />
+  <meta name = 'keywords' content = '{{ .Site.Title }}'>
+  <meta property = 'og:locale' content = 'en_US' />
+  <meta property = 'og:type' content = 'article' />
+  <meta property = 'og:title' content = '{{ .Title }}' />
+  <meta property = 'og:description' content = '{{ with .Summary}}{{ . | truncate 150 }}{{ else }}{{ .Site.Params.description }}{{ end }}'>
+  <meta property = 'og:url' content = '{{ .Permalink }}' />
+  {{ partial "opengraph.html" . }}
+  {{ partial "analytics.html" . }}
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+  <link rel="manifest" href="/images/icons/site.webmanifest">
+  <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel='canonical' href="{{ .Permalink }}">
+  {{- $options := (dict "targetPath" "main.css" "outputStyle" "expanded" "enableSourceMap" "true") -}}
+  {{- $styles := resources.Get "/main.scss" | resources.ToCSS $options }}
+  <link rel = 'stylesheet' href = '{{ $styles.Permalink }}' integrity = '{{ $styles.Data.Integrity }}'>
+</head>

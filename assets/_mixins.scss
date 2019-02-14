@@ -1,0 +1,17 @@
+@mixin viewport($width: 1024px, $margin: 25px) {
+  max-width: $width;
+  margin: $margin auto;
+  @content;
+}
+@mixin shadow($opacity: 0.2) {
+  box-shadow: 0 10px 25px -2px rgba(158,174,221,$opacity);
+  -webkit-filter: drop-shadow(-25px 15px 15px rgba(52,90,64,0.17));
+  filter: drop-shadow(-25px 15px 15px rgba(52,90,64,0.17));
+}
+.view{
+  @include viewport;
+  p{
+    text-align: center;
+    margin: 10px auto;
+  }
+}

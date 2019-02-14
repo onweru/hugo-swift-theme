@@ -1,0 +1,12 @@
+{{ $vs := .Site.Data.staticman }}
+<span class = 'form_toggle'>Comment</span>
+<form method = 'POST' action = '{{ $vs.endpoint }}/{{ $vs.username }}/{{ $vs.repository }}/{{ $vs.branch }}/comments' class  = 'form form-comments' id = 'comments-form'>
+  <input name = 'options[slug]' type = 'hidden' value = '{{ .UniqueID }}'>
+  <label class = 'form_label'>Name</label>
+  <input name = 'fields[name]' type = 'text' placeholder = 'Name' class = 'form_input' required>
+  <label class = 'form_label'>E-mail</label>
+  <input name = 'fields[email]' type = 'email' placeholder = 'Email' class = 'form_input' required>
+  <label class = 'form_label'>Comment</label>
+  <textarea name = 'fields[comment]' placeholder = 'Type in a comment ...' class = 'form_input form_input-message' required></textarea>
+  <input type = 'submit' value = 'Comment' class = 'form_input form_input-submit'>
+</form>

@@ -1,0 +1,4 @@
+username: "onweru"
+repository: "vibes"
+endpoint: "https://dev.staticman.net/v3/entry/github"
+branch: "master"

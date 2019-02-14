@@ -1,0 +1,114 @@
+.nav{
+  position:absolute;
+  top:0;
+  width:100%;
+  transition:height 0.4s ease-in-out;
+  z-index:999;
+  &-bar{
+    cursor:pointer;
+    position:absolute;
+    top:0;
+    right:25px;
+    padding: 12.5px;
+    width:40px;
+    height:auto;
+    z-index:2;
+    font-size: 1.5em;
+  }
+  &-body{
+    @include shadow;
+    position:fixed;
+    right:10px;
+    z-index:1;
+    top:100%;
+    opacity:0;
+    overflow:hidden;
+    transition:top 0.33s linear;
+    background:transparent;
+    background-color:$light;
+    width:33.3%;
+    min-width:240px;
+    max-width: 320px;
+    padding: 100px 0;
+    height: 100vh;
+    z-index:1;
+    a{
+      display:block;
+      padding:12.5px 25px;
+      margin-bottom:2px;
+      border-bottom:1px solid #f5f5f5;
+      color:$dark;
+      transition:color 0.25s ease-in-out;
+      &:hover{
+        color: $primary-color;
+      }
+    }
+  }
+  &-brand{
+    font-family: 'Cookie';
+    font-size:2em !important;
+    max-width:250px;
+    padding-top:0 !important;
+  }
+  &-close {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right:0;
+    width: 100%;
+    cursor:pointer;
+    padding:25px;
+    &:after, 
+    &:before{
+      content: '';
+      width: 18px;
+      border-radius:50%;
+      padding: 1.5px;
+      background: #666;
+      position: relative;
+    }
+    &:before {
+      transform: rotate(20deg) translateX(1.5px);
+    }
+    &:after {
+      transform: rotate(-20deg) translateX(-1.5px);
+    }
+  }
+  &-drop {
+    background: rgba(0,0,0,0.15);
+    top:0;
+    bottom:0;
+    z-index:1000;
+  }
+  &-exit{
+    animation: hideMenu 0.5s ease-out forwards;
+  }
+  &-menu {
+    position: relative;
+    padding:10px 25px 10px 0;
+    height:100%;
+    max-width: 1024px;
+    margin:0 auto;
+    a {
+      color:inherit;
+      width:100%;
+      display:block;
+      padding:10px 25px;
+      font-size:105%;
+    }
+  }
+  &-pop{
+    position: fixed;
+    width:100vw;
+  }
+  &-open {
+    animation: showMenu 0.5s ease-out forwards;
+  }
+}
+.darken,
+.darken .overlay {
+  background: transparent;
+  color: $dark;
+}

@@ -1,0 +1,10 @@
+<div id = 'mc_embed_signup'>
+<form action = '{{ .Site.Data.mailchimp.url }}'  method = 'post' id = 'mc-embedded-subscribe-form' name = 'mc-embedded-subscribe-form' class = 'validate chimp' target = '_blank' novalidate>
+    <div id = 'mc_embed_signup_scroll'>
+    <label for = 'mce-EMAIL'></label>
+	<input type = 'email' value = '' name = 'EMAIL' class = 'email chimp_input' id = 'mce-EMAIL' placeholder = 'you@awesome.com' required>
+    <div style = 'position: absolute; left: -5000px;' aria-hidden = 'true'><input type = 'text' name = '{{ .Site.Data.mailchimp.hidden }}' tabindex = '-1' value = ''></div>
+    <input type = 'submit' value = 'Subscribe' name = 'subscribe' id = 'mc-embedded-subscribe' class = 'chimp_submit'>
+    </div>
+</form>
+</div>

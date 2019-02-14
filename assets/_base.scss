@@ -1,0 +1,98 @@
+*{
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: $font;
+  color: $text;
+  font-size: 16px;
+  line-height: 1.5;
+  max-width:1440px;
+  margin:0 auto;
+  position:relative;
+  font-kerning: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+a{
+  text-decoration: none;
+  color:inherit;
+}
+
+blockquote {
+  color: lighten($dark, 36%);
+  padding: 1rem 1rem 1rem 0;
+  position: relative;
+  quotes:'\201C''\201D''\2018''\2019';
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  background-image: url(/images/quotes.svg);
+  background-repeat: no-repeat;
+  background-size: 5rem;
+  background-position: 50% 50%;
+  p{
+    padding-left: 0.5rem 0 !important;
+    font-size: 1.1rem !important;
+    width: 100%;
+    font-weight: 300;
+    font-style: italic;
+  }
+}
+code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+h1,h2,h3,h4,h5{
+  font-family: $font;
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: 500;
+  padding:5px 0;
+  margin:15px 0;
+  color: #000;
+}
+h1{
+  font-size:200%;
+  font-weight: 400;
+}
+h2{
+  font-size:175%;
+}
+h3{
+  font-size:150%;
+}
+h4{
+  font-size:125%;
+}
+h5{
+  font-size:120%;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  height:auto;
+  margin:15px auto;
+  padding:0;
+}
+main{
+  padding-bottom: 45px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+ul{
+  list-style: none;
+  -webkit-padding-start:0;
+  -moz-padding-start:0;
+}
+b, strong, em {
+  font-weight: 500;
+  color: #000;
+}

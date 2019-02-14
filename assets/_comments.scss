@@ -1,0 +1,204 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  &-comments{
+    height:0;
+    overflow:hidden;
+    padding:0;
+    margin: 1rem 0;
+    transition: height 0.3s ease-in;
+  }
+  &-open{
+    height: initial;
+  }
+  &_input{
+    margin:$padding 0;
+    font-size: 1rem !important;
+    padding: $padding $padding*1.5 !important;
+    border:1px solid $primary-color;
+    -webkit-appearance: none;
+    border-radius:25px;
+    outline: none;
+    transition: all 0.3s ease-out;
+    &:focus,
+    &:hover{
+      box-shadow: 0 5px 15px 0 rgba(158, 174, 221, 0.2);
+      border: 1px solid $mute;
+    }
+    &-message{
+      resize: none;
+      border-radius: 15px;
+    }
+    &-submit{
+      background-color: $primary-color;
+      color:$light;
+      font-size:1.25rem;
+      cursor: pointer;
+      &,
+      &:hover{
+        border:none;
+      }
+      &:hover{
+        background-color: lighten($primary-color, 5%);
+      }
+    }
+  }
+  &_label{
+    display:none;
+  }
+  &_toggle{
+    @include shadow(.02);
+    background-color: $primary-color;
+    margin-top: 1.5rem;
+    color:$light;
+    display: inline-block;
+    width: 150px;
+    padding:10px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+.comment{
+  display: grid;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 557px) {
+    grid-template-columns: 1fr 6fr;
+  }
+  background: $gray;
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  -webkit-filter: drop-shadow(-15px 9px 9px rgba(52,90,64,0.17));
+  filter: drop-shadow(-15px 9px 9px rgba(52,90,64,0.17));
+  p {
+    padding: 0 $padding;
+  }
+  &_user{
+    border-radius: 50%;
+    margin: 0 1rem;
+  }
+  &_user{
+    width:60px;
+  }
+  &_body{
+    flex: 1;
+    padding:25px 0 0 15px; 
+  }
+  &_s{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin:15px 0 0;
+    padding:0;
+    h3{
+      margin: $padding 0;
+    }
+  }
+  &_icon{
+    img{
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      line-height: 2.5rem;
+      margin: 15px;
+      cursor: pointer;
+    }
+  }
+  &_meta{
+    width:100%;;
+    display: flex;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #000;
+    font-size: 0.84rem;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: .5rem;
+  }
+}
+.emoji{
+  width: auto;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+  bottom: 0;
+	top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  &_close{
+    margin: 25px 0;
+    background-color: $primary-color;
+    color:$light;
+    border: 0;
+    outline: 0;
+    box-shadow:0 5px 15px -2px rgba(158,174,221,0.2);
+    cursor: pointer;
+    padding:$padding/2 $padding*1.5;
+  }
+  &_inner{
+    width:100%;
+    background-color: $dark;
+    max-width:540px;
+    padding: $padding * 2.5;
+    box-shadow: 0 25px 40px -10px rgba(158,174,221,0.2);
+    color: darken($light, 10%);
+  }
+  &_show {
+    overflow: hidden;
+    position: relative;
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+  }
+  &_show &{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &_title{
+    color: $light;
+  }
+}
+
+.form {
+	position: relative;
+}
+
+.form-loading:before {
+	content: '';
+}
+
+.form-loading .form_spinner {
+	display: block;
+}
+
+.form:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 10;
+}
+
+.form_spinner {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 11;
+}

@@ -1,0 +1,13 @@
+$padding: 10px;
+$margin: 25px;
+$primary-color: #04a763;
+$hover: #04a763;
+$bright: #ff4447;
+$light: #fff;
+$dark: #24292e;
+$text: #343434;
+$pale: lighten($dark, 20%);
+$mute: darken($light, 20%);
+$linear: linear-gradient(to right bottom, darken($primary-color, 10%), $primary-color);
+$font: 'Metropolis', sans-serif;
+$gray: rgb(241,243,241);

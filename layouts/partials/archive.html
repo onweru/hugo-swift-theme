@@ -1,0 +1,13 @@
+<section class = 'intro'>
+  <div class = 'intro_inner'>
+    <div>{{ partial "audio.html" . }}</div>
+    <h1 class = 'intro_headline'>{{ .Title }}</h1> 
+    <p class = 'intro_desc'>{{ .Description }}</p>
+  </div>
+</section>
+<ul class='posts flex wrap blog' id = 'posts'>
+  {{- range (.Paginator 4).Pages }}
+    {{ partial "excerpt.html" . }}
+  {{- end }}
+</ul>
+{{ partial "pager.html" . }}

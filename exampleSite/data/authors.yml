@@ -1,0 +1,15 @@
+- name: weru
+  fullName: Dan Weru 
+  status: Dev, freethinker & lover of poetry
+  locale: Nairobi, Kenya
+  twitter: onweru
+  photo: 'weru.jpg'
+  url: https://www.linkedin.com/in/dan-weru-profile/
+
+- name: wilson
+  fullName: Wilson Kihugu
+  status: Graduate Research Assistant at Tennessee State University
+  locale: Nashville, Tennessee
+  twitter: wilson
+  photo: 'wilson.jpg'
+  url: https://www.linkedin.com/in/kihugu-wilson-ouma-4a752954/
