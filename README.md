@@ -5,7 +5,6 @@ This theme is designed for blogging purposes. That said, it's extendable for oth
 
 ## Features
 * Blog
-* Mailchimp
 * Pagination
 * Responsive
 * Staticman
@@ -27,7 +26,7 @@ You can configure the site using as follows:
 
   Use **config.toml** file
 
-2. **menu**, **staticman**, **mailchimp**, **footer**
+2. **menu**, **staticman**, **footer**
 
 See the **data** files inside the data directory
 
@@ -52,9 +51,6 @@ By default, staticman comments are disabled. If you would like to enable them,
 Then proceed to setup staticman in **staticman.yml**. See the example site and the [staticman docs](https://staticman.net/docs/) for reference.
 
 This [Binary Mist article](https://binarymist.io/blog/2018/02/24/hugo-with-staticman-commenting-and-subscriptions/) could also be quite helpful :)
-
-## Mailchimp
-Fill in **data/mailchimp.yml** with your mailchimp script values.
 
 ## License
 The code is available under the [MIT license](https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md).

@@ -1,11 +1,8 @@
 <footer class = 'footer'>
-  <div>{{ partial "mailchimp.html" . }}</div>
   <div class = 'footer_inner'>
     <p>&copy;<span class = 'year'></span> . {{ .Site.Title }}</p>
     <p class = 'mute'>Designed by <a href = '{{ .Site.Data.designer.url }}' target = '_blank' title = 'Linkedin Profile' rel = 'nonopener'> {{ .Site.Data.designer.name }}</a></p>
   </div>
 </footer>
 <script src = 'https://code.jquery.com/jquery-3.1.0.min.js'   integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s='   crossorigin='anonymous'></script>
-<script src = '/js/index.js'></script>
-<!-- mailchimp -->
-<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","{{ .Site.Data.mailchimp.validate }}");</script>
+<script src = '{{ "js/index.js" | absURL }}'></script>

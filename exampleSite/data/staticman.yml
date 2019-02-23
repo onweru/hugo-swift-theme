@@ -1,4 +1,4 @@
-username: "onweru"
-repository: "vibes"
+username: "username"
+repository: "repo"
 endpoint: "https://dev.staticman.net/v3/entry/github"
 branch: "master"

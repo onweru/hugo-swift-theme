@@ -14,7 +14,7 @@
 </section>
 <div class = 'post'>
   <article class='post_content' itemprop='articleBody'>
-    <div class = 'articulo'>{{ .Content }}</div>
+    {{ .Content }}
   </article>
   {{ if eq .Site.Params.staticman true }}{{ partial "comments.html" . }}{{ end }}
   <aside>
@@ -26,6 +26,6 @@
     </ul>
   </aside>
 </div>
-<script src = '/js/autosize.min.js'></script>
-<script src = '/js/timeago.js'></script>
+<script src = '{{ "js/autosize.min.js" | absURL }}'></script>
+<script src = '{{ "js/timeago.js" | absURL }}'></script>
 {{ end }}
