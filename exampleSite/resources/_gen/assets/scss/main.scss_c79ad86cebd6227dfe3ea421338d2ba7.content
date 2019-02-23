@@ -727,8 +727,13 @@ section p {
   text-decoration: underline;
 }
 
-.post_content ol, .post_content li {
+.post_content ol, .post_content ul {
+  list-style-type: initial;
   padding: 0.5rem 1rem;
+}
+
+.post_content li {
+  padding: 0.5rem 0;
 }
 
 .post_header {
