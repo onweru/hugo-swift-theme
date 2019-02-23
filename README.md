@@ -53,5 +53,8 @@ Then proceed to setup staticman in **staticman.yml**. See the example site and t
 
 This [Binary Mist article](https://binarymist.io/blog/2018/02/24/hugo-with-staticman-commenting-and-subscriptions/) could also be quite helpful :)
 
+## Mailchimp
+Fill in **data/mailchimp.yml** with your mailchimp script values.
+
 ## License
 The code is available under the [MIT license](https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md).

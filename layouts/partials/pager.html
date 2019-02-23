@@ -8,7 +8,7 @@
     {{- end }}
     
     {{ range $paginator.Pagers -}}
-      <a href="{{ .URL }}" class = 'pager_item{{ if eq . $paginator }} pager_active{{ end }}'>{{ .PageNumber }}</a>
+      <a href = '{{ .URL }}' class = 'pager_item{{ if eq . $paginator }} pager_active{{ end }}'>{{ .PageNumber }}</a>
     {{ end }}
 
     {{- if $paginator.HasNext -}}
