@@ -40,8 +40,12 @@
         text-decoration: underline;
       }
     }
-    ol, li {
+    ol, ul {
+      list-style-type: initial;
       padding: 0.5rem 1rem;
+    }
+    li {
+      padding: 0.5rem 0;
     }
   }
   &_header{
