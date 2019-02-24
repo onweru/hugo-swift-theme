@@ -1,10 +1,10 @@
 <li class = 'duo post_item'>
   <a class = 'show' href='{{ .URL }}' title = '{{ .Title }}'
-    style = 'background-image: url(/images/{{ .Params.image }});'>
+    style = 'background-image: url({{ .Site.BaseURL }}images/{{ .Params.image }});'>
   </a>
   <div class = 'excerpt'>
     {{ with .Params.tags -}}
-    <p class = 'post_tag'>{{ range first 1 . }}<a href = '/tags/{{ . | urlize }}'>{{ . }}</a>{{ end }}</p>
+    <p class = 'post_tag'>{{ range first 1 . }}<a href = '{{ .Site.BaseURL }}tags/{{ . | urlize }}'>{{ . }}</a>{{ end }}</p>
     {{- end }}
     <h3 class = 'post_link'>
       <a href='{{ .URL }}'>{{ .Title  }}</a>

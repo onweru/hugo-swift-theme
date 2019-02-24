@@ -6,7 +6,7 @@
   {{ range .Site.Data.authors }}
   {{ if eq .name $author }}
   <a class = 'flex-in' href = '{{ .url }}' target = '_blank' rel = 'nonopener' target = "{{ $author }}'s profile">
-    <img class = 'gravatar' src = '/images/{{ $author }}.jpg' alt = ''></a>
+    <img class = 'gravatar' src = '{{ .Site.BaseURL }}images/{{ $author }}.jpg' alt = ''></a>
     <p class = 'post_meta center mute'>{{ $reading }} min read . Posted by <a href = '{{ .url }}' target = '_blank' rel = 'nonopener' title = "{{ $author }}'s Profile">{{ $author }}</a>
   {{ end }}
   {{ end }}
