@@ -11,9 +11,9 @@
   <meta property = 'og:description' content = '{{ with .Summary}}{{ . | truncate 150 }}{{ else }}{{ .Site.Params.description }}{{ end }}'>
   <meta property = 'og:url' content = '{{ .Permalink }}' />
   {{ partial "opengraph.html" . }}
-  <link rel="apple-touch-icon" sizes="180x180" href = '{{ "images/icons/apple-touch-icon.png" | absURL }}'>
-  <link rel="icon" type="image/png" sizes="32x32" href = '{{ "images/icons/favicon-32x32.png" | absURL }}'>
-  <link rel="icon" type="image/png" sizes="16x16" href= '{{ "images/icons/favicon-16x16.png" | absURL }}'>
+  <link rel="apple-touch-icon" sizes="180x180" href = '{{ .Site.BaseURL }}images/icons/apple-touch-icon.png'>
+  <link rel="icon" type="image/png" sizes="32x32" href = '{{ .Site.BaseURL }}images/icons/favicon-32x32.png'>
+  <link rel="icon" type="image/png" sizes="16x16" href= '{{ .Site.BaseURL }}images/icons/favicon-16x16.png'>
   <link rel='canonical' href="{{ .Permalink }}">
   {{- $options := (dict "targetPath" "main.css" "outputStyle" "expanded" "enableSourceMap" "true") -}}
   {{- $styles := resources.Get "/main.scss" | resources.ToCSS $options }}
