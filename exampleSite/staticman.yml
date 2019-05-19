@@ -1,0 +1,19 @@
+# Edit accordingly
+comments:
+  allowedFields: ["name", "email", "comment"]
+  allowedOrigins: ["localhost", "example.com"]
+  branch: "master"
+  filename: "comment-{@date:YYYY-MM-DDTHH-mm-ss.SSS}"
+  format: "yaml"
+  commitMessage: "New Staticman comment in {options.slug}"
+  generatedFields:
+    date:
+      type: date
+      options:
+        format: "iso8601"
+  moderation: false
+  name: "Fancy Site Title"
+  path: "data/comments/{options.slug}"
+  requiredFields: ["name", "email", "comment"]
+  transforms:
+    email: md5
