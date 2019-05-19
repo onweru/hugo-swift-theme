@@ -52,5 +52,9 @@ Then proceed to setup staticman in **staticman.yml**. See the example site and t
 
 This [Binary Mist article](https://binarymist.io/blog/2018/02/24/hugo-with-staticman-commenting-and-subscriptions/) could also be quite helpful :)
 
+> For any one intending to use staticman with hugo please have a look at [this issue/thread](https://github.com/eduardoboucas/staticman/issues/243)
+
+Since staticman is an involving project, things might work differently than they do at the moment of this writing.
+
 ## License
 The code is available under the [MIT license](https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md).
