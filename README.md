@@ -21,7 +21,7 @@ $ git clone https://github.com/onweru/hugo-swift-theme
 > Theme hugo sass and hugo-extended version.
 
 ## Configuration
-You can configure the site using as follows: 
+You can configure the site using as follows:
 1. **General Information**
 
   Use **config.toml** file

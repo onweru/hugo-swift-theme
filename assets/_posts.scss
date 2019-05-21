@@ -136,7 +136,7 @@
     background: $primary-color;
     color: $light;
     border-radius: 50%;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
     &:hover {
       opacity: 0.5;
     }
@@ -188,7 +188,7 @@
     width:100%;
     padding:25px;
   }
-  
+
   &-close{
     animation: hideShare 0.3s ease-out;
   }

@@ -77,17 +77,17 @@
 
 // (function(){
 //   font = document.createElement('link');
-//   font.type = 'text/css'; 
+//   font.type = 'text/css';
 //   font.rel = 'stylesheet';
 //   font.href = '{{ Site.Data.fonts }}';
-//   s = document.getElementsByTagName('link')[0]; 
+//   s = document.getElementsByTagName('link')[0];
 //   s.parentNode.insertBefore(font, s);
 // })();
 
 (function share(){
   function showShare() {
     $('.share').addClass('share-open').removeClass('share-close');
-  } 
+  }
   function hideShare() {
     $('.share').removeClass('share-open').addClass('share-close');
   }

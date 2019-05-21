@@ -3,7 +3,7 @@
   {{ $comments := readDir "data/comments" }}
   {{ $.Scratch.Add "hasComments" 0 }}
   {{ $entryId := .UniqueID }}
-  
+
   {{ with $comments }}
 
     {{ range . }}
@@ -23,7 +23,7 @@
         {{ end }}
       {{ end }}
     {{ end }}
-  
+
   {{ end }}
 
   {{ if eq ($.Scratch.Get "hasComments") 0 }}

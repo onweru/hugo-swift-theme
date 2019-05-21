@@ -24,7 +24,7 @@
       amplitude: -27,
       wavelength: 27,
     },
-		{
+    {
       timeModifier: 3,
       lineWidth: 1,
       amplitude: 36,
@@ -51,9 +51,9 @@
     gradient.addColorStop(1,"rgba(0, 255, 0, 0");
     var index = -1;
     var length = this.waves.length;
-	  while(++index < length){
+    while(++index < length){
       this.waves[index].strokeStyle = gradient;
-    }  
+    }
   }
   });
 })();

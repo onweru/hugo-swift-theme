@@ -1,41 +1,41 @@
 function calculateTimeSince(num){
   const currentTime = Math.floor(Date.now()/1000);
   const timestamp = parseInt(num);
-  const timeSince = currentTime - timestamp; 
-  
+  const timeSince = currentTime - timestamp;
+
   var timeAgo;
-  var timeTag; 
+  var timeTag;
   var minute = 60;
   var hour = 3600;
   var day = 86400;
   var week = 604800;
   var month = 2.628e+6;
   var year = 3.154e+7;
-  
+
   if (timeSince < minute ) {
     timeAgo = 1;
     timeTag = 'MIN';
   } else if (timeSince > minute && timeSince < hour ) {
     timeAgo = Math.ceil(timeSince / minute);
-    timeTag = 'MIN';  
+    timeTag = 'MIN';
   } else if (timeSince > hour && timeSince < day ) {
     timeAgo = Math.floor(timeSince / hour);
     timeTag = 'HR';
   } else if (timeSince > day && timeSince < week) {
     timeAgo = Math.floor(timeSince / day);
-    timeTag = 'DAY';  
+    timeTag = 'DAY';
   } else if (timeSince > week && timeSince < month) {
     timeAgo = Math.floor(timeSince / week);
-    timeTag = 'WK';  
+    timeTag = 'WK';
   } else if (timeSince > month && timeSince < year) {
     timeAgo = Math.floor(timeSince / month);
-    timeTag = 'MONTH';  
+    timeTag = 'MONTH';
   } else if (timeSince > year) {
     timeAgo = Math.floor(timeSince / year);
-    timeTag = 'YR';  
+    timeTag = 'YR';
   }
-  
-  let decorator = timeAgo < 2 ? 'AGO' : 'S AGO'; 
+
+  let decorator = timeAgo < 2 ? 'AGO' : 'S AGO';
   return `. ${timeAgo}${timeTag}${decorator}`;
 }
 
