@@ -52,7 +52,7 @@ Then proceed to setup staticman in **staticman.yml**. See the example site and t
 
 This [Binary Mist article](https://binarymist.io/blog/2018/02/24/hugo-with-staticman-commenting-and-subscriptions/) could also be quite helpful :)
 
-> For any one intending to use staticman with hugo please have a look at [this issue/thread](https://github.com/eduardoboucas/staticman/issues/243)
+> For any one intending to use staticman with hugo please have a look at [this issue/thread](https://github.com/eduardoboucas/staticman/issues/243). Why? you may wan't to stay away from the public instance of staticman due to a requests' quota issue. Also you may want to use V3 of staticman. The issue I referenced has clear pointers; please go through the thread in its entirety if you can :).
 
 Since staticman is an involving project, things might work differently than they do at the moment of this writing.
 
