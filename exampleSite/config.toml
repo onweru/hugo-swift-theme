@@ -5,5 +5,10 @@ author = "Steve Francia"
 copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
 canonifyurls = true
 paginate = 4
-[params]
-  staticman = false # turn this to true to enable staticman. See theme README
+
+# [Params.staticman]
+#   endpoint = "https://dev.staticman.net"  # URL of your own API deployment (without trailing slash), default: "https://dev.staticman.net"
+#   gitProvider = "github"  # Either "github" or "gitlab"
+#   username = "username"  # GitHub/GitLab user name
+#   repository = "repo"  # GitHub/GitLab user name
+#   branch = "master"  # Branch holding the source code for your site, should match the `branch` parameter in `staticman.yml`

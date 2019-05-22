@@ -1,7 +1,7 @@
-{{ $vs := .Site.Data.staticman }}
+{{ $vs := .Site.Params.staticman }}
 <span class = 'form_toggle'>Comment</span>
-<form method = 'POST' action = '{{ $vs.endpoint }}/{{ $vs.username }}/{{ $vs.repository }}/{{ $vs.branch }}/comments' class  = 'form form-comments' id = 'comments-form'>
-  <input name = 'options[slug]' type = 'hidden' value = '{{ .UniqueID }}'>
+<form method = 'POST' action = '{{ $vs.endpoint | default "https://dev.staticman.net" }}/v3/entry/{{ $vs.gitProvider }}/{{ $vs.username }}/{{ $vs.repository }}/{{ $vs.branch }}/comments' class  = 'form form-comments' id = 'comments-form'>
+  <input name = 'options[slug]' type = 'hidden' value = '{{ .File.UniqueID }}'>
   <label class = 'form_label'>Name</label>
   <input name = 'fields[name]' type = 'text' placeholder = 'Name' class = 'form_input' required>
   <label class = 'form_label'>E-mail</label>

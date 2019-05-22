@@ -2,7 +2,7 @@
 comments:
   allowedFields: ["name", "email", "comment"]
   allowedOrigins: ["localhost", "example.com"]
-  branch: "master"
+  branch: "master"  # should match your config.toml
   filename: "comment-{@date:YYYY-MM-DDTHH-mm-ss.SSS}"
   format: "yaml"
   commitMessage: "New Staticman comment in {options.slug}"
