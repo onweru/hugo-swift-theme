@@ -1,27 +1,21 @@
 <h3>Comments</h3>
 <div class = 'comments'>
-  {{ $comments := readDir "data/comments" }}
   {{ $.Scratch.Add "hasComments" 0 }}
-  {{ $entryId := .UniqueID }}
+  {{ $entryId := .File.UniqueID }}
 
-  {{ with $comments }}
-
-    {{ range . }}
-      {{ if eq .Name $entryId }}
-        {{ $.Scratch.Add "hasComments" 1 }}
-        {{ range $index, $comments := (index $.Site.Data.comments $entryId ) }}
-          <div class = 'comment'>
-            <img src = 'https://www.gravatar.com/avatar/{{ .email }}?s=100' alt = 'user icon' class = 'comment_user'>
-            <div class = 'comment_body'>
-              <div class = 'comment_meta'>
-                <div class = 'comment_author'>{{ .name }}</div>
-                <div class = 'comment_time' data-time = '{{ .date }}'></div>
-              </div>
-              {{ .comment | markdownify }}
-            </div>
+  {{ if .Site.Data.comments }}
+    {{ range $index, $comments := (index $.Site.Data.comments $entryId ) }}
+      {{ $.Scratch.Add "hasComments" 1 }}
+      <div class = 'comment'>
+        <img src = 'https://www.gravatar.com/avatar/{{ .email }}?s=100' alt = 'user icon' class = 'comment_user'>
+        <div class = 'comment_body'>
+          <div class = 'comment_meta'>
+            <div class = 'comment_author'>{{ .name }}</div>
+            <div class = 'comment_time' data-time = '{{ .date }}'></div>
           </div>
-        {{ end }}
-      {{ end }}
+          {{ .comment | markdownify }}
+        </div>
+      </div>
     {{ end }}
 
   {{ end }}

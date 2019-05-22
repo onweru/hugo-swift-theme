@@ -16,7 +16,7 @@
   <article class='post_content' itemprop='articleBody'>
     {{ .Content }}
   </article>
-  {{ if eq .Site.Params.staticman true }}{{ partial "comments.html" . }}{{ end }}
+  {{ if .Site.Params.staticman }}{{ partial "comments.html" . }}{{ end }}
   <aside>
     <h3><span class = 'pretty'>Recent Posts</span></h3>
     <ul class='flex post_aside'>
