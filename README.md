@@ -35,8 +35,6 @@ This theme is designed to work with data files. Feel free to extend/alter as you
 ## Staticman Comments
 By default, [Staticman](https://staticman.net) comments are disabled. If you would like to enable them,
 
-Please don't hesitate to ping me on GitHub/GitLab/leave a comment on my blog/send me an email to ask for help.
-
 1. Invite Staticman to your repo to collaborate.
 
     - GitHub: View the issue [eduardoboucas/staticman#243](https://github.com/eduardoboucas/staticman/issues/243) for procedures to set up Staticman v3.
