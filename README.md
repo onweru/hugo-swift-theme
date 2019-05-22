@@ -10,7 +10,7 @@ This theme is designed for blogging purposes. That said, it's extendable for oth
 * [Staticman](https://staticman.net)
 
 ## Installation
-Run the following inside your Hugo site folder:
+Add this theme as a Git submodule inside your Hugo site folder:
 
 ```bash
 $ git submodule add https://github.com/onweru/hugo-swift-theme.git themes/hugo-swift-theme
@@ -45,19 +45,15 @@ Please don't hesitate to ping me on GitHub/GitLab/leave a comment on my blog/sen
 2. Uncomment the `[Params.staticman]` section and input the parameters inside `config.toml` like so
 
     ```toml
-    +++
-    ...
     [Params.staticman]
       endpoint = "https://https://dev.staticman.net"
       gitProvider = "github"
       username = "onweru"
       repository = "hugo-swift-theme"
       branch = "master"
-    ...
-    +++
     ```
 
-    In caes of empty `endpoint`, it will fallback to the public development instance.
+    In case of empty `endpoint`, it will fallback to the public development instance.
 
 3. Proceed to setup `staticman.yml`.  Note that this YML file has to be **at the root of your Git repository**.  See the `exampleSite/` and the [Staticman docs](https://staticman.net/docs/) for detailed information of each parameter used in this YML file.
 
