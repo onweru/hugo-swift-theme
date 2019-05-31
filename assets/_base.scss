@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
 body{
   font-family: $font;
   color: $text;
@@ -17,6 +20,8 @@ body{
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 a{
   text-decoration: none;
