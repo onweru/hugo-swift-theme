@@ -1,7 +1,7 @@
 ## Swift Theme
 This theme is designed for blogging purposes. That said, it's extendable for other use cases.
 
-![Hugo Swift Theme](https://github.com/onweru/hugo-swift-theme/blob/master/images/tn.png)
+![Hugo Swift Theme](https://github.com/onweru/hugo-swift-theme/blob/master/exampleSite/static/images/screenshot.png)
 
 ## Features
 * Blog
