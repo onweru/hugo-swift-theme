@@ -46,7 +46,7 @@ By default, [Staticman](https://staticman.net) comments are disabled. If you wou
     [Params.staticman]
       endpoint = "https://https://dev.staticman.net"
       gitProvider = "github"
-      username = "onweru"
+      username = "your-username"
       repository = "hugo-swift-theme"
       branch = "master"
     ```
