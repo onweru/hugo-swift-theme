@@ -173,12 +173,13 @@ function listen(el, event, fn) {
     link = createEl('a');
     icon = createEl('img');
     icon.src = '/images/link-symbol.svg';
-    link.className = 'link deeplink';
+    link.className = 'link';
     link.appendChild(icon);
     id = node.getAttribute('id');
     if(id) {
       link.href = `${current}#${id}`;
       node.appendChild(link);
+      pushClass(node, 'link_owner');
     }
   });
 })();
