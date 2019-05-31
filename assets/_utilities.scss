@@ -41,4 +41,9 @@
   width: 1.5rem;
   margin: 0 0.25rem;
   padding: 0 0.25rem;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  &_owner:hover & {
+    opacity: 0.9;
+  }
 }
