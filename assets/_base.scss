@@ -109,8 +109,8 @@ b, strong, em {
   pre{
     padding: 1rem;
     box-shadow: 0 0 2.5rem rgba(0,0,0,0.12);
-    word-break: break-all;
-    word-wrap: break-word;
+    // word-break: break-all;
+    // word-wrap: break-word;
     border-radius: 4px;
     overflow-x: auto;
   }
