@@ -7,10 +7,14 @@ This theme is designed for blogging purposes. That said, it's extendable for oth
 * Blog
 * Pagination
 * Responsive
+
+  For the Most part, this theme uses grid css (and a little bit of flexbox) for this purpose
+
 * [Staticman](https://staticman.net)
 * Deeplinks
 
   For all content published using markdown, deeplinks will be added to the pages so that you can share on click
+* Syntax Highlighting
 
 ## Installation
 Add this theme as a Git submodule inside your Hugo site folder:
