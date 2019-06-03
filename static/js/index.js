@@ -216,11 +216,9 @@ const copyToClipboard = str => {
   if(deeplinks) {
     document.body.addEventListener('click', function(event) {
       let target = event.target;
-      console.log(target);
       if (target.classList.contains(deeplink) || target.parentNode.classList.contains(deeplink)) {
         let newLink = target.href != undefined ? target.href : target.parentNode.href; 
         copyToClipboard(newLink);
-        console.log(newLink);
       }
     });
   }
