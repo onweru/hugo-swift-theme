@@ -13,7 +13,8 @@ This theme is designed for blogging purposes. That said, it's extendable for oth
 * [Staticman](https://staticman.net)
 * Deeplinks
 
-  For all content published using markdown, deeplinks will be added to the pages so that you can share on click
+  For all content published using markdown, deeplinks will be added to the pages so that you can share on click :smiley: Just   hover on a heading and the link button will pop. Click on it to copy.
+  
 * Syntax Highlighting
 
 ## Installation
