@@ -5,6 +5,9 @@ author = "Steve Francia"
 copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
 canonifyurls = true
 paginate = 4
+pygmentsCodefences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsStyle = "friendly"
 
 # [Params.staticman]
 #   endpoint = "https://dev.staticman.net"  # URL of your own API deployment (without trailing slash), default: "https://dev.staticman.net"
