@@ -211,14 +211,16 @@ const copyToClipboard = str => {
 }
 
 (function copyHeadingLink() {
-  let deeplinks = document.querySelectorAll;
-  let deeplink = 'deeplink';
+  let deeplink = 'link';
+  let deeplinks = document.querySelectorAll(`.${deeplink}`);
   if(deeplinks) {
     document.body.addEventListener('click', function(event) {
       let target = event.target;
+      console.log(target);
       if (target.classList.contains(deeplink) || target.parentNode.classList.contains(deeplink)) {
         let newLink = target.href != undefined ? target.href : target.parentNode.href; 
         copyToClipboard(newLink);
+        console.log(newLink);
       }
     });
   }
