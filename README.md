@@ -8,6 +8,9 @@ This theme is designed for blogging purposes. That said, it's extendable for oth
 * Pagination
 * Responsive
 * [Staticman](https://staticman.net)
+* Deeplinks
+
+  For all content published using markdown, deeplinks will be added to the pages so that you can share on click
 
 ## Installation
 Add this theme as a Git submodule inside your Hugo site folder:
