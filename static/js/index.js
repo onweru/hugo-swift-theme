@@ -69,8 +69,12 @@ function listen(el, event, fn) {
     var menuPulled = $(nav).hasClass('nav-exit');
     (menuOpen || menuPulled) ? $(nav).toggleClass('nav-open nav-exit') : $(nav).toggleClass(open);
   }
+  
 
-  $('.nav-bar, .nav-close').on('click', () => toggleMenu());
+  $('.nav-bar, .nav-close').on('click', function() {
+    toggleMenu();
+    console.log('happening now');
+  } );
 
   $('.nav-drop').on('click', function(e) {
     e.target === this ? toggleMenu() : false;
