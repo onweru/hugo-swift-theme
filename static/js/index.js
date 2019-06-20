@@ -73,7 +73,6 @@ function listen(el, event, fn) {
 
   $('.nav-bar, .nav-close').on('click', function() {
     toggleMenu();
-    console.log('happening now');
   } );
 
   $('.nav-drop').on('click', function(e) {
