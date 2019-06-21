@@ -7,14 +7,9 @@ This theme is designed for blogging purposes. That said, it's extendable for oth
 * Blog
 * Pagination
 * Responsive
-
-  For the Most part, this theme uses grid css (and a little bit of flexbox) for this purpose
-
+* Grid CSS
 * [Staticman](https://staticman.net)
 * Deeplinks
-
-  For all content published using markdown, deeplinks will be added to the pages so that you can share with precision :smiley: Just   hover on a heading and the link button will pop. Click it to copy.
-  
 * Syntax Highlighting
 
 ## Installation
@@ -76,6 +71,10 @@ By default, [Staticman](https://staticman.net) comments are disabled. If you wou
 :information_source: By default, this theme uses Staticman v3 instead of the public instance at v2 due to a requests' quota issue reported in issue [eduardoboucas/staticman#222](https://github.com/eduardoboucas/staticman/issues/222).
 
 :warning: Since Staticman is an involving project, things might work differently than they do at the moment of this writing.
+
+### Deeplinks
+
+For all content published using markdown, deeplinks will be added to the pages so that you can share with precision :smiley: Just   hover on a heading and the link button will pop. Click it to copy.
 
 ## License
 The code is available under the [MIT license](https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md).
