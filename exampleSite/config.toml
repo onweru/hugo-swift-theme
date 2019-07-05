@@ -12,7 +12,7 @@ pygmentsCodefencesGuessSyntax = true
 pygmentsStyle = "friendly"
 
 # [Params.staticman]
-#   endpoint = "https://dev.staticman.net"  # URL of your own API deployment (without trailing slash), default: "https://dev.staticman.net"
+#   endpoint = "https://api.staticman.net"  # URL of your own API deployment (without trailing slash), default: "https://api.staticman.net"
 #   gitProvider = "github"  # Either "github" or "gitlab"
 #   username = "username"  # GitHub/GitLab user name
 #   repository = "repo"  # GitHub/GitLab user name

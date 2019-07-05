@@ -1,4 +1,4 @@
 username: "username"
 repository: "repo"
-endpoint: "https://dev.staticman.net/v3/entry/github"
+endpoint: "https://api.staticman.net/v3/entry/github"
 branch: "master"
