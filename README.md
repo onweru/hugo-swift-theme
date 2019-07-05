@@ -47,7 +47,7 @@ By default, [Staticman](https://staticman.net) comments are disabled. If you wou
 
     ```toml
     [Params.staticman]
-      endpoint = "https://https://dev.staticman.net"
+      endpoint = "https://https://api.staticman.net"
       gitProvider = "github"
       username = "your-username"
       repository = "hugo-swift-theme"
