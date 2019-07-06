@@ -11,9 +11,14 @@ pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsStyle = "friendly"
 
-# [Params.staticman]
-#   endpoint = "https://api.staticman.net"  # URL of your own API deployment (without trailing slash), default: "https://api.staticman.net"
-#   gitProvider = "github"  # Either "github" or "gitlab"
-#   username = "username"  # GitHub/GitLab user name
-#   repository = "repo"  # GitHub/GitLab user name
-#   branch = "master"  # Branch holding the source code for your site, should match the `branch` parameter in `staticman.yml`
+#[Params.staticman]
+#  endpoint = "https://api.staticman.net"  # URL of your own API deployment (without trailing slash), default: "https://api.staticman.net"
+#  gitProvider = "github"  # Either "github" or "gitlab"
+#  username = "username"  # GitHub/GitLab user name
+#  repository = "repo"  # GitHub/GitLab user name
+#  branch = "master"  # Branch holding the source code for your site, should match the `branch` parameter in `staticman.yml`
+ 
+## If you use reCAPTCHA v2, you must also set these parameters in staticman.yml
+#  [Params.staticman.reCaptcha]
+#    siteKey = ""  # Use your own site key, you need to apply for one on Google
+#    secret  = ""  # ENCRYPT your password by going to https://<staticman-endpoint>/v3/encrypt/<your-site-secret>
