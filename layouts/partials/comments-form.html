@@ -12,7 +12,6 @@
   <input name = 'fields[email]' type = 'email' placeholder = 'Email' class = 'form_input' required>
   <label class = 'form_label'>Comment</label>
   <textarea name = 'fields[comment]' placeholder = 'Type in a comment ...' class = 'form_input form_input-message' required></textarea>
-  <input type = 'submit' value = 'Comment' class = 'form_input form_input-submit' {{- if $vs.reCaptcha }} disabled {{- end }}>
 
   {{- if $vs.reCaptcha -}}
     <div class = 'g-recaptcha' data-sitekey = '{{ $vs.reCaptcha.siteKey }}' data-callback='enableSubmitComment'></div>
@@ -25,4 +24,6 @@
 
     <script async src = 'https://www.google.com/recaptcha/api.js'></script>
   {{- end -}}
+
+  <input type = 'submit' id = 'submitComment' value = 'Comment' class = 'form_input form_input-submit' {{- if $vs.reCaptcha }} disabled {{- end }}>
 </form>
