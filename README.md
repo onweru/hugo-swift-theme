@@ -55,7 +55,7 @@ By default, [Staticman](https://staticman.net) comments are disabled. If you wou
       branch = "master"
     ```
 
-    In case of empty `endpoint`, it will fallback to the public development instance.
+    In case of empty `endpoint`, it will fallback to the official production instance.
 
 3. Proceed to setup `staticman.yml`.  Note that this YML file has to be **at the root of your Git repository**.  See the `exampleSite/` and the [Staticman docs](https://staticman.net/docs/) for detailed information of each parameter used in this YML file.
 
@@ -71,7 +71,7 @@ Optional: It is suggested to enable [reCAPTCHA](https://developers.google.com/re
 
 :information_source: This [Binary Mist article](https://binarymist.io/blog/2018/02/24/hugo-with-staticman-commenting-and-subscriptions/) could also be quite helpful :)
 
-:information_source: By default, this theme uses Staticman v3 instead of the public instance at v2 due to a requests' quota issue reported in issue [eduardoboucas/staticman#222](https://github.com/eduardoboucas/staticman/issues/222).
+:information_source: By default, this theme uses the official production instance at v3 instead of v2 due to a requests' quota issue reported in issue [eduardoboucas/staticman#222](https://github.com/eduardoboucas/staticman/issues/222).
 
 :warning: Since Staticman is an involving project, things might work differently than they do at the moment of this writing.
 
