@@ -8,9 +8,10 @@ This theme is designed for blogging purposes. That said, it's extendable for oth
 * Pagination
 * Responsive
 * Grid CSS
-* [Staticman](https://staticman.net)
 * Deeplinks
 * Syntax Highlighting
+* [Staticman](https://staticman.net)
+* Re-Captcha
 
 ## Installation
 Add this theme as a Git submodule inside your Hugo site folder:
