@@ -2,11 +2,28 @@
 <span class = 'form_toggle'>Comment</span>
 <form method = 'POST' action = '{{ $vs.endpoint | default "https://api.staticman.net" }}/v3/entry/{{ $vs.gitProvider }}/{{ $vs.username }}/{{ $vs.repository }}/{{ $vs.branch }}/comments' class  = 'form form-comments' id = 'comments-form'>
   <input name = 'options[slug]' type = 'hidden' value = '{{ .File.UniqueID }}'>
+  {{- if $vs.reCaptcha -}}
+    <input name = 'options[reCaptcha][siteKey]' type = 'hidden' value = '{{ $vs.reCaptcha.siteKey }}'>
+    <input name = 'options[reCaptcha][secret]' type = 'hidden' value = '{{ $vs.reCaptcha.secret }}'>
+  {{- end -}}
   <label class = 'form_label'>Name</label>
   <input name = 'fields[name]' type = 'text' placeholder = 'Name' class = 'form_input' required>
   <label class = 'form_label'>E-mail</label>
   <input name = 'fields[email]' type = 'email' placeholder = 'Email' class = 'form_input' required>
   <label class = 'form_label'>Comment</label>
   <textarea name = 'fields[comment]' placeholder = 'Type in a comment ...' class = 'form_input form_input-message' required></textarea>
-  <input type = 'submit' value = 'Comment' class = 'form_input form_input-submit'>
+
+  {{- if $vs.reCaptcha -}}
+    <div class = 'g-recaptcha' data-sitekey = '{{ $vs.reCaptcha.siteKey }}' data-callback='enableSubmitComment'></div>
+
+    <script type="text/javascript">
+      function enableSubmitComment(){
+        document.getElementById('submitComment').disabled = false;
+      }
+    </script>
+
+    <script async src = 'https://www.google.com/recaptcha/api.js'></script>
+  {{- end -}}
+
+  <input type = 'submit' id = 'submitComment' value = 'Comment' class = 'form_input form_input-submit' {{- if $vs.reCaptcha }} disabled {{- end }}>
 </form>
