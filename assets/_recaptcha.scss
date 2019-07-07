@@ -1,0 +1,20 @@
+// override recaptcha styles
+.g-recaptcha {
+  display: grid;
+  width: 100%;
+  background: $theme;
+  border: none;
+  border-radius: 0.25rem;
+  margin: 1.5rem 0 2.25rem;
+  box-shadow: 0 1rem 4rem rgba($coal,0.12);
+  > div,
+  iframe {
+    display: grid;
+    width: 100% !important;
+    height: 74px !important;
+  }
+  iframe {
+    transform: scale(1.03);
+    padding: 0 0.75rem;
+  }
+}
