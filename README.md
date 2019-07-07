@@ -11,7 +11,7 @@ This theme is designed for blogging purposes. That said, it's extendable for oth
 * Deeplinks
 * Syntax Highlighting
 * [Staticman](https://staticman.net)
-* Re-Captcha
+    * [reCAPTCHA](https://developers.google.com/recaptcha/docs/display)
 
 ## Installation
 Add this theme as a Git submodule inside your Hugo site folder:
