@@ -16,7 +16,7 @@
     margin:$padding 0;
     font-size: 1rem !important;
     padding: $padding $padding*1.5 !important;
-    border:1px solid $primary-color;
+    border:1px solid $theme;
     -webkit-appearance: none;
     border-radius:25px;
     outline: none;
@@ -31,7 +31,7 @@
       border-radius: 15px;
     }
     &-submit{
-      background-color: $primary-color;
+      background-color: $theme;
       color:$light;
       font-size:1.25rem;
       cursor: pointer;
@@ -40,7 +40,7 @@
         border:none;
       }
       &:hover{
-        background-color: lighten($primary-color, 5%);
+        background-color: lighten($theme, 5%);
       }
     }
   }
@@ -49,7 +49,7 @@
   }
   &_toggle{
     @include shadow(.02);
-    background-color: $primary-color;
+    background-color: $theme;
     margin-top: 1.5rem;
     color:$light;
     display: inline-block;
@@ -132,7 +132,7 @@
   z-index: 9999;
   &_close{
     margin: 25px 0;
-    background-color: $primary-color;
+    background-color: $theme;
     color:$light;
     border: 0;
     outline: 0;

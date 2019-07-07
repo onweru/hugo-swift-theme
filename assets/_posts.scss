@@ -34,7 +34,7 @@
       }
     }
     a{
-      color: $hover;
+      color: $theme;
       padding-bottom:7.5px;
       &:hover {
         text-decoration: underline;
@@ -101,7 +101,7 @@
     font-weight: 500;
     a {
       &:hover {
-        color: $hover;
+        color: $theme;
         text-decoration: underline;
         opacity: 0.9;
       }
@@ -110,7 +110,7 @@
   &_tag {
     font-size: 0.84rem;
     font-weight: 300;
-    color: $hover;
+    color: $theme;
     text-transform: uppercase;
   }
   &_title{
@@ -133,7 +133,7 @@
     display: inline-flex;
     margin-left: 5px;
     margin-right: 5px;
-    background: $primary-color;
+    background: $theme;
     color: $light;
     border-radius: 50%;
     margin-bottom: 30px;

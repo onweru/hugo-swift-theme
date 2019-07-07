@@ -101,7 +101,7 @@ aside h3{
   color:  #1da1f2;
 }
 span.right {
-  color: $primary-color;
+  color: $theme;
 }
 section p{
   text-align:left;
@@ -112,7 +112,7 @@ section p{
 }
 .point{
   margin-right:15px;
-  color:$primary-color;
+  color:$theme;
 }
 .wrap{
   padding:30px 40px 50px 40px;
