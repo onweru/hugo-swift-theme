@@ -73,7 +73,7 @@ Optional: It is suggested to enable [reCAPTCHA](https://developers.google.com/re
 
 :information_source: By default, this theme uses the official production instance at v3 instead of v2 due to a requests' quota issue reported in issue [eduardoboucas/staticman#222](https://github.com/eduardoboucas/staticman/issues/222).
 
-:warning: Since Staticman is an involving project, things might work differently than they do at the moment of this writing.
+:warning: Since Staticman is an evolving project, things might work differently than they do at the moment of this writing.
 
 ### Deeplinks
 
