@@ -60,15 +60,20 @@
   @include shadow;
   z-index: 2;
 }
-.pretty{
-  min-width:150px;
-  font-size: 1.33rem;
-  margin:15px 0;
-  display:inline-block;
-  padding:7.5px 12.5px;
-  background-color: $dark;
-  color:$light;
+.btn{
+  min-width: 150px;
+  font-size: 1rem;
+  margin: 1rem 0 1.5rem;
+  display: inline-block;
+  padding: 7.5px 12.5px;
+  background-color: $theme;
+  box-shadow: 0 1rem 4rem rgba($dark,0.5);
+  color: $light;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
 }
+
 aside h3{
   position:relative;
   margin:0 !important;

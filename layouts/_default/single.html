@@ -18,8 +18,8 @@
   </article>
   {{ if .Site.Params.staticman }}{{ partial "comments.html" . }}{{ end }}
   <aside>
-    <h3><span class = 'pretty'>Recent Posts</span></h3>
-    <ul class='flex post_aside'>
+    <h3><span class = 'btn mt-0'>Recent Posts</span></h3>
+    <ul class='posts post_aside'>
       {{ range first 2 .Site.RegularPages }}
        {{ partial "excerpt.html" . }}
       {{ end }}

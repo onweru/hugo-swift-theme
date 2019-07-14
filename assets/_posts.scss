@@ -15,11 +15,15 @@
     font-size: 1.05rem;
   }
   &s{
-    justify-content: space-around !important;
-    align-items: stretch !important;
+    display: grid;
+    width: 100%;
+    grid-gap: 2rem;
+    padding: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    justify-items: center;
   }
   &_aside{
-    align-items: stretch;
+    padding: 0;
   }
   &_content{
     h4{
@@ -84,8 +88,8 @@
   &_item{
     @include shadow;
     background: $light;
-    margin: 20px 0;
     border-radius: 10px;
+    max-width: 22.5rem;
     overflow: hidden;
   }
   &_link{

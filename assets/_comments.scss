@@ -6,57 +6,35 @@
     height:0;
     overflow:hidden;
     padding:0;
-    margin: 1rem 0;
     transition: height 0.3s ease-in;
   }
   &-open{
+    margin: 1rem 0;
     height: initial;
+    overflow: initial;
   }
   &_input{
     margin:$padding 0;
     font-size: 1rem !important;
     padding: $padding $padding*1.5 !important;
-    border:1px solid $theme;
+    border:1px solid #f0f0f0;
     -webkit-appearance: none;
-    border-radius:25px;
+    border-radius: 0.25rem;
     outline: none;
+    box-shadow: 0 0.25rem 1rem rgba($dark,0.12);
     transition: all 0.3s ease-out;
     &:focus,
     &:hover{
-      box-shadow: 0 5px 15px 0 rgba(158, 174, 221, 0.2);
-      border: 1px solid $mute;
+      box-shadow: 0 0.5rem 2rem rgba($dark,0.2);
+      border: 1px solid rgba($theme,0.33);
     }
     &-message{
       resize: none;
       border-radius: 15px;
     }
-    &-submit{
-      background-color: $theme;
-      color:$light;
-      font-size:1.25rem;
-      cursor: pointer;
-      &,
-      &:hover{
-        border:none;
-      }
-      &:hover{
-        background-color: lighten($theme, 5%);
-      }
-    }
   }
   &_label{
     display:none;
-  }
-  &_toggle{
-    @include shadow(.02);
-    background-color: $theme;
-    margin-top: 1.5rem;
-    color:$light;
-    display: inline-block;
-    width: 150px;
-    padding:10px;
-    text-align: center;
-    cursor: pointer;
   }
 }
 .comment{

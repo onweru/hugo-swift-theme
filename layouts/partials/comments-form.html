@@ -1,5 +1,5 @@
 {{ $vs := .Site.Params.staticman }}
-<span class = 'form_toggle'>Comment</span>
+<span class = 'form_toggle btn'>Comment</span>
 <form method = 'POST' action = '{{ $vs.endpoint | default "https://api.staticman.net" }}/v3/entry/{{ $vs.gitProvider }}/{{ $vs.username }}/{{ $vs.repository }}/{{ $vs.branch }}/comments' class  = 'form form-comments' id = 'comments-form'>
   <input name = 'options[slug]' type = 'hidden' value = '{{ .File.UniqueID }}'>
   {{- if $vs.reCaptcha -}}
@@ -24,6 +24,7 @@
 
     <script async src = 'https://www.google.com/recaptcha/api.js'></script>
   {{- end -}}
-
-  <input type = 'submit' id = 'submitComment' value = 'Comment' class = 'form_input form_input-submit' {{- if $vs.reCaptcha }} disabled {{- end }}>
+   <div>
+     <input type = 'submit' id = 'submitComment' value = 'Comment' class = 'btn form_input-submit' {{- if $vs.reCaptcha }} disabled {{- end }}>
+   </div>
 </form>

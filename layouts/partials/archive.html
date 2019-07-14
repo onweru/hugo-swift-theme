@@ -5,7 +5,7 @@
     <p class = 'intro_desc'>{{ .Description }}</p>
   </div>
 </section>
-<ul class='posts flex wrap blog' id = 'posts'>
+<ul class='posts wrap' id = 'posts'>
   {{- range (.Paginator 4).Pages }}
     {{ partial "excerpt.html" . }}
   {{- end }}
