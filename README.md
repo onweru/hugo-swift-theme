@@ -1,5 +1,5 @@
 ## Swift Theme
-This theme is designed for blogging purposes. That said, it's extendable for other use cases.
+This theme is designed for blogging purposes. Feel free to extend it for other use cases though.
 
 ![Hugo Swift Theme](https://github.com/onweru/hugo-swift-theme/blob/master/images/screenshot.png)
 
@@ -33,8 +33,6 @@ You can configure the site using as follows:
     See the **data** files inside the `data/` directory.
 
 > Follow the `exampleSite/`.
-
-This theme is designed to work with data files. Feel free to extend/alter as you would like.
 
 ## Staticman Comments
 By default, [Staticman](https://staticman.net) comments are disabled. If you would like to enable them,
