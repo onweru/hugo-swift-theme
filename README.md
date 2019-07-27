@@ -41,12 +41,13 @@ By default, [Staticman](https://staticman.net) comments are disabled. If you wou
 
     - GitHub: View the issue [eduardoboucas/staticman#243](https://github.com/eduardoboucas/staticman/issues/243) for procedures to set up Staticman v3.
     - GitLab: Add the GitLab user associated with your Staticman API endpoint (e.g. **[@staticmanlab](https://gitlab.com/staticmanlab)**) as a "**developer**" for your project by going to **Settings → Members → Invite member**.
+    - Framagit: Since Framagit is a fork of GitLab, the overall setup is similar to that on GitLab.  (Note that the Framagit bot is named as **[@statimcanlab1](https://framagit.org/staticmanlab1)**.)
 
 2. Uncomment the `[Params.staticman]` section and input the parameters inside `config.toml` like so
 
     ```toml
     [Params.staticman]
-      endpoint = "https://https://api.staticman.net"
+      endpoint = "https://api.staticman.net"
       gitProvider = "github"
       username = "your-username"
       repository = "hugo-swift-theme"
@@ -54,6 +55,16 @@ By default, [Staticman](https://staticman.net) comments are disabled. If you wou
     ```
 
     In case of empty `endpoint`, it will fallback to the official production instance.
+    
+    | instance | `endpoint` |
+    | --- | --- |
+    | official production | `https://api.staticman.net` |
+    | GitLab | `https://staticman3.herokuapp.com` |
+    | Framagit | `https://staticman-frama.herokuapp.com` |
+    
+    Remark: You may adjust the `endpoint` to the one that your Staticman bot/GitHub App is associated with.
+    
+    For `gitProvider`, you can choose either `github` or `gitlab`.  If you're using Framagit, choose `gitlab`.
 
 3. Proceed to setup `staticman.yml`.  Note that this YML file has to be **at the root of your Git repository**.  See the `exampleSite/` and the [Staticman docs](https://staticman.net/docs/) for detailed information of each parameter used in this YML file.
 
