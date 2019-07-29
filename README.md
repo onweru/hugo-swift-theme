@@ -78,7 +78,7 @@ By default, [Staticman](https://staticman.net) comments are disabled. If you wou
 
 Optional: It is suggested to enable [reCAPTCHA](https://developers.google.com/recaptcha/docs/display) to avoid massive spam comments. You may refer to `_config.yml` for detailed instructions.
 
-Optional: You may want to configure a webhook to prevent old inactive branches (representing approved comments) from stacking up.  You can refer to [Staticman's documenation](https://staticman.net/docs/webhooks) for details.  Make sure to input the **Payload URL** according to your chosen `endpoint`.  For example, the default `endpoint` is `https://staticman3.herokuapp.com`, so the corresponding **Payload URL** should be `https://staticman3.herokuapp.com/v1/webhook`.
+Optional: You may want to configure a webhook to prevent old inactive branches (representing approved comments) from stacking up.  You can refer to [Staticman's documentation](https://staticman.net/docs/webhooks) for details.  Make sure to input the **Payload URL** according to your chosen `endpoint`.  For example, the default `endpoint` is `https://staticman3.herokuapp.com`, so the corresponding **Payload URL** should be `https://staticman3.herokuapp.com/v1/webhook`.
 
 :information_source: This [Binary Mist article](https://binarymist.io/blog/2018/02/24/hugo-with-staticman-commenting-and-subscriptions/) could also be quite helpful :)
 
