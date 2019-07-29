@@ -41,7 +41,7 @@ By default, [Staticman](https://staticman.net) comments are disabled. If you wou
 
     - GitHub: View the issue [eduardoboucas/staticman#243](https://github.com/eduardoboucas/staticman/issues/243) for procedures to set up Staticman v3.
     - GitLab: Add the GitLab user associated with your Staticman API endpoint (e.g. **[@staticmanlab](https://gitlab.com/staticmanlab)**) as a "**developer**" for your project by going to **Settings → Members → Invite member**.
-    - Framagit: Since Framagit is a fork of GitLab, the overall setup is similar to that on GitLab.  (Note that the Framagit bot is named as **[@statimcanlab1](https://framagit.org/staticmanlab1)**.)
+    - Framagit: Since Framagit is a fork of GitLab, the overall setup is similar to that on GitLab.  (Note that the Framagit bot is named as **[@staticmanlab1](https://framagit.org/staticmanlab1)**.)
 
 2. Uncomment the `[Params.staticman]` section and input the parameters inside `config.toml` like so
 
