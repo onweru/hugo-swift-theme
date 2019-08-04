@@ -4,16 +4,38 @@
   width:100%;
   transition:height 0.4s ease-in-out;
   z-index:999;
-  &-bar{
-    cursor:pointer;
-    position:absolute;
-    top:0;
-    right:25px;
-    padding: 12.5px;
-    width:40px;
-    height:auto;
-    z-index:2;
-    font-size: 1.5em;
+  &_bar {
+    width: 100%;
+    position: relative;
+    &-wrap {
+      width: 1.8rem;
+      height: 1.8rem;
+      display: grid;
+      align-items: center;
+      cursor: pointer;
+      z-index: 99;
+      min-height: 1.5rem;
+    }
+    &,
+    &::after,
+    &::before {
+      padding: 1px;
+      border-radius: 2px;
+      background-color: #000;
+    }
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      width: 1.2rem;
+    }
+    &::before {
+      top: -0.5rem;
+    }
+    &::after {
+      top: 0.5rem;
+      right: 0;
+    }
   }
   &-body{
     @include shadow;
@@ -30,8 +52,10 @@
     min-width:240px;
     max-width: 320px;
     padding: 100px 0;
-    height: 100vh;
+    height: 97vh;
+    margin-top: 0.5rem;
     z-index:1;
+    border-radius: 0.33rem;
     a{
       display:block;
       padding:12.5px 25px;
@@ -47,20 +71,21 @@
   &-brand{
     font-family: 'Cookie';
     font-size:2em !important;
-    // max-width:250px;
+    max-width:250px;
     padding-top:0 !important;
+    padding-bottom:0 !important;
   }
   &-close {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     position: absolute;
-    top: 10px;
+    top: 0;
     right:0;
     width: 100%;
     cursor:pointer;
     padding:25px;
-    &:after,
+    &:after, 
     &:before{
       content: '';
       width: 18px;
@@ -91,6 +116,9 @@
     height:100%;
     max-width: 1024px;
     margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     a {
       color:inherit;
       width:100%;
