@@ -1,7 +1,7 @@
 {{ $vs := .Site.Params.staticman }}
 <span class = 'form_toggle btn'>Comment</span>
 <form method = 'POST' action = '{{ $vs.endpoint | default "https://api.staticman.net" }}/v3/entry/{{ $vs.gitProvider }}/{{ $vs.username }}/{{ $vs.repository }}/{{ $vs.branch }}/comments' class  = 'form form-comments' id = 'comments-form'>
-  <input name = 'options[slug]' type = 'hidden' value = '{{ .File.UniqueID }}'>
+  <input name = 'options[slug]' type = 'hidden' value = '{{ md5 .File.Path }}'>
   {{- if $vs.reCaptcha -}}
     <input name = 'options[reCaptcha][siteKey]' type = 'hidden' value = '{{ $vs.reCaptcha.siteKey }}'>
     <input name = 'options[reCaptcha][secret]' type = 'hidden' value = '{{ $vs.reCaptcha.secret }}'>

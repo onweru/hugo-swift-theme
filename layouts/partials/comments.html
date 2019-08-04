@@ -1,8 +1,7 @@
 <h3>Comments</h3>
 <div class = 'comments'>
   {{ $.Scratch.Add "hasComments" 0 }}
-  {{ $entryId := .File.UniqueID }}
-
+  {{ $entryId := md5 .File.Path }}
   {{ if .Site.Data.comments }}
     {{ range $index, $comments := (index $.Site.Data.comments $entryId ) }}
       {{ $.Scratch.Add "hasComments" 1 }}
