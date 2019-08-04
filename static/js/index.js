@@ -1,7 +1,3 @@
-function createEl(element) {
-  return document.createElement(element);
-}
-
 function elem(selector, parent = document){
   let elem = document.querySelector(selector);
   return elem != false ? elem : false;
@@ -12,20 +8,11 @@ function elems(selector) {
   return elems.length ? elems : false; 
 }
 
-function containsClass(el, targetClass) {
-  if (el && typeof el == 'object' && targetClass) {
-    return el.classList.contains(targetClass) ? true : false;
-  }
-}
-
-function pushClass(el, targetClasses) {
+function pushClass(el, targetClass) {
   // equivalent to addClass
-  if (el && typeof el == 'object' && targetClasses) {
-    let targets = targetClasses.split(" ");
-    targets.forEach(function(targetClass) {
-      elClass = el.classList;
-      elClass.contains(targetClass) ? false : elClass.add(targetClass);
-    });
+  if (el && typeof el == 'object' && targetClass) {
+    elClass = el.classList;
+    elClass.contains(targetClass) ? false : elClass.add(targetClass);
   }
 }
 
@@ -38,191 +25,230 @@ function deleteClass(el, targetClass) {
 }
 
 function modifyClass(el, targetClass) {
-  // equivalent to toggleClass
   if (el && typeof el == 'object' && targetClass) {
     elClass = el.classList;
     elClass.contains(targetClass) ? elClass.remove(targetClass) : elClass.add(targetClass);
   }
 }
 
-function listen(el, event, fn) {
-  if(el && typeof el === 'object' && typeof event === 'string') {
-    el.addEventListener(event, fn);
+function containsClass(el, targetClass) {
+  if (el && typeof el == 'object' && targetClass) {
+    return el.classList.contains(targetClass) ? true : false;
   }
 }
 
+function isChild(node, parentClass) {
+  let objectsAreValid = node && typeof node == 'object' && parentClass && typeof parentClass == 'string';
+  return (objectsAreValid && node.closest(parentClass)) ? true : false;
+}
 
-(function() {
-  function toggleMenu(){
-    let nav, open, pop, navDrop, navBar, hidden;
-    nav = '.nav-body';
-    open = 'nav-open';
-    pop = 'nav-pop';
-    hidden = 'hidden';
-    navDrop = elem('.nav-drop');
-    navBar = elem('.nav-bar');
-    // $('.nav-drop').toggleClass('nav-pop');
-    modifyClass(navDrop, pop);
-    // $('.nav-bar').toggleClass('hidden');
-    modifyClass(navBar, hidden)
-    var menuOpen = $(nav).hasClass(open);
-    var menuPulled = $(nav).hasClass('nav-exit');
-    (menuOpen || menuPulled) ? $(nav).toggleClass('nav-open nav-exit') : $(nav).toggleClass(open);
-  }
-  
-
-  $('.nav-bar, .nav-close').on('click', function() {
-    toggleMenu();
-  } );
-
-  $('.nav-drop').on('click', function(e) {
-    e.target === this ? toggleMenu() : false;
-  });
-
-
-  var $fetchas = new Date();
-  var $anos = $fetchas.getFullYear();
-  $('.year').text($anos);
-
-  $('.articulo a').attr('target', '_blank');
-
+(function updateDate() {
+  var date = new Date();
+  var year = date.getFullYear();
+  elem('.year').innerHTML = year;
 })();
 
-(function ($) {
-  var $comments = $('.js-comments');
-  let $form = $('#comments-form');
-  $form.submit(function () {
-    let form = this;
-
-    $(this).addClass('form-loading');
-
-    $.ajax({
-      type: $(this).attr('method'),
-      url: $(this).attr('action'),
-      data: $(this).serialize(),
-      contentType: 'application/x-www-form-urlencoded',
-      success: function (data) {
-        showModal('Review submitted', 'Thanks for your review! It will show on the site once it has been approved.');
-        $(this).removeClass('form-loading');
-        $("form").trigger("reset");
-      },
-      error: function (err) {
-        showModal('Error', 'Sorry, there was an error with the submission!');
-        $(this).removeClass('form-loading');
-        $("form").trigger("reset");
-      }
-    });
-
-    return false;
-  });
-
-  $('.modal_close').click(function () {
-    $('body').removeClass('modal_show');
-    $('form').removeClass('form-loading').removeClass('form-open');
-    $('.form_toggle').removeClass('toggled');
-  });
-
-  function showModal(title, message) {
-    $('.modal_title').text(title);
-    $('.modal_text').html(message);
-
-    $('body').addClass('modal_show');
+(function() {
+  let bar = 'nav_bar-wrap';
+  let navBar = elem(`.${bar}`);
+  let nav = elem('.nav-body');
+  let open = 'nav-open';
+  let exit = 'nav-exit';
+  let drop = 'nav-drop';
+  let pop = 'nav-pop';
+  let navDrop = elem(`.${drop}`);
+  let hidden = 'hidden';
+  
+  function toggleMenu(){
+    modifyClass(navDrop, pop);
+    modifyClass(navBar, hidden);
+    let menuOpen = containsClass(nav, open);
+    let menuPulled = containsClass(nav, exit);
+    
+    let status = menuOpen || menuPulled ? true : false;
+    
+    status ? modifyClass(nav, exit) : modifyClass(nav, open);
+    status ? modifyClass(nav, open) : modifyClass(nav, exit);
   }
-})(jQuery);
-
-
-(function toggleForm() {
-  $('.form_toggle').on('click', function() {
-    $('.form-comments').toggleClass('form-open');
-    $(this).toggleClass('toggled');
-    $(this).hasClass('toggled') ? $(this).text('Cancel') : $(this).text('Comment');
+  
+  // $('.nav-bar, .nav-close').on('click', () => toggleMenu());
+  navBar.addEventListener('click', function() {
+    toggleMenu();
   });
+  elem('.nav-close').addEventListener('click', function() {
+    toggleMenu();
+  });
+  
+  elem('.nav-drop').addEventListener('click', function(e) {
+    e.target === this ? toggleMenu() : false;
+  });
+  
 })();
 
 (function share(){
+  let share = elem('.share');
+  let open = 'share-open';
+  let close = 'share-close';
+  let button = elem('.share-trigger');
+  
   function showShare() {
-    $('.share').addClass('share-open').removeClass('share-close');
-  }
+    pushClass(share, open);
+    deleteClass(share, close);
+  } 
+  
   function hideShare() {
-    $('.share').removeClass('share-open').addClass('share-close');
+    pushClass(share, open);
+    deleteClass(share, close);
   }
-
-  $('.share-trigger').on('click', function() {
-    showShare();
-    setTimeout(hideShare, 5000);
-  });
-})();
-
-(function(){
-  'use strict';
-  /*
-  For every heading in your page, this adds a little anchor link `#` that you can click to get a permalink to the heading.
-  Ignores `h1`, because you should only have one per page.
-  The text content of the tag is used to generate the link, so it will fail "gracefully-ish" if you have duplicate heading text.
-  */
-  
-  let headingNodes = [], results, link, icon, current, id,
-  tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
-  
-  
-  current = document.URL;
-  
-  tags.forEach(function(tag){
-    results = document.getElementsByTagName(tag);
-    Array.prototype.push.apply(headingNodes, results);
-  });
-  
-  headingNodes.forEach(function(node){
-    link = createEl('a');
-    icon = createEl('img');
-    icon.src = '/images/link-symbol.svg';
-    link.className = 'link';
-    link.appendChild(icon);
-    id = node.getAttribute('id');
-    if(id) {
-      link.href = `${current}#${id}`;
-      node.appendChild(link);
-      pushClass(node, 'link_owner');
-    }
-  });
-})();
-
-const copyToClipboard = str => {
-  // Create a <textarea> element
-  const el = createEl('textarea');  
-  // Set its value to the string that you want copied
-  el.value = str;                           
-  // Make it readonly to be tamper-proof
-  el.setAttribute('readonly', '');          
-  // Move outside the screen to make it invisible
-  el.style.position = 'absolute';                 
-  el.style.left = '-9999px';                
-  // Append the <textarea> element to the HTML document
-  document.body.appendChild(el);            
-  // Check if there is any content selected previously
-  const selected =            
-  document.getSelection().rangeCount > 0    
-  ? document.getSelection().getRangeAt(0)   // Store selection if found
-  : false;                                  // Mark as false to know no selection existed before
-  el.select();                              // Select the <textarea> content
-  document.execCommand('copy'); // Copy - only works as a result of a user action (e.g. click events)
-  document.body.removeChild(el);                  // Remove the <textarea> element
-  if (selected) {                                 // If a selection existed before copying
-    document.getSelection().removeAllRanges();    // Unselect everything on the HTML document
-    document.getSelection().addRange(selected);   // Restore the original selection
-  }
-}
-
-(function copyHeadingLink() {
-  let deeplink = 'link';
-  let deeplinks = document.querySelectorAll(`.${deeplink}`);
-  if(deeplinks) {
-    document.body.addEventListener('click', function(event) {
-      let target = event.target;
-      if (target.classList.contains(deeplink) || target.parentNode.classList.contains(deeplink)) {
-        let newLink = target.href != undefined ? target.href : target.parentNode.href; 
-        copyToClipboard(newLink);
-      }
+  if (button) {
+    button.addEventListener('click', function() {
+      showShare();
+      setTimeout(hideShare, 5000);
     });
   }
 })();
+
+(function comments(){
+
+  let comments = elem('.js-comments');
+  let form = elem('.form');
+  let body = elem('body');
+  let button = elem('.form_toggle');
+  let loading = 'form-loading';
+  let open = 'form-open';
+  let show = 'modal_show'
+  let toggled = 'toggled';
+
+  let successOutput = [
+    'Review submitted', 
+    'Thanks for your review! It will show on the site once it has been approved.'
+  ];
+
+  let errorOutput = [
+    'Error', 
+    'Sorry, there was an error with the submission!'
+  ];
+  
+  function handleForm(form) {
+    form.addEventListener('submit', function (event) {
+      pushClass(form, loading);
+
+      function resetForm() {
+        deleteClass(form, loading);
+        // $("form").trigger("reset");
+      }
+
+      function formActions(message) {
+        showModal(...message) // array destructuring
+        resetForm();
+      }
+      
+      // $.ajax({
+      //   type: $(this).attr('method'),
+      //   url: $(this).attr('action'),
+      //   data: $(this).serialize(),
+      //   contentType: 'application/x-www-form-urlencoded',
+      //   success: function (data) {
+      //     formActions(successOutput);
+      //   },
+      //   error: function (err) {
+      //     formActions(errorOutput);
+      //   }
+      // });
+
+      event.preventDefault();
+      
+      function formToJSON(obj) {
+        let rawData = Array.from(obj.elements);
+        let data = {};
+        rawData.forEach(function(element){
+          data[element.name] = element.value;
+        });
+
+        return JSON.stringify(data);
+      }
+      
+      let data = formToJSON(form);
+      let url = form.getAttribute('action').trim();
+      fetch(url, {
+        method: "POST",
+        body: data,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function(res) {
+        if(res.ok) {
+          formActions(successOutput);
+        } else {
+          formActions(errorOutput);
+        }
+      }).catch(function(error) {
+        formActions(errorOutput);
+        console.error('Error:', error);
+      });
+    });
+  }
+  
+  form ? handleForm(form) : false;
+  function closeModal() {
+    elem('.modal_close').addEventListener('click', function () {
+      deleteClass(body, show);
+      deleteClass(form, loading);
+      deleteClass(form, open);
+      deleteClass(button, toggled);
+    });
+  }
+  
+  containsClass(body, show) ? closeModal() : false;
+  
+  function showModal(title, message) {
+    elem('.modal_title').textContent = title;
+    elem('.modal_text').innerHTML = message;
+    
+    pushClass(body, show);
+  }
+  
+  
+  (function toggleForm() {
+    if(button) {
+      button.addEventListener('click', function() {
+        modifyClass(form, open);
+        modifyClass(this, toggled);
+        this.textContent  = containsClass(this, toggled) ?  'cancel' : 'comment';
+      });
+    }
+  })();
+  
+})();
+
+function elemAttribute(elem, attr, value = null) {
+  if (value) {
+    elem.setAttribute(attr, value);
+  } else {
+    value = elem.getAttribute(attr);
+    return value ? value : false;
+  }
+}
+
+(function(){
+  let links = document.querySelectorAll('a');
+  if(links) {
+    Array.from(links).forEach(function(link){
+      let target, rel, blank, noopener, attr1, attr2, url, isExternal;
+      url = elemAttribute(link, 'href');
+      isExternal = (url && typeof url == 'string' &&url.startsWith('http')) ? true : false;
+      
+      if(isExternal) {
+        target = 'target';
+        rel = 'rel';
+        blank = '_blank';
+        noopener = 'noopener';
+        attr1 = elemAttribute(link, target);
+        attr2 = elemAttribute(link, noopener);
+        
+        attr1 ? false : elemAttribute(link, target, blank);
+        attr2 ? false : elemAttribute(link, noopener, noopener);
+      }
+    });
+  }
+ })();
