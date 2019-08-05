@@ -4,12 +4,13 @@
   margin: 0;
   padding: 0;
 }
-html {
+body, html {
   scroll-behavior: smooth;
 }
 body{
-  font-family: $font;
-  color: $text;
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
   font-size: 16px;
   line-height: 1.5;
   max-width:1440px;
@@ -23,23 +24,32 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 a{
   text-decoration: none;
   color:inherit;
 }
-
 blockquote {
-  color: lighten($dark, 36%);
-  padding: 1rem 1rem 1rem 0;
+  opacity: 0.8;
+  padding: 1rem;
   position: relative;
   quotes:'\201C''\201D''\2018''\2019';
-  margin: 0;
+  margin: 0.75rem 0;
   display: flex;
   flex-flow: row wrap;
-  background-image: url(/images/quotes.svg);
   background-repeat: no-repeat;
   background-size: 5rem;
   background-position: 50% 50%;
+  position: relative;
+  &::before {
+    content: "";
+    padding: 1px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: $theme;
+  }
   p{
     padding-left: 0.5rem 0 !important;
     font-size: 1.1rem !important;
@@ -54,13 +64,13 @@ code {
   word-break: break-all;
 }
 h1,h2,h3,h4,h5{
-  font-family: $font;
+  font-family: inherit;
   text-transform: capitalize;
   text-align: center;
   font-weight: 500;
   padding:5px 0;
   margin:15px 0;
-  color: #000;
+  color: inherit;
 }
 h1{
   font-size:200%;
@@ -99,19 +109,11 @@ ul{
 }
 b, strong, em {
   font-weight: 500;
-  color: #000;
 }
-.highlight {
-  margin: 1.25rem 0;
-  & & {
-    margin: 0;
-  }
-  pre{
-    padding: 1rem;
-    box-shadow: 0 0 2.5rem rgba(0,0,0,0.12);
-    // word-break: break-all;
-    // word-wrap: break-word;
-    border-radius: 4px;
-    overflow-x: auto;
-  }
+hr {
+  border: none;
+  padding: 0.5px;
+  background: var(--text);
+  opacity: 0.5;
+  margin: 1rem 0;
 }

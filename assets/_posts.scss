@@ -1,29 +1,25 @@
 .post{
   margin:0 auto;
-  padding:15px 25px;
+  padding: 1rem 1.5rem;
   width:100%;
   max-width:750px;
-  margin-top: 25px;
+  margin-top: 1.5rem;
   h1,h2,h3{
     margin:15px auto;
     text-align:left;
     padding:5px 0 0 0;
   }
   p{
-    padding-bottom:7.5px;
-    padding-top:7.5px;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
     font-size: 1.05rem;
   }
   &s{
-    display: grid;
-    width: 100%;
-    grid-gap: 2rem;
-    padding: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    justify-items: center;
+    justify-content: space-around !important;
+    align-items: stretch !important;
   }
   &_aside{
-    padding: 0;
+    align-items: stretch;
   }
   &_content{
     h4{
@@ -45,11 +41,10 @@
       }
     }
     ol, ul {
-      list-style-type: initial;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0 0.5rem 1.2rem;
     }
     li {
-      padding: 0.5rem 0;
+        padding: 0.33rem 0;
     }
   }
   &_header{
@@ -87,22 +82,29 @@
   }
   &_item{
     @include shadow;
-    background: $light;
+    margin: 1.25rem 0;
     border-radius: 10px;
-    max-width: 22.5rem;
     overflow: hidden;
   }
   &_link{
     padding:2.5px 0;
-    color:#000;
     font-size:1.25em;
     margin:2.5px 0;
     text-align:left;
   }
   &_meta {
-    text-transform: uppercase;
+    overflow: hidden;
+    opacity: 0.8;
     font-size: 0.84rem;
     font-weight: 500;
+    display: inline-grid;
+    grid-template-columns: auto 1fr;
+    background-color: $light;
+    padding: 0;
+    align-items: center;
+    border-radius: 0.3rem;
+    color: $dark;
+    text-transform: capitalize;
     a {
       &:hover {
         color: $theme;
@@ -111,14 +113,35 @@
       }
     }
   }
+  &_extra {
+    display: flex;
+    justify-content: flex-end;
+  }
   &_tag {
-    font-size: 0.84rem;
-    font-weight: 300;
-    color: $theme;
+    font-size: 0.75rem !important;
+    font-weight: 500;
+    background: $theme;
+    color: $light;
+    padding: 0.25rem 0.67rem !important;
     text-transform: uppercase;
+    display: inline-flex;
+    border-radius: 5px;
   }
   &_title{
     margin:5px 0;;
+  }
+  &_author {
+    padding: 0.2rem 0.75rem;
+    a {
+      color: $theme;
+      text-decoration: underline;
+    }
+  }
+  &_time {
+    background: $theme;
+    display: inline-grid;
+    padding: 0.2rem 0.75rem;
+    color: $light;
   }
 }
 
@@ -140,7 +163,7 @@
     background: $theme;
     color: $light;
     border-radius: 50%;
-    margin-bottom: 30px;
+    margin-bottom: 30px; 
     &:hover {
       opacity: 0.5;
     }
@@ -192,7 +215,7 @@
     width:100%;
     padding:25px;
   }
-
+  
   &-close{
     animation: hideShare 0.3s ease-out;
   }
@@ -209,7 +232,6 @@
     cursor: pointer;
   }
 }
-
 .blog{
   padding: 0 30px;
 }

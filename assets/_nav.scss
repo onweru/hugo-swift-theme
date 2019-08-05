@@ -21,7 +21,7 @@
     &::before {
       padding: 1px;
       border-radius: 2px;
-      background-color: #000;
+      background-color: var(--text);
     }
     &::after,
     &::before {
@@ -47,12 +47,11 @@
     overflow:hidden;
     transition:top 0.33s linear;
     background:transparent;
-    background-color:$light;
+    background-color: var(--accent);
     width:33.3%;
-    min-width:240px;
-    max-width: 320px;
+    width: 16rem;
     padding: 100px 0;
-    height: 97vh;
+    min-height: 67vh;
     margin-top: 0.5rem;
     z-index:1;
     border-radius: 0.33rem;
@@ -60,8 +59,7 @@
       display:block;
       padding:12.5px 25px;
       margin-bottom:2px;
-      border-bottom:1px solid #f5f5f5;
-      color:$dark;
+      border-bottom:1px solid rgba($dark, 0.04);
       transition:color 0.25s ease-in-out;
       &:hover{
         color: $theme;
@@ -91,7 +89,8 @@
       width: 18px;
       border-radius:50%;
       padding: 1.5px;
-      background: #666;
+      background: var(--text);
+      opacity: 0.7;
       position: relative;
     }
     &:before {
@@ -134,9 +133,7 @@
   &-open {
     animation: showMenu 0.5s ease-out forwards;
   }
-}
-.darken,
-.darken .overlay {
-  background: transparent;
-  color: $dark;
+  &_item {
+    text-transform: capitalize;
+  }
 }

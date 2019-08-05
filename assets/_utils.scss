@@ -1,8 +1,5 @@
-.mute{
-  color: $mute;
-}
-.pale{
-  color: $pale;
+.pale {
+  opacity: 0.7;
 }
 .hidden{
   display: none;
@@ -36,12 +33,9 @@
 .mt-2 {
   margin-top: 30px;
 }
-.mt-0 {
-  margin-top: 0;
-}
 .link {
   display: inline-block;
-  width: 1.5rem;
+  width: 2.5rem;
   margin: 0 0.25rem;
   padding: 0 0.25rem;
   opacity: 0;
@@ -49,4 +43,7 @@
   &_owner:hover & {
     opacity: 0.9;
   }
+}
+.solo {
+  grid-column: 1/-1;
 }

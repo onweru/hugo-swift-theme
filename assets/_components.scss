@@ -1,23 +1,23 @@
 .intro{
-  margin: 75px 0 15px;
+  margin: 4rem 0 1rem;
   background: $dark;
-  padding: 30px 25px;
+  padding: 2rem 1.5rem;
+  color: $light;
   &_inner{
-    @include viewport(840px);
+    @include viewport(59rem);
     margin: 0 auto;
     text-align: center;
     padding: 25px;
     position: relative;
-    box-shadow: 0 0 130px rgba(0, 0, 0, .17);
-    border-radius: 10px;
+    background-color: var(--bubble);
+    border-radius: 1rem;
   }
   &_headline{
     margin: 0 auto;
-    color: $light;
     font-weight: 300;
   }
   &_desc {
-    color: $mute;
+    opacity: 0.8;
     text-align: center;
   }
 }
@@ -25,13 +25,14 @@
   display: block;
   position:relative;
   background-color:$dark;
-  border-radius: 6px;
+  border-radius: 0.5rem 0.5rem 0 0;
   background-size:cover;
   background-position:center;
   overflow: hidden;
-  height:150px;
+  height:10rem;
   &::after {
     content: '';
+    position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
@@ -39,26 +40,21 @@
     z-index: 1;
   }
   &:hover::after {
-    background-color:rgba(0,0,0,0.3);
+    background-color:rgba($dark,0.3);
   }
 }
 .excerpt{
-  padding:20px 10px;
+  padding: 0 10px 1.5rem 10px;
   position: relative;
-  margin-top: -30px;
   z-index: 1;
-  background: $light;
-}
-.gravatar{
-  background: $light;
-  width:90px;
-  border-radius:50%;
-  display:inline-block;
-  position: absolute;
-  bottom:-30px;
-  margin:0 10px 0 0;
-  @include shadow;
-  z-index: 2;
+  &_meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-2.5rem);
+    position: relative;
+    z-index: 5;
+  }
 }
 .btn{
   min-width: 150px;
@@ -74,37 +70,28 @@
   border-radius: 0.25rem;
 }
 
+.gravatar{
+  background: $light;
+  width:90px;
+  border-radius:50%;
+  display:inline-block;
+  position: absolute;
+  bottom:-30px;
+  margin:0 10px 0 0;
+  @include shadow;
+  z-index: 2;
+}
+
 aside h3{
   position:relative;
   margin:0 !important;
 }
-.widget{
-  position:fixed;
-  top:0;
-  bottom:0;
-  width:100%;
-  background-color:rgba(0,0,0,0.6);
-  padding:25px;
-}
+
 .nav-secondary,
 .user-menu{
   display: none !important;
 }
 
-.facebook,
-.twitter,
-.whatsapp{
- width:100%;
- height:24px;
- font-size:20px;
- display: inline-block;
-}
-.facebook{
-   color: #3b5998;
-}
-.twitter{
-  color:  #1da1f2;
-}
 span.right {
   color: $theme;
 }
@@ -122,52 +109,6 @@ section p{
 .wrap{
   padding:30px 40px 50px 40px;
 }
-.project{
-  padding: 40px 15px;
-  text-align: left;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px -2px rgba(158,174,221,0.2);
-  &s{
-    justify-content: space-between;
-    max-width: 1024px;
-    margin: 25px auto;
-    font-size: 1.25rem;
-    padding:25px;
-  }
-  &__thumb{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: $light;
-    margin-right: 25px;
-  }
-}
-.projects .trio h3{
-  color:white;
-  z-index:1;
-}
-.third{
-  width:100%;
-}
-.poetic{
-  display:block;
-  margin:0 auto;
-  width:270px;
-  color:#eee;
-  font-size:1.05em;
-  font-style:italic;
-  font-weight:300;
-}
-.button{
-  background-color:#f5f5f5;
-  width:250px;
-  padding:15px;
-  display:block;
-  margin:auto;
-}
 .hold{
   position:relative;
   overflow:visible;
@@ -176,18 +117,6 @@ section p{
   &__icon{
     width:40px;
     margin: 0 10px 0 0;
-  }
-}
-#author{
-  width:240px;
-  margin:0 auto;
-  border-radius:50%;
-  cursor:pointer;
-  img{
-    display:block;
-    margin:10px auto;
-    border-radius:50%;
-    width:125px;
   }
 }
 @media screen and (min-width: 567px) {
@@ -204,10 +133,93 @@ section p{
   .duo{
     width:46.5%;
   }
-  .third{
-    width:49%;
-  }
   .mobile{
     display:none;
+  }
+}
+
+.video{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+  margin: 1.5rem 0;
+  border-radius: 1rem;
+  background-color: var(--bg);
+  box-shadow: 0 1rem 4rem rgba($dark,0.17);
+  iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    transform: scale(1.03);
+  }
+}
+
+.copy {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url(/images/icons/copy.svg);
+  background-size: 100%;
+  cursor: pointer;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    background: $theme;
+    color: $light;
+    opacity: 0;
+    transition: opacity 0.25s ease-in;
+  }
+  &::before {
+    content: "Share Story";
+    font-size: 0.8rem;
+    width: 5.4rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    top: -2rem;
+    right: 0;
+  }
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+  }
+}
+.author,
+.comment {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  grid-gap: 0 1rem ;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  background-color: var(--accent);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 2rem rgba($dark, 0.12);
+  &_name {
+    color: var(--text) !important;
+    font-size: 1.25rem;
+    text-transform: capitalize;
+  }
+  &_pic {
+    border-radius: 50%;
+    padding: 0.25rem;
+    margin: 0 0 0 -0.25rem;
+    border-color: $theme transparent;
+    border-style: solid;
+    border-width: 1px;
+  }
+  &_bio {
+    padding-bottom: 0 !important;
+    line-height: 1.33;
+  }
+  &_heading {
+    font-size: 0.7rem;
+  }
+  &_meta {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
   }
 }
