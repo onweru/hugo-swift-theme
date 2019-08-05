@@ -21,3 +21,8 @@ pygmentsCodefencesGuessSyntax = true
 #   [Params.staticman.reCaptcha]
 #     siteKey = ""  # Use your own site key, you need to apply for one on Google
 #     secret  = ""  # ENCRYPT your password by going to https://<staticman-endpoint>/v3/encrypt/<your-site-secret>
+
+[params]
+
+  # ga_analytics = "" # google analytics ID e.g UA-114386578-1
+  # twitter = "" # twitter handle e.g @weru
