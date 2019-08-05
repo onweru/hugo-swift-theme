@@ -1,7 +1,9 @@
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114386438-1"></script>
+{{ if .Site.Params.ga_analytics }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-114386438-1');
+  gtag('config', '{{ . }}');
 </script>
+{{ end }}
