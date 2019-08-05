@@ -227,7 +227,7 @@ function elemAttribute(elem, attr, value = null) {
     Array.from(links).forEach(function(link){
       let target, rel, blank, noopener, attr1, attr2, url, isExternal;
       url = elemAttribute(link, 'href');
-      isExternal = (url && typeof url == 'string' &&url.startsWith('http')) && !containsClass(link, 'nav_item') ? true : false;
+      isExternal = (url && typeof url == 'string' &&url.startsWith('http')) && !containsClass(link, 'nav_item') && !isChild(link, '.post_item') ? true : false;
       if(isExternal) {
         target = 'target';
         rel = 'rel';
