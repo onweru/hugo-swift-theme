@@ -17,7 +17,7 @@
         "@type": "Person",
         "name": "{{ .Params.author }}"
       },
-      "image":{
+      "image":{  
         "@type":"ImageObject",
           "url":"{{ .Site.BaseURL }}images/{{ .Params.image }}"
       },
@@ -25,7 +25,7 @@
         "@type": "Organization",
         "logo": {
           "@type":"ImageObject",
-          "url":"{{ .Site.BaseURL }}images/{{ .Site.Params.logo }}",
+          "url":"{{ .Site.BaseURL }}images/{{ .Site.Params.logo }}"
         },
         "name": "{{ .Site.Title }}"
       }

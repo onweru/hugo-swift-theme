@@ -1,31 +1,28 @@
 {{ define "main" }}
-<section class = 'post_header' style = 'background-image:url({{ .Site.BaseURL }}images/{{ .Params.image }});'>
+<section class = 'post_header' style = 'background-image:url(/images/{{ .Params.image }});'>
   <h1 class='post_title' itemprop='name headline'>{{ .Title }}</h1>
-  {{ $author := (lower .Params.author) }}
-  {{ $reading := .ReadingTime }}
-  {{ range .Site.Data.authors }}
-  {{ if eq .name $author }}
-  <a class = 'flex-in' href = '{{ .url }}' target = '_blank' rel = 'nonopener' target = "{{ $author }}'s profile">
-    <img class = 'gravatar' src = '{{ $.Site.BaseURL }}images/{{ $author }}.jpg' alt = ''></a>
-    <p class = 'post_meta center mute'>{{ $reading }} min read . Posted by <a href = '{{ .url }}' target = '_blank' rel = 'nonopener' title = "{{ $author }}'s Profile">{{ $author }}</a>
-  {{ end }}
-  {{ end }}
-  </p>
 </section>
 <div class = 'post'>
   <article class='post_content' itemprop='articleBody'>
     {{ .Content }}
+    <div class = 'post_extra'>
+      <div class = 'copy'></div>
+    </div>
+    {{ partial "author.html" . }}
   </article>
-  {{ if .Site.Params.staticman }}{{ partial "comments.html" . }}{{ end }}
+  {{ partial "comments.html" . }}
   <aside>
-    <h3><span class = 'btn mt-0'>Recent Posts</span></h3>
-    <ul class='posts post_aside'>
+    <h3>Recent Posts</h3>
+    <ul class='flex post_aside'>
+      {{ $title := .Params.title }}
       {{ range first 2 .Site.RegularPages }}
-       {{ partial "excerpt.html" . }}
+        {{ if not (eq .Title $title) }}
+        {{ partial "excerpt.html" . }}
+        {{ end }}
       {{ end }}
     </ul>
   </aside>
 </div>
-<script src = '{{ "js/autosize.min.js" | absURL }}'></script>
-<script src = '{{ "js/timeago.js" | absURL }}'></script>
+<script src = '/js/autosize.min.js'></script>
+<script src = '/js/timeago.js'></script>
 {{ end }}
