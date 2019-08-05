@@ -1,3 +1,7 @@
+function createEl(element) {
+  return document.createElement(element);
+}
+
 function elem(selector, parent = document){
   let elem = document.querySelector(selector);
   return elem != false ? elem : false;
@@ -109,7 +113,7 @@ function isChild(node, parentClass) {
 })();
 
 (function comments(){
-
+  
   let comments = elem('.js-comments');
   let form = elem('.form');
   let body = elem('body');
@@ -118,12 +122,12 @@ function isChild(node, parentClass) {
   let open = 'form-open';
   let show = 'modal_show'
   let toggled = 'toggled';
-
+  
   let successOutput = [
     'Review submitted', 
     'Thanks for your review! It will show on the site once it has been approved.'
   ];
-
+  
   let errorOutput = [
     'Error', 
     'Sorry, there was an error with the submission!'
@@ -132,30 +136,17 @@ function isChild(node, parentClass) {
   function handleForm(form) {
     form.addEventListener('submit', function (event) {
       pushClass(form, loading);
-
+      
       function resetForm() {
         deleteClass(form, loading);
         // $("form").trigger("reset");
       }
-
+      
       function formActions(message) {
         showModal(...message) // array destructuring
         resetForm();
       }
       
-      // $.ajax({
-      //   type: $(this).attr('method'),
-      //   url: $(this).attr('action'),
-      //   data: $(this).serialize(),
-      //   contentType: 'application/x-www-form-urlencoded',
-      //   success: function (data) {
-      //     formActions(successOutput);
-      //   },
-      //   error: function (err) {
-      //     formActions(errorOutput);
-      //   }
-      // });
-
       event.preventDefault();
       
       function formToJSON(obj) {
@@ -164,7 +155,7 @@ function isChild(node, parentClass) {
         rawData.forEach(function(element){
           data[element.name] = element.value;
         });
-
+        
         return JSON.stringify(data);
       }
       
@@ -236,8 +227,7 @@ function elemAttribute(elem, attr, value = null) {
     Array.from(links).forEach(function(link){
       let target, rel, blank, noopener, attr1, attr2, url, isExternal;
       url = elemAttribute(link, 'href');
-      isExternal = (url && typeof url == 'string' &&url.startsWith('http')) ? true : false;
-      
+      isExternal = (url && typeof url == 'string' &&url.startsWith('http')) && !containsClass(link, 'nav_item') ? true : false;
       if(isExternal) {
         target = 'target';
         rel = 'rel';
@@ -251,4 +241,71 @@ function elemAttribute(elem, attr, value = null) {
       }
     });
   }
- })();
+})();
+
+let headingNodes = [], results, link, icon, current, id,
+tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
+
+
+current = document.URL;
+
+tags.forEach(function(tag){
+  results = document.getElementsByTagName(tag);
+  Array.prototype.push.apply(headingNodes, results);
+});
+
+headingNodes.forEach(function(node){
+  link = createEl('a');
+  icon = createEl('img');
+  icon.src = '/images/icons/link.svg';
+  link.className = 'link';
+  link.appendChild(icon);
+  id = node.getAttribute('id');
+  if(id) {
+    link.href = `${current}#${id}`;
+    node.appendChild(link);
+    pushClass(node, 'link_owner');
+  }
+});
+
+const copyToClipboard = str => {
+  // Create a <textarea> element
+  const el = createEl('textarea');  
+  // Set its value to the string that you want copied
+  el.value = str;                           
+  // Make it readonly to be tamper-proof
+  el.setAttribute('readonly', '');          
+  // Move outside the screen to make it invisible
+  el.style.position = 'absolute';                 
+  el.style.left = '-9999px';                
+  // Append the <textarea> element to the HTML document
+  document.body.appendChild(el);            
+  // Check if there is any content selected previously
+  const selected =            
+  document.getSelection().rangeCount > 0    
+  ? document.getSelection().getRangeAt(0)   // Store selection if found
+  : false;                                  // Mark as false to know no selection existed before
+  el.select();                              // Select the <textarea> content
+  document.execCommand('copy'); // Copy - only works as a result of a user action (e.g. click events)
+  document.body.removeChild(el);                  // Remove the <textarea> element
+  if (selected) {                                 // If a selection existed before copying
+    document.getSelection().removeAllRanges();    // Unselect everything on the HTML document
+    document.getSelection().addRange(selected);   // Restore the original selection
+  }
+}
+
+(function copyHeadingLink() {
+  let deeplinks = document.querySelectorAll;
+  let deeplink = 'link';
+  if(deeplinks) {
+    document.body.addEventListener('click', function(event)
+    {
+      let target = event.target;
+      if (target.classList.contains(deeplink) || target.parentNode.classList.contains(deeplink)) {
+        event.preventDefault();
+        let newLink = target.href != undefined ? target.href : target.parentNode.href; 
+        copyToClipboard(newLink);
+      }
+    });
+  }
+})();
