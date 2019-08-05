@@ -15,14 +15,10 @@
       opacity: 1;
     } 
   }
-  p{
-    padding:0 10px;
-  }
   &_inner{
-    width:90%;
-    @include viewport(1024px);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 1.5rem;
     @media screen and (max-width: 567px) {
       flex-direction: column;
     }
