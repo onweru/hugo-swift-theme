@@ -1,7 +1,7 @@
 ## Swift Theme
 This theme is designed for blogging purposes. Feel free to extend it for other use cases though.
 
-At it's core, it's minimalistic. It doesn't relies on monolithic libraries/frameworks such e.g jquery, bootstrap. Instead, it uses *grid css*, *flexbox* and *vanilla js* to facilitate the `features` outlined below:
+At it core, it's minimalistic; it doesn't rely on monolithic libraries such e.g jquery, bootstrap. Instead, it uses *grid css*, *flexbox* & *vanilla js* to facilitate the `features` outlined below:
 
 ![Hugo Swift Theme](https://github.com/onweru/hugo-swift-theme/blob/master/images/screenshot.png)
 
