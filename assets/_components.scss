@@ -43,19 +43,7 @@
     background-color:rgba($dark,0.3);
   }
 }
-.excerpt{
-  padding: 0 10px 1.5rem 10px;
-  position: relative;
-  z-index: 1;
-  &_meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transform: translateY(-2.5rem);
-    position: relative;
-    z-index: 5;
-  }
-}
+
 .btn{
   min-width: 150px;
   font-size: 1rem;
