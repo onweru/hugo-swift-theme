@@ -9,7 +9,6 @@ paginate = 4
 # comment on delete the following lines 11 ~ 13
 pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
-pygmentsStyle = "friendly"
 
 # [Params.staticman]
 #   endpoint = "https://api.staticman.net"  # URL of your own API deployment (without trailing slash), default: "https://api.staticman.net"

@@ -6,9 +6,9 @@
     {{ with .Params.tags -}}
     <div class = 'excerpt_meta'>
       {{ range first 1 . }}<a href = '/tags/{{ . | urlize }}' class = 'post_tag'>{{ . }}</a>{{ end }}
-      {{- end }}
       <div class = 'copy'></div>
     </div>
+    {{- end }}
     <h3 class = 'post_link'>
       <a href='{{ .RelPermalink }}'>{{ .Title  }}</a>
     </h3>
