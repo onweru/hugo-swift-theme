@@ -1,14 +1,16 @@
 ## Swift Theme
 This theme is designed for blogging purposes. Feel free to extend it for other use cases though.
 
+At it's core, it's minimalistic. It doesn't relies on monolithic libraries/frameworks such e.g jquery, bootstrap. Instead, it uses *grid css*, *flexbox* and *vanilla js* to facilitate the `features` outlined below:
+
 ![Hugo Swift Theme](https://github.com/onweru/hugo-swift-theme/blob/master/images/screenshot.png)
 
 ## Features
 * Blog
 * Pagination
 * Responsive
-* Grid CSS
 * Deeplinks
+* Dark Mode 
 * Syntax Highlighting
 * [Staticman](https://staticman.net)
     * [reCAPTCHA](https://developers.google.com/recaptcha/docs/display)
@@ -89,6 +91,12 @@ Optional: You may want to configure a webhook to prevent old inactive branches (
 ### Deeplinks
 
 For all content published using markdown, deeplinks will be added to the pages so that you can share with precision :smiley: Just   hover on a heading and the link button will pop. Click it to copy.
+
+### Dark Mode
+
+Today most operating systems & browsers support dark mode. Like twitter, which automatically turns into dark mode when the user chooses darkmode, this theme does the same thing.
+
+![Dark Mode](https://github.com/onweru/hugo-swift-theme/blob/master/images/darkmode.jpg)
 
 ## License
 The code is available under the [MIT license](https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md).
