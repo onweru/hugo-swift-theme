@@ -10,7 +10,13 @@ paginate = 4
 pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
 
-# [Params.staticman]
+[params]
+  # ga_analytics = "" # google analytics ID e.g UA-116386578-1
+  
+  # ga_verify = "" # google verification code e.g 5jb-rxeBfITeJQKOuUss3ud6FPGTxXkCho-ZN5qlrZg
+  # twitter = "" # twitter handle e.g @weru
+
+# [params.staticman]
 #   endpoint = "https://api.staticman.net"  # URL of your own API deployment (without trailing slash), default: "https://api.staticman.net"
 #   gitProvider = "github"  # Either "github" or "gitlab"
 #   username = "username"  # GitHub/GitLab user name
@@ -21,9 +27,3 @@ pygmentsCodefencesGuessSyntax = true
 #   [Params.staticman.reCaptcha]
 #     siteKey = ""  # Use your own site key, you need to apply for one on Google
 #     secret  = ""  # ENCRYPT your password by going to https://<staticman-endpoint>/v3/encrypt/<your-site-secret>
-
-[params]
-
-  # ga_analytics = "" # google analytics ID e.g UA-114386578-1
-  # ga_verify = "" # google verification code e.g 5jb-rxeBfITeJQKOuUss3ud6FPGTxXkCho-ZN5qlrZg
-  # twitter = "" # twitter handle e.g @weru
