@@ -9,10 +9,3 @@
     box-shadow: 0 0 5rem rgba(0,0,0, (1.5 * $opacity));
   }
 }
-.view{
-  @include viewport;
-  p{
-    text-align: center;
-    margin: 10px auto;
-  }
-}
