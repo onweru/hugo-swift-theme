@@ -4,16 +4,16 @@
 <meta property = 'og:image' content = '{{ absURL (printf "images/%s" .Site.Params.logo) }}'/>
 {{ end }}
 {{ if eq .Section "blog" -}}
-  {{ $date := (time .Date)  }}
-  <meta property = 'article:published_time' content = '{{ $date }}' />
+  {{ $date := ( .Date.Format "2006-02-01")  }}
+  <meta property = 'article:published_time' content = '{{ htmlUnescape $date }}' />
   <script type = "application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "BlogPosting",
       "mainEntityOfPage":"{{ .Permalink }}",
       "name": "{{ .Site.Title }}",
-      "headline": "{{  .Title  }}",
-      "description": "{{ .Summary | truncate 150 }}",
+      "headline": "{{ .Title  }}",
+      "description": "{{ htmlUnescape (.Summary | truncate 150) }}",
       "url": "{{ .Permalink }}",
       "datePublished": "{{ $date }}",
       "dateModified": "{{ $date }}",
@@ -23,13 +23,13 @@
       },
       "image":{
         "@type":"ImageObject",
-        "url":'{{ absURL (printf "images/%s" .Params.image ) }}'
+        "url": "{{ absURL (printf "images/%s" .Params.image ) }}"
       },
       "publisher": {
         "@type": "Organization",
         "logo": {
           "@type":"ImageObject",
-          "url":'{{ absURL (printf "images/%s" .Site.Params.logo) }}'
+          "url": "{{ absURL (printf "images/%s" .Site.Params.logo) }}"
         },
         "name": "{{ .Site.Title }}"
       }
