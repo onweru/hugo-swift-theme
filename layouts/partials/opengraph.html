@@ -1,10 +1,16 @@
-{{ with .Params.image }}
+<meta name = 'keywords' content = '{{ .Site.Title }}'>
+<meta property = 'og:locale' content = 'en_US' />
+<meta property = 'og:type' content = 'article' />
+<meta property = 'og:title' content = '{{ .Title }}' />
+<meta property = 'og:description' content = '{{ with .Summary}}{{ . | truncate 150 }}{{ else }}{{ .Site.Params.description }}{{ end }}'>
+<meta property = 'og:url' content = '{{ .Permalink }}' />
+{{- with .Params.image }}
 <meta property = 'og:image' content = '{{ absURL (printf "images/%s" .) }}'/>
-{{ else }}
+{{- else }}
 <meta property = 'og:image' content = '{{ absURL (printf "images/%s" .Site.Params.logo) }}'/>
-{{ end }}
-{{ if eq .Section "blog" -}}
-  {{ $date := ( .Date.Format "2006-02-01")  }}
+{{- end }}
+{{- if eq .Section "blog" -}}
+  {{- $date := ( .Date.Format "2006-02-01") -}}
   <meta property = 'article:published_time' content = '{{ htmlUnescape $date }}' />
   <script type = "application/ld+json">
     {
@@ -40,4 +46,4 @@
   <meta name = 'twitter:title' content = '{{ .Title }}' />
   <meta property = 'twitter:description'  content = '{{ .Summary | truncate 250 }}'/>
   <meta name = 'twitter:image' content = '{{ absURL (printf "images/%s" .Params.image) }}' />
-{{ end }}
+{{- end }}
