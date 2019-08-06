@@ -211,10 +211,10 @@
     background-position: center;
   }
   &_prev {
-    background-image: url(/images/previous.svg);
+    background-image: url(#{$prev-icon-path});
   }
   &_next {
-    background-image: url(/images/next.svg);
+    background-image: url(#{$next-icon-path});
   }
   &_active{
     opacity: 0.5;

@@ -257,7 +257,7 @@ tags.forEach(function(tag){
 headingNodes.forEach(function(node){
   link = createEl('a');
   icon = createEl('img');
-  icon.src = '/images/icons/link.svg';
+  icon.src = '{{ "images/icons/link.svg" | absURL }}';
   link.className = 'link';
   link.appendChild(icon);
   id = node.getAttribute('id');
