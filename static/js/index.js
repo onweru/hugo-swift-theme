@@ -9,7 +9,7 @@ function elem(selector, parent = document){
 
 function elems(selector) {
   let elems = document.querySelectorAll(selector);
-  return elems.length ? elems : false; 
+  return elems.length ? elems : false;
 }
 
 function pushClass(el, targetClass) {
@@ -62,19 +62,19 @@ function isChild(node, parentClass) {
   let pop = 'nav-pop';
   let navDrop = elem(`.${drop}`);
   let hidden = 'hidden';
-  
+
   function toggleMenu(){
     modifyClass(navDrop, pop);
     modifyClass(navBar, hidden);
     let menuOpen = containsClass(nav, open);
     let menuPulled = containsClass(nav, exit);
-    
+
     let status = menuOpen || menuPulled ? true : false;
-    
+
     status ? modifyClass(nav, exit) : modifyClass(nav, open);
     status ? modifyClass(nav, open) : modifyClass(nav, exit);
   }
-  
+
   // $('.nav-bar, .nav-close').on('click', () => toggleMenu());
   navBar.addEventListener('click', function() {
     toggleMenu();
@@ -82,11 +82,11 @@ function isChild(node, parentClass) {
   elem('.nav-close').addEventListener('click', function() {
     toggleMenu();
   });
-  
+
   elem('.nav-drop').addEventListener('click', function(e) {
     e.target === this ? toggleMenu() : false;
   });
-  
+
 })();
 
 (function share(){
@@ -94,12 +94,12 @@ function isChild(node, parentClass) {
   let open = 'share-open';
   let close = 'share-close';
   let button = elem('.share-trigger');
-  
+
   function showShare() {
     pushClass(share, open);
     deleteClass(share, close);
-  } 
-  
+  }
+
   function hideShare() {
     pushClass(share, open);
     deleteClass(share, close);
@@ -113,7 +113,7 @@ function isChild(node, parentClass) {
 })();
 
 (function comments(){
-  
+
   let comments = elem('.js-comments');
   let form = elem('.form');
   let body = elem('body');
@@ -122,43 +122,43 @@ function isChild(node, parentClass) {
   let open = 'form-open';
   let show = 'modal_show'
   let toggled = 'toggled';
-  
+
   let successOutput = [
-    'Review submitted', 
+    'Review submitted',
     'Thanks for your review! It will show on the site once it has been approved.'
   ];
-  
+
   let errorOutput = [
-    'Error', 
+    'Error',
     'Sorry, there was an error with the submission!'
   ];
-  
+
   function handleForm(form) {
     form.addEventListener('submit', function (event) {
       pushClass(form, loading);
-      
+
       function resetForm() {
         deleteClass(form, loading);
         // $("form").trigger("reset");
       }
-      
+
       function formActions(message) {
         showModal(...message) // array destructuring
         resetForm();
       }
-      
+
       event.preventDefault();
-      
+
       function formToJSON(obj) {
         let rawData = Array.from(obj.elements);
         let data = {};
         rawData.forEach(function(element){
           data[element.name] = element.value;
         });
-        
+
         return JSON.stringify(data);
       }
-      
+
       let data = formToJSON(form);
       let url = form.getAttribute('action').trim();
       fetch(url, {
@@ -179,7 +179,7 @@ function isChild(node, parentClass) {
       });
     });
   }
-  
+
   form ? handleForm(form) : false;
   function closeModal() {
     elem('.modal_close').addEventListener('click', function () {
@@ -189,17 +189,17 @@ function isChild(node, parentClass) {
       deleteClass(button, toggled);
     });
   }
-  
+
   containsClass(body, show) ? closeModal() : false;
-  
+
   function showModal(title, message) {
     elem('.modal_title').textContent = title;
     elem('.modal_text').innerHTML = message;
-    
+
     pushClass(body, show);
   }
-  
-  
+
+
   (function toggleForm() {
     if(button) {
       button.addEventListener('click', function() {
@@ -209,7 +209,7 @@ function isChild(node, parentClass) {
       });
     }
   })();
-  
+
 })();
 
 function elemAttribute(elem, attr, value = null) {
@@ -227,7 +227,7 @@ function elemAttribute(elem, attr, value = null) {
     Array.from(links).forEach(function(link){
       let target, rel, blank, noopener, attr1, attr2, url, isExternal;
       url = elemAttribute(link, 'href');
-      isExternal = (url && typeof url == 'string' &&url.startsWith('http')) && !containsClass(link, 'nav_item') && !isChild(link, '.post_item') ? true : false;
+      isExternal = (url && typeof url == 'string' && url.startsWith('http')) && !containsClass(link, 'nav_item') && !isChild(link, '.post_item') && !isChild(link, '.pager') ? true : false;
       if(isExternal) {
         target = 'target';
         rel = 'rel';
@@ -235,7 +235,7 @@ function elemAttribute(elem, attr, value = null) {
         noopener = 'noopener';
         attr1 = elemAttribute(link, target);
         attr2 = elemAttribute(link, noopener);
-        
+
         attr1 ? false : elemAttribute(link, target, blank);
         attr2 ? false : elemAttribute(link, noopener, noopener);
       }
@@ -270,19 +270,19 @@ headingNodes.forEach(function(node){
 
 const copyToClipboard = str => {
   // Create a <textarea> element
-  const el = createEl('textarea');  
+  const el = createEl('textarea');
   // Set its value to the string that you want copied
-  el.value = str;                           
+  el.value = str;
   // Make it readonly to be tamper-proof
-  el.setAttribute('readonly', '');          
+  el.setAttribute('readonly', '');
   // Move outside the screen to make it invisible
-  el.style.position = 'absolute';                 
-  el.style.left = '-9999px';                
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
   // Append the <textarea> element to the HTML document
-  document.body.appendChild(el);            
+  document.body.appendChild(el);
   // Check if there is any content selected previously
-  const selected =            
-  document.getSelection().rangeCount > 0    
+  const selected =
+  document.getSelection().rangeCount > 0
   ? document.getSelection().getRangeAt(0)   // Store selection if found
   : false;                                  // Mark as false to know no selection existed before
   el.select();                              // Select the <textarea> content
@@ -303,7 +303,7 @@ const copyToClipboard = str => {
       let target = event.target;
       if (target.classList.contains(deeplink) || target.parentNode.classList.contains(deeplink)) {
         event.preventDefault();
-        let newLink = target.href != undefined ? target.href : target.parentNode.href; 
+        let newLink = target.href != undefined ? target.href : target.parentNode.href;
         copyToClipboard(newLink);
       }
     });
