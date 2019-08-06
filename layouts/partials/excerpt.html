@@ -5,7 +5,12 @@
   <div class = 'excerpt'>
     <div class = 'excerpt_meta'>
     {{ with .Params.tags -}}
-      {{ range first 1 . }}<a href = '/tags/{{ . | urlize }}' class = 'post_tag'>{{ . }}</a>{{ end }}
+      {{ range first 1 . }}
+      {{ $tag := . | urlize }}
+      <a href = '{{ absURL (printf "tags/%s" $tag) }}' class = 'post_tag'>
+        {{ . }}
+      </a>
+      {{ end }}
     {{- end }}
       <div class = 'post_copy copy'></div>
     </div>

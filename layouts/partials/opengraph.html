@@ -1,7 +1,7 @@
 {{ with .Params.image }}
-<meta property = 'og:image' content = '{{ path.Join  "images" . | absURL }}'/>
+<meta property = 'og:image' content = '{{ absURL (printf "images/%s" .) }}'/>
 {{ else }}
-<meta property = 'og:image' content = '{{ path.Join "images" .Site.Params.image | absURL }}'/>
+<meta property = 'og:image' content = '{{ absURL (printf "images/%s" .Site.Params.logo) }}'/>
 {{ end }}
 {{ if eq .Section "blog" -}}
   {{ $date := (time .Date)  }}
@@ -23,13 +23,13 @@
       },
       "image":{
         "@type":"ImageObject",
-        "url":'{{ path.Join "images" .Params.image | absURL }}'
+        "url":'{{ absURL (printf "images/%s" .Params.image ) }}'
       },
       "publisher": {
         "@type": "Organization",
         "logo": {
           "@type":"ImageObject",
-          "url":'{{ path.Join "images" .Site.Params.logo | absURL }}'
+          "url":'{{ absURL (printf "images/%s" .Site.Params.logo) }}'
         },
         "name": "{{ .Site.Title }}"
       }
@@ -39,5 +39,5 @@
   <meta name = 'twitter:creator' content = '{{ .Site.Params.twitter }}'>
   <meta name = 'twitter:title' content = '{{ .Title }}' />
   <meta property = 'twitter:description'  content = '{{ .Summary | truncate 250 }}'/>
-  <meta name = 'twitter:image' content = '{{ path.Join "images" .Params.image | absURL }}' />
+  <meta name = 'twitter:image' content = '{{ absURL (printf "images/%s" .Params.image) }}' />
 {{ end }}
