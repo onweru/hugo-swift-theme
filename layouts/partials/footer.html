@@ -4,4 +4,5 @@
     <p>Designed by <a href = '{{ .Site.Data.designer.url }}' target = '_blank' title = 'Linkedin Profile' rel = 'nonopener'> {{ .Site.Data.designer.name }}</a></p>
   </div>
 </footer>
-<script src = '{{ absURL "js/index.js" }}'></script>
+{{ $scripts := resources.Get "js/index.js" | resources.ExecuteAsTemplate "js/index.js" . }}
+<script src = '{{ $scripts.Permalink }}'></script>

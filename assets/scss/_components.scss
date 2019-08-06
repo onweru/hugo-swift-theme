@@ -119,7 +119,7 @@ section p{
   position: relative;
   width: 1.5rem;
   height: 1.5rem;
-  background-image: url(/images/icons/copy.svg);
+  background-image: url(#{$copy-icon-path});
   background-size: 100%;
   cursor: pointer;
   &::before, &::after {

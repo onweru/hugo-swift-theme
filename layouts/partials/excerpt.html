@@ -1,7 +1,6 @@
 <li class = 'post_item'>
-  {{ $image := .Params.image }}
-  <a class = 'post_card' href='{{ .RelPermalink }}' title = '{{ .Title }}'
-    style = 'background-image: url({{ absURL (printf "images/%s" $image) }});'>
+  <a class = 'post_card' href='{{ .RelPermalink }}' title = '{{ .Title }}'>
+    <img class = 'post_thumbnail' src='{{ path.Join "images" .Params.image | absLangURL }}'>
   </a>
   <div class = 'excerpt'>
     <div class = 'excerpt_meta'>

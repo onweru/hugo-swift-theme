@@ -926,11 +926,11 @@ section p {
 }
 
 .pager_prev {
-  background-image: url(/images/previous.svg);
+  background-image: url(http://localhost:1313/images/icons/previous.svg);
 }
 
 .pager_next {
-  background-image: url(/images/next.svg);
+  background-image: url(http://localhost:1313/images/icons/next.svg);
 }
 
 .pager_active {
