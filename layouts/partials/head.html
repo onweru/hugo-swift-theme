@@ -13,11 +13,11 @@
   <meta property = 'og:url' content = '{{ .Permalink }}' />
   {{ partial "opengraph.html" . }}
   {{ partial "analytics.html" . }}
-  <link rel='apple-touch-icon' sizes='180x180' href='{{ "images/icons/apple-touch-icon.png" | relURL }}'>
-  <link rel='icon' type='image/png' sizes='32x32' href='{{ "images/icons/favicon-32x32.png" | relURL }}'>
-  <link rel='icon' type='image/png' sizes='16x16' href='{{ "images/icons/favicon-16x16.png" | relURL }}'>
-  <link rel='manifest' href='{{ "images/icons/site.webmanifest" | relURL }}'>
-  <link rel='mask-icon' href='{{ "images/icons/safari-pinned-tab.svg" | relURL }}' color='#5bbad5'>
+  <link rel='apple-touch-icon' sizes='180x180' href='{{ "images/icons/apple-touch-icon.png" | absURL }}'>
+  <link rel='icon' type='image/png' sizes='32x32' href='{{ "images/icons/favicon-32x32.png" | absURL }}'>
+  <link rel='icon' type='image/png' sizes='16x16' href='{{ "images/icons/favicon-16x16.png" | absURL }}'>
+  <link rel='manifest' href='{{ "images/icons/site.webmanifest" | absURL }}'>
+  <link rel='mask-icon' href='{{ "images/icons/safari-pinned-tab.svg" | absURL }}' color='#5bbad5'>
   <meta name='msapplication-TileColor' content='#da532c'>
   <meta name='theme-color' content='#ffffff'>
   <link rel='canonical' href='{{ .Permalink }}'>

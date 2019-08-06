@@ -3,42 +3,42 @@
   font-family: 'Metropolis';
   font-style: normal;
   font-weight: 400;
-  src: local("Metropolis Regular"), local("Metropolis-Regular"), url("/fonts/Metropolis-Regular.woff2") format("woff2"), url("/fonts/Metropolis-Regular.woff") format("woff");
+  src: local("Metropolis Regular"), local("Metropolis-Regular"), url("http://localhost:1313/fonts/Metropolis-Regular.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-Regular.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Metropolis';
   font-style: normal;
   font-weight: 300;
-  src: local("Metropolis Light"), local("Metropolis-Light"), url("/fonts/Metropolis-Light.woff2") format("woff2"), url("/fonts/Metropolis-Light.woff") format("woff");
+  src: local("Metropolis Light"), local("Metropolis-Light"), url("http://localhost:1313/fonts/Metropolis-Light.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-Light.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Metropolis';
   font-style: italic;
   font-weight: 300;
-  src: local("Metropolis Light Italic"), local("Metropolis-LightItalic"), url("/fonts/Metropolis-LightItalic.woff2") format("woff2"), url("/fonts/Metropolis-LightItalic.woff") format("woff");
+  src: local("Metropolis Light Italic"), local("Metropolis-LightItalic"), url("http://localhost:1313/fonts/Metropolis-LightItalic.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-LightItalic.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Metropolis';
   font-style: normal;
   font-weight: 500;
-  src: local("Metropolis Medium"), local("Metropolis-Medium"), url("/fonts/Metropolis-Medium.woff2") format("woff2"), url("/fonts/Metropolis-Medium.woff") format("woff");
+  src: local("Metropolis Medium"), local("Metropolis-Medium"), url("http://localhost:1313/fonts/Metropolis-Medium.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-Medium.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Metropolis';
   font-style: italic;
   font-weight: 500;
-  src: local("Metropolis Medium Italic"), local("Metropolis-MediumItalic"), url("/fonts/Metropolis-MediumItalic.woff2") format("woff2"), url("/fonts/Metropolis-MediumItalic.woff") format("woff");
+  src: local("Metropolis Medium Italic"), local("Metropolis-MediumItalic"), url("http://localhost:1313/fonts/Metropolis-MediumItalic.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-MediumItalic.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Cookie';
   font-style: normal;
   font-weight: 400;
-  src: local("Cookie-Regular"), url("/fonts/cookie-v10-latin-regular.woff2") format("woff2"), url("/fonts/cookie-v10-latin-regular.woff") format("woff");
+  src: local("Cookie-Regular"), url("http://localhost:1313/fonts/cookie-v10-latin-regular.woff2") format("woff2"), url("http://localhost:1313/fonts/cookie-v10-latin-regular.woff") format("woff");
 }
 
 :root {
@@ -58,16 +58,6 @@
     --text: var(--light);
     --accent: var(--bubble);
   }
-}
-
-.view {
-  max-width: 1024px;
-  margin: 25px auto;
-}
-
-.view p {
-  text-align: center;
-  margin: 10px auto;
 }
 
 @keyframes showMenu {
@@ -228,9 +218,6 @@ img {
 main {
   padding-bottom: 45px;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 ul {
@@ -277,31 +264,6 @@ hr {
 .intro_desc {
   opacity: 0.8;
   text-align: center;
-}
-
-.show {
-  display: block;
-  position: relative;
-  background-color: #131313;
-  border-radius: 0.5rem 0.5rem 0 0;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  height: 10rem;
-}
-
-.show::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  z-index: 1;
-}
-
-.show:hover::after {
-  background-color: rgba(19, 19, 19, 0.3);
 }
 
 .btn {
@@ -382,9 +344,6 @@ section p {
     height: initial;
     text-align: left;
   }
-  .duo {
-    width: 46.5%;
-  }
   .mobile {
     display: none;
   }
@@ -437,6 +396,10 @@ section p {
   text-align: center;
   top: -2rem;
   right: 0;
+}
+
+.copy_done::before {
+  content: "Link Copied";
 }
 
 .copy:hover::before, .copy:hover::after {
@@ -633,7 +596,6 @@ section p {
 .nav-brand {
   font-family: 'Cookie';
   font-size: 2em !important;
-  max-width: 250px;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
@@ -732,7 +694,8 @@ section p {
 }
 
 .posts {
-  justify-content: space-around !important;
+  width: 100%;
+  justify-content: space-between !important;
   align-items: stretch !important;
 }
 
@@ -808,15 +771,31 @@ section p {
   z-index: 2;
 }
 
+.post_copy {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
 .post_item {
   box-shadow: 0 0 3rem rgba(0, 0, 0, 0.17);
   margin: 1.25rem 0;
   border-radius: 10px;
   overflow: hidden;
+  width: 100%;
 }
 
 .post_item:hover {
   box-shadow: 0 0 5rem rgba(0, 0, 0, 0.255);
+}
+
+@media screen and (min-width: 667px) {
+  .post_item {
+    width: 47%;
+  }
+}
+
+.post_item:hover .post_copy {
+  opacity: 1;
 }
 
 .post_link {
@@ -881,6 +860,35 @@ section p {
   display: inline-grid;
   padding: 0.2rem 0.75rem;
   color: #fff;
+}
+
+.post_card {
+  display: block;
+  position: relative;
+  background-color: #131313;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  height: 10rem;
+}
+
+.post_card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.post_card:hover::after {
+  background-color: rgba(19, 19, 19, 0.3);
+}
+
+.post_thumbnail {
+  margin: 0;
 }
 
 .pager {

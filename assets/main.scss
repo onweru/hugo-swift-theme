@@ -1,4 +1,4 @@
-$font-path: '{{ "fonts" | relURL }}';
+$font-path: '{{ "fonts" | absURL }}';
 
 @import
 'fonts',

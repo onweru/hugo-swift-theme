@@ -1,5 +1,5 @@
 {{ define "main" }}
-<section class = 'post_header' style = 'background-image:url({{ path.Join "images" .Params.image | relLangURL }});'>
+<section class = 'post_header' style = 'background-image:url({{ path.Join "images" .Params.image | absLangURL }});'>
   <h1 class='post_title' itemprop='name headline'>{{ .Title }}</h1>
 </section>
 <div class = 'post'>
@@ -25,6 +25,6 @@
     </ul>
   </aside>
 </div>
-<script src = '{{ "js/autosize.min.js" | relURL }}'></script>
-<script src = '{{ "js/timeago.js" | relURL }}'></script>
+<script src = '{{ "js/autosize.min.js" | absURL }}'></script>
+<script src = '{{ "js/timeago.js" | absURL }}'></script>
 {{ end }}
