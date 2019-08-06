@@ -3,12 +3,12 @@
     style = 'background-image: url(/images/{{ .Params.image }});'>
   </a>
   <div class = 'excerpt'>
-    {{ with .Params.tags -}}
     <div class = 'excerpt_meta'>
+    {{ with .Params.tags -}}
       {{ range first 1 . }}<a href = '/tags/{{ . | urlize }}' class = 'post_tag'>{{ . }}</a>{{ end }}
-      <div class = 'copy'></div>
-    </div>
     {{- end }}
+      <div class = 'post_copy copy'></div>
+    </div>
     <h3 class = 'post_link'>
       <a href='{{ .RelPermalink }}'>{{ .Title  }}</a>
     </h3>
