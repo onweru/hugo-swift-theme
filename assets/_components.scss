@@ -140,6 +140,9 @@ section p{
     top: -2rem;
     right: 0;
   }
+  &_done::before {
+    content: "Link Copied";
+  }
   &:hover::before,
   &:hover::after {
     opacity: 1;
