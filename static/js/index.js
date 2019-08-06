@@ -309,3 +309,31 @@ const copyToClipboard = str => {
     });
   }
 })();
+
+(function copyLinkToShare() {
+  let  copy, copied, excerpt, isCopyIcon, isInExcerpt, link, page, postCopy, postLink, target;
+  copy = 'copy';
+  copied = 'copy_done';
+  excerpt = 'excerpt';
+  postCopy = 'post_copy';
+  postLink = 'post_card';
+  page = document.documentElement;
+  
+  page.addEventListener('click', function(event) {
+    target = event.target;
+    isCopyIcon = containsClass(target, copy);
+    isInExcerpt = containsClass(target, postCopy);
+    if (isCopyIcon) {
+      if (isInExcerpt) {
+        link = target.closest(`.${excerpt}`).previousElementSibling;
+        link = containsClass(link, postLink)? elemAttribute(link, 'href') : false;
+      } else {
+        link = window.location.href;
+      }
+      if(link) {
+        copyToClipboard(link);
+        pushClass(target, copied);
+      } 
+    }
+  });
+})();
