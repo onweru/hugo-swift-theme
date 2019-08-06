@@ -23,13 +23,13 @@
       },
       "image":{
         "@type":"ImageObject",
-          "url":"{{ printf "images/%s" .Params.image | relURL }}"
+        "url":'{{ path.Join "images" .Params.image | relURL }}'
       },
       "publisher": {
         "@type": "Organization",
         "logo": {
           "@type":"ImageObject",
-          "url":"{{ printf "images/%s" .Site.Params.logo | relURL }}"
+          "url":'{{ path.Join "images" .Site.Params.logo | relURL }}'
         },
         "name": "{{ .Site.Title }}"
       }
