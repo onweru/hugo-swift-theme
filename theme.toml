@@ -5,7 +5,7 @@ description = "A simple open source theme for publishing with hugo"
 homepage = "https://github.com/onweru/hugo-swift-theme"
 tags = ["blog", "responsive", "staticman", "simple", "deeplinks", "dark mode"]
 features = ["blog", "responsive", "staticman", "simple", "deeplinks", "dark mode" ]
-min_version = 0.55
+min_version = 0.42
 
 [author]
     name ="weru"
