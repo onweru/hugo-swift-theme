@@ -81,6 +81,10 @@
       z-index: 2;
     }
   }
+  &_copy {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
   &_item{
     @include shadow;
     margin: 1.25rem 0;
@@ -90,6 +94,9 @@
     @media screen and (min-width:667px) {
       width: 47%;
     } 
+  }
+  &_item:hover &_copy{
+    opacity: 1;
   }
   &_link{
     padding:2.5px 0;
