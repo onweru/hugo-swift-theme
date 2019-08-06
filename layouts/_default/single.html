@@ -1,5 +1,5 @@
 {{ define "main" }}
-<section class = 'post_header' style = 'background-image:url({{ $.Site.BaseURL }}images/{{ .Params.image }});'>
+<section class = 'post_header' style = 'background-image:url({{ path.Join "images" .Params.image | relLangURL }});'>
   <h1 class='post_title' itemprop='name headline'>{{ .Title }}</h1>
 </section>
 <div class = 'post'>
@@ -10,7 +10,9 @@
     </div>
     {{ partial "author.html" . }}
   </article>
-  {{ partial "comments.html" . }}
+  {{ if .Site.Params.Staticman }}
+    {{ partial "comments.html" . }}
+  {{ end }}
   <aside>
     <h3>Recent Posts</h3>
     <ul class='flex post_aside'>
@@ -23,6 +25,6 @@
     </ul>
   </aside>
 </div>
-<script src = '{{ $.Site.BaseURL }}js/autosize.min.js'></script>
-<script src = '{{ $.Site.BaseURL }}js/timeago.js'></script>
+<script src = '{{ "js/autosize.min.js" | relURL }}'></script>
+<script src = '{{ "js/timeago.js" | relURL }}'></script>
 {{ end }}

@@ -1,14 +1,16 @@
+$font-path: '{{ "fonts" | relURL }}';
+
 @import
 'fonts',
-'variables', 
-'mixins', 
-'animate', 
-'base', 
-'components', 
-'utils', 
+'variables',
+'mixins',
+'animate',
+'base',
+'components',
+'utils',
 'nav',
 'posts',
 'audio',
-'footer', 
+'footer',
 'comments',
 'syntax';

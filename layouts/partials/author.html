@@ -4,11 +4,11 @@
 {{ if eq .name $author }}
   <div class = 'author'>
     <a href = '{{ .url }}' target = "{{ $author }}'s profile">
-      <img class = 'author_pic' src = '{{ $.Site.BaseURL }}images/{{ $author }}.jpg' alt = ''>
+      <img class = 'author_pic' src = '{{ printf "images/%s.jpg" $author }}' alt = ''>
     </a>
     <div class = 'author_meta'>
       <div class = 'pale author_heading'>WRITTEN BY</div>
-      <a class = 'author_name' href = '{{ .url }}' title = "{{ $author }}'s Profile">{{ .name }}</a>  
+      <a class = 'author_name' href = '{{ .url }}' title = "{{ $author }}'s Profile">{{ .name }}</a>
     </div>
     <p class = 'pale author_bio solo'>{{ .bio }}</p>
   </div>
