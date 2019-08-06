@@ -15,7 +15,8 @@
     font-size: 1.05rem;
   }
   &s{
-    justify-content: space-around !important;
+    width: 100%;
+    justify-content: space-between !important;
     align-items: stretch !important;
   }
   &_aside{
@@ -44,7 +45,7 @@
       padding: 0.5rem 0 0.5rem 1.2rem;
     }
     li {
-        padding: 0.33rem 0;
+      padding: 0.33rem 0;
     }
   }
   &_header{
@@ -85,6 +86,10 @@
     margin: 1.25rem 0;
     border-radius: 10px;
     overflow: hidden;
+    width: 100%;
+    @media screen and (min-width:667px) {
+      width: 47%;
+    } 
   }
   &_link{
     padding:2.5px 0;
@@ -142,6 +147,28 @@
     display: inline-grid;
     padding: 0.2rem 0.75rem;
     color: $light;
+  }
+  &_card {
+    display: block;
+    position:relative;
+    background-color:$dark;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-size:cover;
+    background-position:center;
+    overflow: hidden;
+    height:10rem;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 1;
+    }
+    &:hover::after {
+      background-color:rgba($dark,0.3);
+    }
   }
 }
 

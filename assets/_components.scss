@@ -21,28 +21,6 @@
     text-align: center;
   }
 }
-.show{
-  display: block;
-  position:relative;
-  background-color:$dark;
-  border-radius: 0.5rem 0.5rem 0 0;
-  background-size:cover;
-  background-position:center;
-  overflow: hidden;
-  height:10rem;
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    z-index: 1;
-  }
-  &:hover::after {
-    background-color:rgba($dark,0.3);
-  }
-}
 
 .btn{
   min-width: 150px;
@@ -112,9 +90,6 @@ section p{
     display:inline-block;
     height:initial;
     text-align:left;
-  }
-  .duo{
-    width:46.5%;
   }
   .mobile{
     display:none;
