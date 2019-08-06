@@ -1,11 +1,17 @@
 <li class = 'post_item'>
+  {{ $image := .Params.image }}
   <a class = 'post_card' href='{{ .RelPermalink }}' title = '{{ .Title }}'
-    style = 'background-image: url(/images/{{ .Params.image }});'>
+    style = 'background-image: url({{ absURL (printf "images/%s" $image) }});'>
   </a>
   <div class = 'excerpt'>
     <div class = 'excerpt_meta'>
     {{ with .Params.tags -}}
-      {{ range first 1 . }}<a href = '/tags/{{ . | urlize }}' class = 'post_tag'>{{ . }}</a>{{ end }}
+      {{ range first 1 . }}
+      {{ $tag := . | urlize }}
+      <a href = '{{ absURL (printf "tags/%s" $tag) }}' class = 'post_tag'>
+        {{ . }}
+      </a>
+      {{ end }}
     {{- end }}
       <div class = 'post_copy copy'></div>
     </div>
