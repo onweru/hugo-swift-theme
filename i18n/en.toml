@@ -4,3 +4,7 @@
   other = "Share Story"
 [link_copied]
   other = "Link Copied"
+[written_by]
+  other = "Written by"
+[author_profile]
+  other = "{{ . }}'s profile"
