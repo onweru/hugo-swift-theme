@@ -14,15 +14,7 @@
     {{ partial "comments.html" . }}
   {{ end }}
   <aside>
-    <h3>Recent Posts</h3>
-    <ul class='flex post_aside'>
-      {{ $title := .Params.title }}
-      {{ range first 2 .Site.RegularPages }}
-        {{ if not (eq .Title $title) }}
-        {{ partial "excerpt.html" . }}
-        {{ end }}
-      {{ end }}
-    </ul>
+    {{ partial "aside.html" . }}
   </aside>
 </div>
 <script src = '{{ absURL "js/autosize.min.js" }}'></script>
