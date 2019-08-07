@@ -1,5 +1,5 @@
 {{ partial "intro.html" . }}
-<ul class='posts flex wrap blog' id = 'posts'>
+<ul class='posts wrap' id = 'posts'>
   {{- range .Paginator.Pages }}
     {{ partial "excerpt.html" . }}
   {{- end }}

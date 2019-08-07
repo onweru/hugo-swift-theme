@@ -1,5 +1,6 @@
 {{ define "main" }}
-<section class = 'post_header' style = 'background-image:url({{ absURL (printf "images/%s" .Params.image) }});'>
+{{ $bgImage := ( absURL (printf "images/%s" .Params.image) ) }}
+<section class = 'post_header' style = 'background-image:url({{ $bgImage }});'>
   <h1 class='post_title' itemprop='name headline'>{{ .Title }}</h1>
 </section>
 <div class = 'post'>
