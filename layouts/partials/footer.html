@@ -1,7 +1,7 @@
 <footer class = 'footer'>
   <div class = 'footer_inner wrap pale'>
     <p>&copy; <span class = 'year'></span> {{ .Site.Title }}</p>
-    <p>Designed by <a href = '{{ .Site.Data.designer.url }}' target = '_blank' title = 'Linkedin Profile' rel = 'nonopener'> {{ .Site.Data.designer.name }}</a></p>
+    <p>{{ i18n "designed_by" .Site.Data.designer | safeHTML }}</p>
   </div>
 </footer>
 {{ $scripts := resources.Get "js/index.js" | resources.ExecuteAsTemplate "js/index.js" . }}
