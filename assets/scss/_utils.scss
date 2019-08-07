@@ -11,27 +11,13 @@
 .left{
   text-align:left;
 }
-.flex{
-  display:flex;
-  align-items:flex-start;
-  justify-content: space-between;
-  &,
-  &-in{
-    display:flex;
-    flex-flow:row wrap;
-  }
-  &-in{
-    justify-content:center;
-    align-items: center;
-  }
-}
 .wrap{
   padding:10px 0;
   max-width: 1024px;
   margin: 0 auto;
 }
-.mt-2 {
-  margin-top: 30px;
+.mt {
+  margin-top: 7rem;
 }
 .link {
   display: inline-block;

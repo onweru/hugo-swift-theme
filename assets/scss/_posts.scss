@@ -15,12 +15,14 @@
     font-size: 1.05rem;
   }
   &s{
+    display:flex;
+    justify-content: space-between;
+    flex-flow:row wrap;
     width: 100%;
-    justify-content: space-between !important;
-    align-items: stretch !important;
-  }
-  &_aside{
     align-items: stretch;
+  }
+  &s:not(.aside) {
+    padding: 0 30px;
   }
   &_content{
     h4{
@@ -283,7 +285,4 @@
     width: 24px;
     cursor: pointer;
   }
-}
-.blog{
-  padding: 0 30px;
 }
