@@ -12,10 +12,8 @@
         <div class = 'comment_author comment_name'>{{ .name }}</div>
       </div>
       <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
-    
   </div>
   {{ end }}
-  
   {{ end }}
   
   {{ if eq ($.Scratch.Get "hasComments") 0 }}
