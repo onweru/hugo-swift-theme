@@ -5,7 +5,7 @@
   <!-- filter out the current post -->
   <!-- return atmost 2 posts -->
   {{ $title := .Params.title }}
-  {{ range first 2 .Site.RegularPages }}
+  {{ range first 2 (where .Site.RegularPages "Section" "post").ByPublishDate.Reverse  }}
     {{ if not (eq .Title $title) }}
     {{ partial "excerpt.html" . }}
     {{ end }}
