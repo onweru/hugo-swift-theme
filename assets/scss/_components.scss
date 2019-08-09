@@ -131,7 +131,7 @@ section p{
     transition: opacity 0.25s ease-in;
   }
   &::before {
-    content: "Share Story";
+    content: "#{$copy-icon-b4}";
     font-size: 0.8rem;
     width: 5.4rem;
     padding: 0.25rem;
@@ -141,7 +141,7 @@ section p{
     right: 0;
   }
   &_done::before {
-    content: "Link Copied";
+    content: "#{$copy-icon-aft}";
   }
   &:hover::before,
   &:hover::after {

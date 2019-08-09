@@ -470,30 +470,14 @@ section p {
   text-align: left;
 }
 
-.flex {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.flex, .flex-in {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.flex-in {
-  justify-content: center;
-  align-items: center;
-}
-
 .wrap {
   padding: 10px 0;
   max-width: 1024px;
   margin: 0 auto;
 }
 
-.mt-2 {
-  margin-top: 30px;
+.mt {
+  margin-top: 7rem;
 }
 
 .link {
@@ -694,13 +678,15 @@ section p {
 }
 
 .posts {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
   width: 100%;
-  justify-content: space-between !important;
-  align-items: stretch !important;
+  align-items: stretch;
 }
 
-.post_aside {
-  align-items: stretch;
+.posts:not(.aside) {
+  padding: 0 30px;
 }
 
 .post_content h4 {
@@ -888,6 +874,7 @@ section p {
 }
 
 .post_thumbnail {
+  width: 100%;
   margin: 0;
 }
 
@@ -1010,10 +997,6 @@ section p {
 .share-trigger {
   width: 24px;
   cursor: pointer;
-}
-
-.blog {
-  padding: 0 30px;
 }
 
 .waves {
@@ -1220,12 +1203,25 @@ section p {
   z-index: 10;
 }
 
-.form_spinner {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 11;
+.g-recaptcha {
+  display: grid;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.g-recaptcha > div,
+.g-recaptcha iframe {
+  display: grid;
+  width: 100% !important;
+  height: 74px !important;
+}
+
+.g-recaptcha iframe {
+  transform: scale(1.03);
+  padding: 0 0.75rem;
 }
 
 .highlight {
