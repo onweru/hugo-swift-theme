@@ -1,5 +1,5 @@
 [designed_by]
-  other = "由 <a href = '{{ .url }}' target = '_blank' title = '领英个人档案' rel = 'nonopener'>{{ .name }}</a> 设计"
+  other = "由 <a href = '{{ .url }}' target = '_blank' title = '領英個人檔案' rel = 'nonopener'>{{ .name }}</a> 設計"
 [share_story]
   other = "分享故事"
 [link_copied]
