@@ -3,12 +3,12 @@ function createEl(element) {
 }
 
 function elem(selector, parent = document){
-  let elem = document.querySelector(selector);
+  let elem = parent.querySelector(selector);
   return elem != false ? elem : false;
 }
 
-function elems(selector) {
-  let elems = document.querySelectorAll(selector);
+function elems(selector, parent = document) {
+  let elems = parent.querySelectorAll(selector);
   return elems.length ? elems : false;
 }
 
