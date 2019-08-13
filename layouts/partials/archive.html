@@ -1,6 +1,7 @@
 {{ partial "intro.html" . }}
 <ul class='posts wrap' id = 'posts'>
-  {{- range .Paginator.Pages }}
+  {{ $paginator := .Paginate (where .Site.RegularPages "Section" "!=" "").ByPublishDate.Reverse }}
+  {{- range $paginator.Pages }}
     {{ partial "excerpt.html" . }}
   {{- end }}
 </ul>

@@ -1,13 +1,16 @@
-<h3>Recent Posts</h3>
+<h3>More From {{ .Site.Title }}</h3>
 <ul class='posts aside'>
-  <!-- filter array of posts with the first tag of this post (related) -->
-  <!-- if post doesn't have any tags use RegularPages -->
-  <!-- filter out the current post -->
-  <!-- return atmost 2 posts -->
-  {{ $title := .Params.title }}
-  {{ range first 2 .Site.RegularPages }}
-    {{ if not (eq .Title $title) }}
-    {{ partial "excerpt.html" . }}
+  {{ $kin := (where .Site.RegularPages ".Params.tags" "intersect" .Params.tags) }}
+  {{ $siblings := (where $kin ".Title" "!=" .Title) }}
+  {{ with $siblings }}
+    {{ range first 2 . }}
+      {{ partial "excerpt.html" . }}
+    {{ end }}
+  {{ else }}
+    {{ $kin := (where .Site.RegularPages "Section" .Section) }}
+    {{ $siblings := (where $kin ".Title" "!=" .Title) }}
+    {{ range first 2 $siblings }}
+      {{ partial "excerpt.html" . }}
     {{ end }}
   {{ end }}
 </ul>
