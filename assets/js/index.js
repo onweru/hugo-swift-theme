@@ -52,6 +52,7 @@ function isChild(node, parentClass) {
   elem('.year').innerHTML = year;
 })();
 
+
 (function() {
   let bar = 'nav_bar-wrap';
   let navBar = elem(`.${bar}`);
@@ -337,4 +338,14 @@ const copyToClipboard = str => {
       } 
     }
   });
+})();
+
+(function hideAside(){
+  let aside, title, posts;
+  aside = elem('.aside');
+  title = aside.previousElementSibling;
+  if(aside && title.nodeName.toLowerCase() === 'h3') {
+    posts = Array.from(aside.children);
+    posts.length < 1 ? title.remove() : false;
+  }
 })();
