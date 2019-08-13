@@ -1,5 +1,4 @@
 {{ $author := (lower .Params.author) }}
-{{ $reading := .ReadingTime }}
 {{ range .Site.Data.authors }}
 {{ if eq .name $author }}
   <div class = 'author'>
