@@ -155,7 +155,8 @@ function isChild(node, parentClass) {
         rawData.forEach(function(element){
           data[element.name] = element.value;
         });
-
+        
+        data.hasOwnProperty("") ? delete data[""] : false;
         return JSON.stringify(data);
       }
 
