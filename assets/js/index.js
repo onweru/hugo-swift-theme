@@ -295,8 +295,8 @@ const copyToClipboard = str => {
 }
 
 (function copyHeadingLink() {
-  let deeplinks = document.querySelectorAll;
   let deeplink = 'link';
+  let deeplinks = document.querySelectorAll(`.${deeplink}`);
   if(deeplinks) {
     document.body.addEventListener('click', function(event)
     {
