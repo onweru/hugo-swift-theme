@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $bgImage := ( absURL (printf "images/%s" .Params.image) ) }}
+{{ $bgImage := printf "images/%s" ($.Param "image") | absURL }}
 <section class = 'post_header' style = 'background-image:url({{ $bgImage }});'>
   <h1 class='post_title' itemprop='name headline'>{{ .Title }}</h1>
 </section>
