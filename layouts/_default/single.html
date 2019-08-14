@@ -1,6 +1,7 @@
 {{ define "main" }}
-{{ $bgImage := printf "images/%s" ($.Param "image") | absURL }}
+{{ $bgImage := path.Join "images" ($.Param "image") | absLangURL }}
 <section class = 'post_header' style = 'background-image:url({{ $bgImage }});'>
+{{ printf "<!-- inline style to be moved into CSS later -->" | safeHTML }}
   <h1 class='post_title' itemprop='name headline'>{{ .Title }}</h1>
 </section>
 <div class = 'post'>

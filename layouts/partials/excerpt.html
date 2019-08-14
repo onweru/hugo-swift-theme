@@ -1,6 +1,6 @@
 <li class = 'post_item'>
   <a class = 'post_card' href='{{ .RelPermalink }}' title = '{{ .Title }}'>
-    <img class = 'post_thumbnail' src='{{ path.Join "images" .Params.image | absLangURL }}'>
+    <img class = 'post_thumbnail' src='{{ path.Join "images" ($.Param "image") | absLangURL }}'>
   </a>
   <div class = 'excerpt'>
     <div class = 'excerpt_meta'>
