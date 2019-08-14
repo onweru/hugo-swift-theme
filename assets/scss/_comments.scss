@@ -37,7 +37,7 @@
       border-radius: 15px;
       min-height: 2.5rem !important;
     }
-    &-submit{
+    &-submit, &-reset{
       background-color: $theme;
       color:$light;
       font-size:1.25rem;
@@ -66,18 +66,38 @@
     cursor: pointer;
     text-transform: capitalize;
   }
+  .reply-notice{
+    .comment_pic{
+      max-width: 3rem;
+      max-height: 3rem;
+      margin-left: 0.6rem;
+      margin-right: 0.6rem;
+    }
+    .reply-arrow {
+      font-size: 1.5rem;
+      font-weight: normal;
+      vertical-align: middle;
+    }
+    .reply-notice-close-btn{
+      padding-left: 0.6rem;
+      color: $theme;
+    }
+  }
 }
 .comment{
   &s {
     position: relative;
   }
+  &_reply{
+    margin-left: 2rem;
+  }
 }
 
 .modal {
-	display: none;
-	position: fixed;
+  display: none;
+  position: fixed;
   bottom: 0;
-	top: 0;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
@@ -102,7 +122,7 @@
   &_show {
     overflow: hidden;
     position: relative;
-    &:before {
+    &::before {
       position: absolute;
       content: '';
       top: 0;
@@ -124,22 +144,22 @@
   }
 }
 
-.form-loading:before {
-	content: '';
+.form-loading::before {
+  content: '';
 }
 
 .form-loading .form_spinner {
-	display: block;
+  display: block;
 }
 
-.form:before {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(255, 255, 255, 0.7);
-	z-index: 10;
+.form::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
 }
 
 .g-recaptcha {

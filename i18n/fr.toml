@@ -8,3 +8,59 @@
   other = "Ecrit par"
 [author_profile]
   other = "Profil de {{ . }}"
+[btnReset]
+  other = "Effacer"
+[btnSubmit]
+  other = "Envoyer"
+[btnSubmitted]
+  other = "Envoyé"
+[comment]
+  other = "Commentaire"
+[noComment]
+  other = "Pas de commentaire"
+[email]
+  other = "Email"
+[name]
+  other = "Nom"
+[typeInComment]
+  other = "Saisir un commentaire..."
+[moreDay]
+  other = "JRS"
+[moreHr]
+  other = "HRS"
+[moreMin]
+  other = "MINS"
+[moreMonth]
+  other = "MOIS"
+[moreWk]
+  other = "SEMS"
+[moreYr]
+  other = "ANS"
+[oneDay]
+  other = "JR"
+[oneHr]
+  other = "HR"
+[oneMin]
+  other = "MIN"
+[oneMonth]
+  other = "MOIS"
+[oneWk]
+  other = "SEM"
+[oneYr]
+  other = "YR"
+[timeAgoStr]
+  other = "IL Y A ${timeAgo}&nbsp;${timeTag}"
+[close]
+  other = "Fermer"
+[cancel]
+  other = "Annuler"
+[successTitle]
+  other = "Commentaire envoyé"
+[successMsg]
+  other = "Merci de votre commentaire !  Il s'affichera sur le site une fois approuvé."
+[errTitle]
+  other = "Erreur"
+[errMsg]
+  other = "Désolé, une erreur s'est produite lors de l'envoi du commentaire !"
+[replyToMsg]
+  other = "Répondre à ce commentaire"

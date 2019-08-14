@@ -1,23 +1,42 @@
 <h3>Comments</h3>
 <div class = 'comments'>
-  {{ $.Scratch.Add "hasComments" 0 }}
-  {{ $entryId := md5 .File.Path }}
+  {{- $entryId := md5 .File.Path -}}
   {{ if .Site.Data.comments }}
-  {{ range $index, $comments := (index $.Site.Data.comments $entryId ) }}
-  {{ $.Scratch.Add "hasComments" 1 }}
-  <div class = 'comment'>
-    <img src = 'https://www.gravatar.com/avatar/{{ .email }}?s=100' alt = 'user icon' class = 'comment_pic'>
-      <div class = 'comment_meta'>
-        <div class = 'comment_heading pale' data-time = '{{ .date }}'></div>
-        <div class = 'comment_author comment_name'>{{ .name }}</div>
-      </div>
-      <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
-  </div>
-  {{ end }}
-  {{ end }}
+    {{- $comments := index $.Site.Data.comments $entryId -}}
+    {{ if not $comments }}
+      <p>{{ i18n "noComment" }}</p>
+    {{ else }}
+      {{ range $comments }}
+        {{ if not .replyThread }}
+          {{ $.Scratch.Set "threadID" ._id }}
+          <article id = '{{ ._id }}' class = 'comment'>
+            <img src = 'https://www.gravatar.com/avatar/{{ .email }}?s=100' alt = 'user icon' class = 'comment_pic'>
+            <div class = 'comment_meta'>
+              <a href='#{{ ._id }}'><div class = 'comment_heading pale' data-time = '{{ .date }}'></div></a>
+              <div class = 'comment_author comment_name'><span class = 'comment_name_span'>{{ .name }}</span></div>
+            </div>
+            <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
+            <div class = 'comment_threadID hidden'>{{ ._id }}</div>
+            <a class='btn comment_reply-btn' href='#comments-form'>{{ i18n "replyToMsg" }}</a>
+          </article>
 
-  {{ if eq ($.Scratch.Get "hasComments") 0 }}
-  <p>Nothing yet.</p>
+          {{ range $comments }}
+            {{ if eq .replyThread ($.Scratch.Get "threadID") }}
+              <article id = '{{ ._id }}' class = 'comment comment_reply'>
+                <img src = 'https://www.gravatar.com/avatar/{{ .email }}?s=100' alt = 'user icon' class = 'comment_pic'>
+                  <div class = 'comment_meta'>
+                  <a href='#{{ ._id }}'><div class = 'comment_heading pale' data-time = '{{ .date }}'></div></a>
+                  <div class = 'comment_author comment_name'><span class = 'comment_name_span'>{{ .name }}</span><span> ↷ </span><a href='#{{ .replyID }}' class='reply-target'>{{ .replyName }}</a></div>
+                </div>
+                <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
+                <div class = 'comment_threadID hidden'>{{ .replyThread }}</div>
+                <a class='btn comment_reply-btn' href='#comments-form'>{{ i18n "replyToMsg" }}</a>
+              </article>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
   {{ end }}
 
   {{ partial "comments-form.html" . }}
@@ -25,7 +44,7 @@
     <div class = 'modal_inner'>
       <h2 class = 'modal_title'></h2>
       <div class = 'modal_text'></div>
-      <button class = 'modal_close'>Close</button>
+      <button class = 'modal_close'>{{ i18n "close" }}</button>
     </div>
   </article>
 </div>

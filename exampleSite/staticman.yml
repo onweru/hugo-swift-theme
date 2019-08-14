@@ -1,6 +1,6 @@
 # Edit accordingly
 comments:
-  allowedFields: ["name", "email", "comment"]
+  allowedFields: ["name", "email", "comment", "replyID", "replyName", "replyThread"]
   allowedOrigins: ["localhost", "example.com"]
   branch: "master"  # should match your config.toml
   filename: "comment-{@date:YYYY-MM-DDTHH-mm-ss.SSS}"
