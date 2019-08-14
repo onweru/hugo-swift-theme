@@ -453,6 +453,11 @@ section p {
   justify-content: center;
 }
 
+.author_reply-btn,
+.comment_reply-btn {
+  width: max-content;
+}
+
 .pale {
   opacity: 0.7;
 }
@@ -1088,18 +1093,18 @@ section p {
   min-height: 2.5rem !important;
 }
 
-.form_input-submit {
+.form_input-submit, .form_input-reset {
   background-color: #04a763;
   color: #fff;
   font-size: 1.25rem;
   cursor: pointer;
 }
 
-.form_input-submit, .form_input-submit:hover {
+.form_input-submit, .form_input-submit:hover, .form_input-reset, .form_input-reset:hover {
   border: none;
 }
 
-.form_input-submit:hover {
+.form_input-submit:hover, .form_input-reset:hover {
   background-color: #05c072;
 }
 
@@ -1124,8 +1129,30 @@ section p {
   box-shadow: 0 0 5rem rgba(0, 0, 0, 0.03);
 }
 
+.form .reply-notice .comment_pic {
+  max-width: 3rem;
+  max-height: 3rem;
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+}
+
+.form .reply-notice .reply-arrow {
+  font-size: 1.5rem;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+.form .reply-notice .reply-notice-close-btn {
+  padding-left: 0.6rem;
+  color: #04a763;
+}
+
 .comments {
   position: relative;
+}
+
+.comment_reply {
+  margin-left: 2rem;
 }
 
 .modal {
@@ -1163,7 +1190,7 @@ section p {
   position: relative;
 }
 
-.modal_show:before {
+.modal_show::before {
   position: absolute;
   content: '';
   top: 0;
@@ -1185,7 +1212,7 @@ section p {
   color: #fff;
 }
 
-.form-loading:before {
+.form-loading::before {
   content: '';
 }
 
@@ -1193,7 +1220,7 @@ section p {
   display: block;
 }
 
-.form:before {
+.form::before {
   position: absolute;
   top: 0;
   left: 0;

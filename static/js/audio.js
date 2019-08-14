@@ -53,7 +53,7 @@
     var length = this.waves.length;
 	  while(++index < length){
       this.waves[index].strokeStyle = gradient;
-    }  
+    }
   }
   });
 })();

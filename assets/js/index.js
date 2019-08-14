@@ -52,7 +52,6 @@ function isChild(node, parentClass) {
   elem('.year').innerHTML = year;
 })();
 
-
 (function() {
   let bar = 'nav_bar-wrap';
   let navBar = elem(`.${bar}`);
@@ -115,31 +114,32 @@ function isChild(node, parentClass) {
 
 (function comments(){
 
-  let comments = elem('.js-comments');
+  let comments = elem('.comments');
   let form = elem('.form');
   let body = elem('body');
   let button = elem('.form_toggle');
+  let replyNoticeTag = elem('.form .reply-notice')
   let loading = 'form-loading';
   let open = 'form-open';
   let show = 'modal_show'
   let toggled = 'toggled';
 
-  let successOutput = [
-    'Review submitted',
-    'Thanks for your review! It will show on the site once it has been approved.'
-  ];
-
-  let errorOutput = [
-    'Error',
-    'Sorry, there was an error with the submission!'
-  ];
+  let successOutput = ['{{ i18n "successTitle" }}', '{{ i18n "successMsg" }}'];
+  let errorOutput = ['{{ i18n "errTitle" }}', '{{ i18n "errMsg" }}'];
 
   function handleForm(form) {
+    // clear form when reset button is clicked
+    elem('.form_input-reset').addEventListener('click', function (){
+      clearForm();
+    });
+
     form.addEventListener('submit', function (event) {
       pushClass(form, loading);
+      elem('.form_input-submit').value = '{{ i18n "btnSubmitted" }}';  // btn "submit"
 
       function resetForm() {
         deleteClass(form, loading);
+        elem('.form_input-submit').value = '{{ i18n "btnSubmit" }}';  // btn "submit"
         // $("form").trigger("reset");
       }
 
@@ -150,22 +150,37 @@ function isChild(node, parentClass) {
 
       event.preventDefault();
 
-      function formToJSON(obj) {
-        let rawData = Array.from(obj.elements);
-        let data = {};
-        rawData.forEach(function(element){
-          data[element.name] = element.value;
-        });
-        
-        data.hasOwnProperty("") ? delete data[""] : false;
-        return JSON.stringify(data);
-      }
+      {{ with .Site.Params.staticman -}}
+        let endpoint = '{{ .endpoint | default "https://staticman-frama.herokuapp.com" }}';
+        let gitProvider = '{{ .gitprovider }}';
+        let username = '{{ .username }}';
+        let repository = '{{ .repository }}';
+        let branch = '{{ .branch }}';
 
-      let data = formToJSON(form);
-      let url = form.getAttribute('action').trim();
+        let data = {
+          fields: {
+            name: elem('input[name="fields[name]"]', form).value,
+            email: elem('input[name="fields[email]"]', form).value,
+            comment: elem('input[name="fields[name]"]', form).value,
+            replyID: elem('input[name="fields[replyID]"]', form).value,
+            replyName: elem('input[name="fields[replyName]"]', form).value,
+            replyThread: elem('input[name="fields[replyThread]"]', form).value
+          },
+          options: {
+            slug: elem('input[name="options[slug]"]', form).value
+          }
+        };
+        {{ with .recaptcha }}
+          data.options.reCaptcha = {};
+          data.options.reCaptcha.siteKey = '{{ .sitekey }}';
+          data.options.reCaptcha.secret = '{{ .secret }}';
+          data["g-recaptcha-response"] = elem('[name="g-recaptcha-response"]', form).value;
+        {{ end }}
+      {{ end }}
+      let url = [endpoint, 'v3/entry', gitProvider, username, repository, branch, 'comments'].join('/');
       fetch(url, {
         method: "POST",
-        body: data,
+        body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json"
         }
@@ -187,31 +202,93 @@ function isChild(node, parentClass) {
     elem('.modal_close').addEventListener('click', function () {
       deleteClass(body, show);
       deleteClass(form, loading);
+      elem('.form_input-submit').value = '{{ i18n "btnSubmit" }}';  // btn "submit"
       deleteClass(form, open);
       deleteClass(button, toggled);
+      button.textContent = '{{ i18n "comment" }}';  // change button text to original state
     });
   }
-
-  containsClass(body, show) ? closeModal() : false;
 
   function showModal(title, message) {
     elem('.modal_title').textContent = title;
     elem('.modal_text').innerHTML = message;
 
     pushClass(body, show);
+    closeModal();
+    clearForm();
   }
-
 
   (function toggleForm() {
     if(button) {
       button.addEventListener('click', function() {
         modifyClass(form, open);
         modifyClass(this, toggled);
-        this.textContent  = containsClass(this, toggled) ?  'cancel' : 'comment';
+        this.textContent  = containsClass(this, toggled) ?  '{{ i18n "cancel" }}' : '{{ i18n "comment" }}';
       });
     }
   })();
 
+  function clearForm() {
+    resetReplyTarget();
+    // empty all text & hidden fields
+    elems('.form_input').forEach((form_input) => {form_input.value = ''});
+  }
+
+  function resetReplyTarget() {
+    elem('.form-comments .reply-notice .reply-name').textContent = ''; // reset reply target
+    let avatarTag = elem('.form-comments .reply-notice img');
+    // using elem('.reply-notice-close-btn') doesn't return an operable object
+    if (avatarTag) {
+      replyNoticeTag.removeChild(avatarTag); // remove reply avatar
+      replyNoticeTag.removeChild(replyNoticeTag.lastChild); // remove the rightmost '×' button
+      pushClass(replyNoticeTag, 'hidden'); // hide reply target display
+    }
+    elem('.form-comments input[name="fields[replyThread]"]').value = '';
+    elem('.form-comments input[name="fields[replyID]"]').value = '';
+    elem('.form-comments input[name="fields[replyName]"]').value = '';
+  }
+
+  // record reply target when "reply to this comment" is pressed
+  (function toggleReplyNotice() {
+    if (comments) {
+      comments.addEventListener('click', function (evt){
+        if (evt.target && containsClass(evt.target, 'comment_reply-btn')) {
+          // open the form in it's closed
+          if (!containsClass(form, open)) {
+            pushClass(form, open);
+            pushClass(button, toggled);
+            button.textContent  = '{{ i18n "cancel" }}';
+          }
+          resetReplyTarget();
+          let comment = evt.target.parentNode;
+          let threadID = comment.getElementsByClassName('comment_threadID')[0].textContent;
+          elem('.form-comments input[name="fields[replyThread]"]').value = threadID;
+          elem('.form-comments input[name="fields[replyID]"]').value = comment.id;
+          let replyName = comment.getElementsByClassName('comment_name_span')[0].textContent;
+          elem('.form-comments input[name="fields[replyName]"]').value = replyName;
+
+          // display reply target avatar and name
+          deleteClass(replyNoticeTag, 'hidden');
+          elem('.form-comments .reply-name').textContent = replyName;
+          let avatarTag = createEl('img');
+          avatarTag.className = 'comment_pic';
+          avatarTag.src = comment.getElementsByClassName('comment_pic')[0].src;
+          let replyNameTag = replyNoticeTag.getElementsByClassName('reply-name')[0];
+          replyNoticeTag.insertBefore(avatarTag, replyNameTag);
+
+          // add button for removing reply target (static method would give error msg)
+          let closeReplyBtnTag = createEl('a');
+          closeReplyBtnTag.className = 'reply-notice-close-btn';
+          closeReplyBtnTag.textContent = '\u274C';
+          // handle removal of reply target when '×' is pressed
+          closeReplyBtnTag.addEventListener('click', function(){
+            resetReplyTarget();
+          });
+          replyNoticeTag.appendChild(closeReplyBtnTag);
+        }
+      });
+    }
+  })();
 })();
 
 function elemAttribute(elem, attr, value = null) {
@@ -320,7 +397,7 @@ const copyToClipboard = str => {
   postCopy = 'post_copy';
   postLink = 'post_card';
   page = document.documentElement;
-  
+
   page.addEventListener('click', function(event) {
     target = event.target;
     isCopyIcon = containsClass(target, copy);
@@ -335,7 +412,7 @@ const copyToClipboard = str => {
       if(link) {
         copyToClipboard(link);
         pushClass(target, copied);
-      } 
+      }
     }
   });
 })();

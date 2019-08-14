@@ -8,3 +8,59 @@
   other = "Written by"
 [author_profile]
   other = "{{ . }}'s profile"
+[btnReset]
+  other = "Reset"
+[btnSubmit]
+  other = "Submit"
+[btnSubmitted]
+  other = "Submitted"
+[comment]
+  other = "Comment"
+[noComment]
+  other = "No comment"
+[email]
+  other = "Email"
+[name]
+  other = "Name"
+[typeInComment]
+  other = "Type in a comment..."
+[moreDay]
+  other = "DAYS"
+[moreHr]
+  other = "HRS"
+[moreMin]
+  other = "MINS"
+[moreMonth]
+  other = "MONTHS"
+[moreWk]
+  other = "WKS"
+[moreYr]
+  other = "YRS"
+[oneDay]
+  other = "DAY"
+[oneHr]
+  other = "HR"
+[oneMin]
+  other = "MIN"
+[oneMonth]
+  other = "MONTH"
+[oneWk]
+  other = "WK"
+[oneYr]
+  other = "YR"
+[timeAgoStr]
+  other = "${timeAgo}&nbsp;${timeTag} AGO"
+[close]
+  other = "Close"
+[cancel]
+  other = "Cancel"
+[successTitle]
+  other = "Review submitted"
+[successMsg]
+  other = "Thanks for your review! It will be shown on the site once it has been approved."
+[errTitle]
+  other = "Error"
+[errMsg]
+  other = "Sorry, there was an error with the submission!"
+[replyToMsg]
+  other = "Reply to this comment"

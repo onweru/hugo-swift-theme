@@ -19,5 +19,6 @@
   </aside>
 </div>
 <script src = '{{ absURL "js/autosize.min.js" }}'></script>
-<script src = '{{ absURL "js/timeago.js" }}'></script>
+{{ $timeagoScr := resources.Get "js/timeago.js" | resources.ExecuteAsTemplate "js/timeago.js" . }}
+<script src = '{{ $timeagoScr.Permalink }}'></script>
 {{ end }}

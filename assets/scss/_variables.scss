@@ -15,7 +15,7 @@ $linear: linear-gradient(to right bottom, darken($theme, 10%), $theme);
   --text: var(--dark);
   --font: 'Metropolis', sans-serif;
 }
-@media (prefers-color-scheme: dark) { 
+@media (prefers-color-scheme: dark) {
   :root {
     --bg: var(--dark);
     --text: var(--light);
