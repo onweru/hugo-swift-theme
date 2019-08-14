@@ -64,3 +64,5 @@
   other = "Sorry, there was an error with the submission!"
 [replyToMsg]
   other = "Reply to this comment"
+[moreFrom]
+  other = "More from {{ . }}"

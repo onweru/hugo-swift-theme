@@ -64,3 +64,5 @@
   other = "Désolé, une erreur s'est produite lors de l'envoi du commentaire !"
 [replyToMsg]
   other = "Répondre à ce commentaire"
+[moreFrom]
+  other = "Plus de billets sur {{ . }}"

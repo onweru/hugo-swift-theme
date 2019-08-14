@@ -64,3 +64,5 @@
   other = "抱歉，提交留言出錯！"
 [replyToMsg]
   other = "回覆該訊息"
+[moreFrom]
+  other = "更多 {{ . }} 文章"
