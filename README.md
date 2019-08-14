@@ -10,7 +10,7 @@ At its core, it's minimalistic; it doesn't rely on monolithic libraries such e.g
 * Pagination
 * Responsive
 * Deeplinks
-* Dark Mode 
+* Dark Mode
 * Syntax Highlighting
 * [Staticman](https://staticman.net)
     * [reCAPTCHA](https://developers.google.com/recaptcha/docs/display)
@@ -57,15 +57,15 @@ By default, [Staticman](https://staticman.net) comments are disabled. If you wou
     ```
 
     In case of empty `endpoint`, it will fallback to the official production instance.
-    
+
     | instance | `endpoint` |
     | --- | --- |
     | official production | `https://api.staticman.net` |
     | GitLab | `https://staticman3.herokuapp.com` |
     | Framagit | `https://staticman-frama.herokuapp.com` |
-    
+
     Remark: You may adjust the `endpoint` to the one that your Staticman bot/GitHub App is associated with.
-    
+
     For `gitProvider`, you can choose either `github` or `gitlab`.  If you're using Framagit, choose `gitlab`.
 
 3. Proceed to setup `staticman.yml`.  Note that this YML file has to be **at the root of your Git repository**.  See the `exampleSite/` and the [Staticman docs](https://staticman.net/docs/) for detailed information of each parameter used in this YML file.

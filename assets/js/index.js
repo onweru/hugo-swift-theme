@@ -156,7 +156,7 @@ function isChild(node, parentClass) {
         rawData.forEach(function(element){
           data[element.name] = element.value;
         });
-        
+
         data.hasOwnProperty("") ? delete data[""] : false;
         return JSON.stringify(data);
       }
@@ -320,7 +320,7 @@ const copyToClipboard = str => {
   postCopy = 'post_copy';
   postLink = 'post_card';
   page = document.documentElement;
-  
+
   page.addEventListener('click', function(event) {
     target = event.target;
     isCopyIcon = containsClass(target, copy);
@@ -335,7 +335,7 @@ const copyToClipboard = str => {
       if(link) {
         copyToClipboard(link);
         pushClass(target, copied);
-      } 
+      }
     }
   });
 })();

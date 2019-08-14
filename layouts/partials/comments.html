@@ -15,11 +15,11 @@
   </div>
   {{ end }}
   {{ end }}
-  
+
   {{ if eq ($.Scratch.Get "hasComments") 0 }}
   <p>Nothing yet.</p>
   {{ end }}
-  
+
   {{ partial "comments-form.html" . }}
   <article class = 'modal'>
     <div class = 'modal_inner'>
