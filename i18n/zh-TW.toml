@@ -8,3 +8,59 @@
   other = "作者："
 [author_profile]
   other = "{{ . }} 的個人檔案"
+[btnReset]
+  other = "重設"
+[btnSubmit]
+  other = "提交"
+[btnSubmitted]
+  other = "已提交"
+[comment]
+  other = "留言"
+[noComment]
+  other = "沒有留言"
+[email]
+  other = "電郵"
+[name]
+  other = "名字"
+[typeInComment]
+  other = "輸入留言"
+[moreDay]
+  other = "日"
+[moreHr]
+  other = "小時"
+[moreMin]
+  other = "分鐘"
+[moreMonth]
+  other = "個月"
+[moreWk]
+  other = "星期"
+[moreYr]
+  other = "年"
+[oneDay]
+  other = "日"
+[oneHr]
+  other = "小時"
+[oneMin]
+  other = "分鐘"
+[oneMonth]
+  other = "個月"
+[oneWk]
+  other = "星期"
+[oneYr]
+  other = "年"
+[timeAgoStr]
+  other = "發表於 ${timeAgo}&nbsp;${timeTag} 前"
+[close]
+  other = "關閉"
+[cancel]
+  other = "取消"
+[successTitle]
+  other = "留言已提交"
+[successMsg]
+  other = "謝謝您的留言！經審核後，它將會顯示在站上。"
+[errTitle]
+  other = "錯誤"
+[errMsg]
+  other = "抱歉，提交留言出錯！"
+[replyToMsg]
+  other = "回覆該訊息"
