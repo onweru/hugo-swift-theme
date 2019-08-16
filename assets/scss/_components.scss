@@ -36,31 +36,11 @@
   border-radius: 0.25rem;
 }
 
-.gravatar{
-  background: $light;
-  width:90px;
-  border-radius:50%;
-  display:inline-block;
-  position: absolute;
-  bottom:-30px;
-  margin:0 10px 0 0;
-  @include shadow;
-  z-index: 2;
-}
-
 aside h3{
   position:relative;
   margin:0 !important;
 }
 
-.nav-secondary,
-.user-menu{
-  display: none !important;
-}
-
-span.right {
-  color: $theme;
-}
 section p{
   text-align:left;
   padding:10px 0;
