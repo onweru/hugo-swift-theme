@@ -65,4 +65,4 @@
 [replyToMsg]
   other = "Reply to this comment"
 [moreFrom]
-  other = "More from {{ . }}"
+  other = "More from"
