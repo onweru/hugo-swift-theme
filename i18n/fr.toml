@@ -65,4 +65,4 @@
 [replyToMsg]
   other = "Répondre à ce commentaire"
 [moreFrom]
-  other = "Plus de billets sur"
+  other = "Plus de billets sur {{ .Count }}"

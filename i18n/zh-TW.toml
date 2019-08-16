@@ -65,4 +65,4 @@
 [replyToMsg]
   other = "回覆該訊息"
 [moreFrom]
-  other = "更多 {{ . }} 文章"
+  other = "更多 {{ .Count }} 文章"
