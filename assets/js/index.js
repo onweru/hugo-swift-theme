@@ -161,7 +161,7 @@ function isChild(node, parentClass) {
           fields: {
             name: elem('input[name="fields[name]"]', form).value,
             email: elem('input[name="fields[email]"]', form).value,
-            comment: elem('input[name="fields[name]"]', form).value,
+            comment: elem('input[name="fields[comment]"]', form).value,
             replyID: elem('input[name="fields[replyID]"]', form).value,
             replyName: elem('input[name="fields[replyName]"]', form).value,
             replyThread: elem('input[name="fields[replyThread]"]', form).value
