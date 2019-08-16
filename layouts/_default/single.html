@@ -1,6 +1,13 @@
 {{ define "main" }}
-{{ $bgImage := path.Join "images" ($.Param "image") | absLangURL }}
-<section class = 'post_header' style = 'background-image:url({{ $bgImage }});'>
+{{ $scratch := newScratch }}
+{{ if isset .Params "image" }}
+  {{ $scratch.Set "image" .Params.image }}
+{{ else }}
+  {{ $scratch.Set "image" "thumbnail.svg" }}
+{{ end }}
+{{ $image := $scratch.Get "image" }}
+{{ $bg := (path.Join "images" $image | absLangURL) }}
+<section class = 'post_header' style = 'background-image:url({{ $bg }});'>
 {{ printf "<!-- inline style to be moved into CSS later -->" | safeHTML }}
   <h1 class='post_title' itemprop='name headline'>{{ .Title }}</h1>
 </section>

@@ -1,6 +1,13 @@
+{{ $scratch := newScratch }}
+{{ if isset .Params "image" }}
+  {{ $scratch.Set "image" .Params.image }}
+{{ else }}
+  {{ $scratch.Set "image" "thumbnail.svg" }}
+{{ end }}
+{{ $image := $scratch.Get "image" }}
+{{ $bg := (path.Join "images" $image | absLangURL) }}
 <li class = 'post_item'>
-  <a class = 'post_card' href='{{ .RelPermalink }}' title = '{{ .Title }}'>
-    <img class = 'post_thumbnail' src='{{ path.Join "images" ($.Param "image") | absLangURL }}'>
+  <a class = 'post_card' href='{{ .RelPermalink }}' title = '{{ .Title }}' style = 'background-image: url({{ $bg }});'>
   </a>
   <div class = 'excerpt'>
     <div class = 'excerpt_meta'>
