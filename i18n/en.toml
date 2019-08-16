@@ -62,7 +62,7 @@
   other = "Error"
 [errMsg]
   other = "Sorry, there was an error with the submission!"
-[replyToMsg]
-  other = "Reply to this comment"
+[reply]
+  other = "Reply"
 [moreFrom]
   other = "More from"
