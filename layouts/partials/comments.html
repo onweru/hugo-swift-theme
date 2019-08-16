@@ -17,7 +17,7 @@
             </div>
             <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
             <div class = 'comment_threadID hidden'>{{ ._id }}</div>
-            <a class='btn comment_reply-btn' href='#comments-form'>{{ i18n "replyToMsg" }}</a>
+            <a class='btn comment_reply-btn' href='#comments-form'>{{ i18n "reply" }}</a>
           </article>
 
           {{ range $comments }}
@@ -30,7 +30,7 @@
                 </div>
                 <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
                 <div class = 'comment_threadID hidden'>{{ .replyThread }}</div>
-                <a class='btn comment_reply-btn' href='#comments-form'>{{ i18n "replyToMsg" }}</a>
+                <a class='btn comment_reply-btn' href='#comments-form'>{{ i18n "reply" }}</a>
               </article>
             {{ end }}
           {{ end }}

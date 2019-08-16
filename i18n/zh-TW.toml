@@ -62,7 +62,7 @@
   other = "錯誤"
 [errMsg]
   other = "抱歉，提交留言出錯！"
-[replyToMsg]
-  other = "回覆該訊息"
+[reply]
+  other = "回覆"
 [moreFrom]
   other = "更多 {{ .Count }} 文章"
