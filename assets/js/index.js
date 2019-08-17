@@ -13,7 +13,6 @@ function elems(selector, parent = document) {
 }
 
 function pushClass(el, targetClass) {
-  // equivalent to addClass
   if (el && typeof el == 'object' && targetClass) {
     elClass = el.classList;
     elClass.contains(targetClass) ? false : elClass.add(targetClass);
@@ -21,7 +20,6 @@ function pushClass(el, targetClass) {
 }
 
 function deleteClass(el, targetClass) {
-  // equivalent to removeClass
   if (el && typeof el == 'object' && targetClass) {
     elClass = el.classList;
     elClass.contains(targetClass) ? elClass.remove(targetClass) : false;
@@ -75,7 +73,6 @@ function isChild(node, parentClass) {
     status ? modifyClass(nav, open) : modifyClass(nav, exit);
   }
 
-  // $('.nav-bar, .nav-close').on('click', () => toggleMenu());
   navBar.addEventListener('click', function() {
     toggleMenu();
   });
@@ -89,57 +86,37 @@ function isChild(node, parentClass) {
 
 })();
 
-(function share(){
-  let share = elem('.share');
-  let open = 'share-open';
-  let close = 'share-close';
-  let button = elem('.share-trigger');
-
-  function showShare() {
-    pushClass(share, open);
-    deleteClass(share, close);
-  }
-
-  function hideShare() {
-    pushClass(share, open);
-    deleteClass(share, close);
-  }
-  if (button) {
-    button.addEventListener('click', function() {
-      showShare();
-      setTimeout(hideShare, 5000);
-    });
-  }
-})();
-
 (function comments(){
+  let body, button, comments, form, loading, replyNoticeTag, open, show, toggled;
 
-  let comments = elem('.comments');
-  let form = elem('.form');
-  let body = elem('body');
-  let button = elem('.form_toggle');
-  let replyNoticeTag = elem('.form .reply-notice')
-  let loading = 'form-loading';
-  let open = 'form-open';
-  let show = 'modal_show'
-  let toggled = 'toggled';
+  comments = elem('.comments');
+  form = elem('.form');
+  body = elem('body');
+  button = elem('.form_toggle');
+  replyNoticeTag = elem('.form .reply_notice')
+  loading = 'form_loading';
+  open = 'form_open';
+  show = 'modal_show'
+  toggled = 'toggled';
 
-  let successOutput = ['{{ i18n "successTitle" }}', '{{ i18n "successMsg" }}'];
-  let errorOutput = ['{{ i18n "errTitle" }}', '{{ i18n "errMsg" }}'];
+  let successOutput, errorOutput;
+  
+  successOutput = ['{{ i18n "successTitle" }}', '{{ i18n "successMsg" }}'];
+  errorOutput = ['{{ i18n "errTitle" }}', '{{ i18n "errMsg" }}'];
 
   function handleForm(form) {
     // clear form when reset button is clicked
-    elem('.form_input-reset').addEventListener('click', function (){
+    elem('.form_reset').addEventListener('click', function (){
       clearForm();
     });
 
     form.addEventListener('submit', function (event) {
       pushClass(form, loading);
-      elem('.form_input-submit').value = '{{ i18n "btnSubmitted" }}';  // btn "submit"
+      elem('.form_submit').value = '{{ i18n "btnSubmitted" }}';  // btn "submit"
 
       function resetForm() {
         deleteClass(form, loading);
-        elem('.form_input-submit').value = '{{ i18n "btnSubmit" }}';  // btn "submit"
+        elem('.form_submit').value = '{{ i18n "btnSubmit" }}';  // btn "submit"
         // $("form").trigger("reset");
       }
 
@@ -159,15 +136,15 @@ function isChild(node, parentClass) {
 
         let data = {
           fields: {
-            name: elem('input[name="fields[name]"]', form).value,
-            email: elem('input[name="fields[email]"]', form).value,
-            comment: elem('input[name="fields[comment]"]', form).value,
-            replyID: elem('input[name="fields[replyID]"]', form).value,
-            replyName: elem('input[name="fields[replyName]"]', form).value,
-            replyThread: elem('input[name="fields[replyThread]"]', form).value
+            name: elem('.form_name', form).value,
+            email: elem('.form_email', form).value,
+            comment: elem('.form_message', form).value,
+            replyID: elem('.reply_id', form).value,
+            replyName: elem('.reply_name', form).value,
+            replyThread: elem('.reply_thread', form).value
           },
           options: {
-            slug: elem('input[name="options[slug]"]', form).value
+            slug: elem('.form_slug', form).value
           }
         };
         {{ with .recaptcha }}
@@ -202,7 +179,7 @@ function isChild(node, parentClass) {
     elem('.modal_close').addEventListener('click', function () {
       deleteClass(body, show);
       deleteClass(form, loading);
-      elem('.form_input-submit').value = '{{ i18n "btnSubmit" }}';  // btn "submit"
+      elem('.form_submit').value = '{{ i18n "btnSubmit" }}';  // btn "submit"
       deleteClass(form, open);
       deleteClass(button, toggled);
       button.textContent = '{{ i18n "comment" }}';  // change button text to original state
@@ -235,17 +212,17 @@ function isChild(node, parentClass) {
   }
 
   function resetReplyTarget() {
-    elem('.form-comments .reply-notice .reply-name').textContent = ''; // reset reply target
-    let avatarTag = elem('.form-comments .reply-notice img');
-    // using elem('.reply-notice-close-btn') doesn't return an operable object
+    elem('.comment_form .reply_notice .reply_name').textContent = ''; // reset reply target
+    let avatarTag = elem('.comment_form .reply_notice img');
+    // using elem('.reply_notice-close-btn') doesn't return an operable object
     if (avatarTag) {
       replyNoticeTag.removeChild(avatarTag); // remove reply avatar
       replyNoticeTag.removeChild(replyNoticeTag.lastChild); // remove the rightmost '×' button
       pushClass(replyNoticeTag, 'hidden'); // hide reply target display
     }
-    elem('.form-comments input[name="fields[replyThread]"]').value = '';
-    elem('.form-comments input[name="fields[replyID]"]').value = '';
-    elem('.form-comments input[name="fields[replyName]"]').value = '';
+    elem('.reply_thread').value = '';
+    elem('.reply_id').value = '';
+    elem('.reply_name').value = '';
   }
 
   // record reply target when "reply to this comment" is pressed
@@ -262,14 +239,14 @@ function isChild(node, parentClass) {
           resetReplyTarget();
           let comment = evt.target.parentNode;
           let threadID = comment.getElementsByClassName('comment_threadID')[0].textContent;
-          elem('.form-comments input[name="fields[replyThread]"]').value = threadID;
-          elem('.form-comments input[name="fields[replyID]"]').value = comment.id;
+          elem('.reply_thread').value = threadID;
+          elem('.reply_id').value = comment.id;
           let replyName = comment.getElementsByClassName('comment_name_span')[0].textContent;
-          elem('.form-comments input[name="fields[replyName]"]').value = replyName;
+          elem('.reply_name').value = replyName;
 
           // display reply target avatar and name
           deleteClass(replyNoticeTag, 'hidden');
-          elem('.form-comments .reply-name').textContent = replyName;
+          elem('.comment_form .reply_name').textContent = replyName;
           let avatarTag = createEl('img');
           avatarTag.className = 'comment_pic';
           avatarTag.src = comment.getElementsByClassName('comment_pic')[0].src;
@@ -278,7 +255,7 @@ function isChild(node, parentClass) {
 
           // add button for removing reply target (static method would give error msg)
           let closeReplyBtnTag = createEl('a');
-          closeReplyBtnTag.className = 'reply-notice-close-btn';
+          closeReplyBtnTag.className = 'reply_close';
           closeReplyBtnTag.textContent = '\u274C';
           // handle removal of reply target when '×' is pressed
           closeReplyBtnTag.addEventListener('click', function(){
@@ -300,7 +277,7 @@ function elemAttribute(elem, attr, value = null) {
   }
 }
 
-(function(){
+(function makeExternalLinks(){
   let links = document.querySelectorAll('a');
   if(links) {
     Array.from(links).forEach(function(link){
@@ -380,7 +357,7 @@ const copyToClipboard = str => {
     document.body.addEventListener('click', function(event)
     {
       let target = event.target;
-      if (target.classList.contains(deeplink) || target.parentNode.classList.contains(deeplink)) {
+      if (target && target.classList.contains(deeplink) || target.parentNode.classList.contains(deeplink)) {
         event.preventDefault();
         let newLink = target.href != undefined ? target.href : target.parentNode.href;
         copyToClipboard(newLink);

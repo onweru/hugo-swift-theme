@@ -1,29 +1,29 @@
 {{ $vs := .Site.Params.staticman }}
 <span class = 'form_toggle btn'>{{ i18n "comment" }}</span>
-<form class = 'form form-comments' id = 'comments-form'>
+<form class = 'form comment_form' id = 'comment_form'>
 
   <!-- Start comment form display reply target -->
-  <p class='reply-notice hidden'>
-    <span class='reply-arrow'>↷</span>
-    <span class='reply-name comment_name'></span>
+  <p class='reply_notice hidden'>
+    <span class='reply_arrow'>↷</span>
+    <span class='reply_name comment_name'></span>
   </p>
   <!-- End comment form display reply target -->
 
-  <input name = 'options[slug]' type = 'hidden' value = '{{ md5 .File.Path }}'>
-  <input type='hidden' class='form_input' name='fields[replyThread]' value=''>
-  <input type='hidden' class='form_input' name='fields[replyID]' value=''>
-  <input type='hidden' class='form_input' name='fields[replyName]' value=''>
+  <input type = 'hidden' class = 'form_slug' name = 'options[slug]' value = '{{ md5 .File.Path }}'>
+  <input type='hidden' class='form_input reply_thread' name='fields[replyThread]'>
+  <input type='hidden' class='form_input reply_id' name='fields[replyID]'>
+  <input type='hidden' class='form_input reply_name' name='fields[replyName]'>
   {{- with $vs.reCaptcha -}}
     <input name = 'options[reCaptcha][siteKey]' type = 'hidden' value = '{{ .sitekey }}'>
     <input name = 'options[reCaptcha][secret]' type = 'hidden' value = '{{ .secret }}'>
   {{- end -}}
 
   <label class = 'form_label'>{{ i18n "name" }}</label>
-  <input name = 'fields[name]' type = 'text' placeholder = '{{ i18n "name" }}' class = 'form_input' required>
+  <input name = 'fields[name]' type = 'text' placeholder = '{{ i18n "name" }}' class = 'form_input form_name' required>
   <label class = 'form_label'>{{ i18n "email" }}</label>
-  <input name = 'fields[email]' type = 'email' placeholder = '{{ i18n "email" }}' class = 'form_input' required>
+  <input name = 'fields[email]' type = 'email' placeholder = '{{ i18n "email" }}' class = 'form_input form_email' required>
   <label class = 'form_label'>{{ i18n "comment" }}</label>
-  <textarea name = 'fields[comment]' placeholder = '{{ i18n "typeInComment" }}' class = 'form_input form_input-message' required></textarea>
+  <textarea name = 'fields[comment]' placeholder = '{{ i18n "typeInComment" }}' class = 'form_input form_message' required></textarea>
 
   {{- with $vs.reCaptcha -}}
     <div class = 'g-recaptcha' data-sitekey = '{{ .sitekey }}' data-callback='enableSubmitComment'></div>
@@ -38,7 +38,7 @@
   {{- end -}}
 
   <div>
-    <input type = 'submit' id = 'submitComment' value = '{{ i18n "btnSubmit" }}' class = 'btn form_input-submit' {{- if $vs.reCaptcha }} disabled {{- end }}>
-    <input type = 'reset' value='{{ i18n "btnReset" }}' class='btn form_input-reset'>
+    <input type = 'submit' id = 'submitComment' value = '{{ i18n "btnSubmit" }}' class = 'btn form_submit' {{- if $vs.reCaptcha }} disabled {{- end }}>
+    <input type = 'reset' value='{{ i18n "btnReset" }}' class='btn form_reset'>
   </div>
 </form>

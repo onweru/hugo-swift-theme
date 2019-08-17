@@ -22,49 +22,40 @@
   }
 }
 
-.btn{
-  min-width: 150px;
+
+.btn {
+  min-width: 12rem;
   font-size: 1rem;
   margin: 1rem 0 1.5rem;
-  display: inline-block;
-  padding: 7.5px 12.5px;
-  background-color: $theme;
+  padding: 0.5rem 2rem;
+  background: linear-gradient(to right, darken($theme, 10%), $theme);
   box-shadow: 0 1rem 4rem rgba($dark,0.5);
-  color: $light;
-  text-align: center;
   cursor: pointer;
-  border-radius: 0.25rem;
-}
-
-aside h3{
-  position:relative;
-  margin:0 !important;
-}
-
-section p{
-  text-align:left;
-  padding:10px 0;
-}
-.transparent{
-  padding:25px;
-}
-.point{
-  margin-right:15px;
-  color:$theme;
-}
-.wrap{
-  padding:30px 40px 50px 40px;
-}
-.hold{
-  position:relative;
-  overflow:visible;
-}
-.site{
-  &__icon{
-    width:40px;
-    margin: 0 10px 0 0;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5rem;
+  &, &_group {
+    display: inline-block;
+    color: $light;
+  }
+  &_group {
+    position: relative;
+  }
+  &_cancel {
+    content: "X";
+    width: 2.5rem;
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: grid;
+    align-items:center;
+    text-align: center;
+    border-left: 0.5px solid $light;
   }
 }
+
 @media screen and (min-width: 769px){
   .nav-menu a{
     display:inline-block;
