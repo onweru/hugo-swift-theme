@@ -24,7 +24,6 @@
 
 
 .btn {
-  min-width: 12rem;
   font-size: 1rem;
   margin: 1rem 0 1.5rem;
   padding: 0.5rem 2rem;
@@ -33,26 +32,31 @@
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
-  border-radius: 5rem;
+  border-radius: 3rem;
+  border: none;
   &, &_group {
+    width: 12rem;
     display: inline-block;
     color: $light;
   }
   &_group {
     position: relative;
+    margin: 1rem 0;
   }
-  &_cancel {
+  &_close {
     content: "X";
     width: 2.5rem;
     position: absolute;
-    opacity: 0;
     right: 0;
     top: 0;
     bottom: 0;
     display: grid;
     align-items:center;
     text-align: center;
-    border-left: 0.5px solid $light;
+    font-size: 1rem;
+    border-left: 1px solid var(--bg);
+    z-index: 2;
+    cursor: pointer;
   }
 }
 
@@ -123,7 +127,7 @@
 .comment {
   display: grid;
   grid-template-columns: 4rem 1fr;
-  grid-gap: 0 1rem ;
+  grid-gap: 0 0.75rem ;
   padding: 1rem;
   margin: 1.5rem 0;
   background-color: var(--accent);
@@ -136,8 +140,8 @@
   }
   &_pic {
     border-radius: 50%;
-    padding: 0.25rem;
-    margin: 0 0 0 -0.25rem;
+    padding: 0.33rem;
+    margin: 0 0 0 -0.33rem;
   }
   &_bio {
     padding-bottom: 0 !important;

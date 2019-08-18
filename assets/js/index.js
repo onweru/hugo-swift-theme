@@ -28,6 +28,7 @@ function deleteClass(el, targetClass) {
 
 function modifyClass(el, targetClass) {
   if (el && typeof el == 'object' && targetClass) {
+    // make exception for documentElement later
     elClass = el.classList;
     elClass.contains(targetClass) ? elClass.remove(targetClass) : elClass.add(targetClass);
   }
@@ -87,17 +88,18 @@ function isChild(node, parentClass) {
 })();
 
 (function comments(){
-  let body, button, comments, form, loading, replyNoticeTag, open, show, toggled;
-
+  let body, button, comments, form, hidden, loading, replyNotice, open, show, toggled;
+  
   comments = elem('.comments');
   form = elem('.form');
   body = elem('body');
   button = elem('.form_toggle');
-  replyNoticeTag = elem('.form .reply_notice')
+  replyNotice = elem('.reply_notice')
   loading = 'form_loading';
   open = 'form_open';
   show = 'modal_show'
   toggled = 'toggled';
+  hidden = 'hidden';
 
   let successOutput, errorOutput;
   
@@ -111,37 +113,47 @@ function isChild(node, parentClass) {
     });
 
     form.addEventListener('submit', function (event) {
+      let name, email, message, reply_id, reply_name, reply_thread, submit;
+      name = elem('.form_name', form);
+      email = elem('.form_email', form);
+      message = elem('.form_message', form);
+      reply_id = elem('.reply_id', form);
+      reply_name = elem('.reply_name', form);
+      reply_thread = elem('.reply_thread', form);
+      submit = elem('.form_submit');
+
+      
       pushClass(form, loading);
-      elem('.form_submit').value = '{{ i18n "btnSubmitted" }}';  // btn "submit"
+      submit.value = '{{ i18n "btnSubmitted" }}';  // btn "submit"
 
       function resetForm() {
         deleteClass(form, loading);
-        elem('.form_submit').value = '{{ i18n "btnSubmit" }}';  // btn "submit"
-        // $("form").trigger("reset");
+        submit.value = '{{ i18n "btnSubmit" }}';  // btn "submit"
       }
 
       function formActions(message) {
-        showModal(...message) // array destructuring
+        showModal(...message);
         resetForm();
       }
 
       event.preventDefault();
 
       {{ with .Site.Params.staticman -}}
-        let endpoint = '{{ .endpoint | default "https://staticman-frama.herokuapp.com" }}';
-        let gitProvider = '{{ .gitprovider }}';
-        let username = '{{ .username }}';
-        let repository = '{{ .repository }}';
-        let branch = '{{ .branch }}';
+        let branch, endpoint, gitProvider, repo, username;
+        endpoint = '{{ .endpoint | default "https://staticman-frama.herokuapp.com" }}';
+        gitProvider = '{{ .gitprovider }}';
+        username = '{{ .username }}';
+        repo = '{{ .repository }}';
+        branch = '{{ .branch }}';
 
         let data = {
           fields: {
-            name: elem('.form_name', form).value,
-            email: elem('.form_email', form).value,
-            comment: elem('.form_message', form).value,
-            replyID: elem('.reply_id', form).value,
-            replyName: elem('.reply_name', form).value,
-            replyThread: elem('.reply_thread', form).value
+            name: name.value,
+            email: email.value,
+            comment: message.value,
+            replyID: reply_id.value,
+            replyName: reply_name.value,
+            replyThread: reply_thread.value
           },
           options: {
             slug: elem('.form_slug', form).value
@@ -189,79 +201,53 @@ function isChild(node, parentClass) {
   function showModal(title, message) {
     elem('.modal_title').textContent = title;
     elem('.modal_text').innerHTML = message;
-
     pushClass(body, show);
     closeModal();
     clearForm();
   }
 
   (function toggleForm() {
-    if(button) {
-      button.addEventListener('click', function() {
+    document.addEventListener('click', function(event) {
+      let isBtn, target;
+
+      target = event.target;
+      isBtn = containsClass(target, 'form_toggle') || containsClass(target, 'reply_btn') || containsClass(target, 'btn_close');
+
+      if(isBtn) {
         modifyClass(form, open);
-        modifyClass(this, toggled);
-        this.textContent  = containsClass(this, toggled) ?  '{{ i18n "cancel" }}' : '{{ i18n "comment" }}';
-      });
-    }
+        modifyClass(elem('.form_toggle'), hidden);
+        resetReplyTarget();
+      }
+
+    });
   })();
 
   function clearForm() {
-    resetReplyTarget();
-    // empty all text & hidden fields
-    elems('.form_input').forEach((form_input) => {form_input.value = ''});
+    let fields = elems('.form_input', form);
+    fields.forEach((field) => { field.value = '' });
   }
 
   function resetReplyTarget() {
-    elem('.comment_form .reply_notice .reply_name').textContent = ''; // reset reply target
-    let avatarTag = elem('.comment_form .reply_notice img');
-    // using elem('.reply_notice-close-btn') doesn't return an operable object
-    if (avatarTag) {
-      replyNoticeTag.removeChild(avatarTag); // remove reply avatar
-      replyNoticeTag.removeChild(replyNoticeTag.lastChild); // remove the rightmost '×' button
-      pushClass(replyNoticeTag, 'hidden'); // hide reply target display
-    }
-    elem('.reply_thread').value = '';
-    elem('.reply_id').value = '';
-    elem('.reply_name').value = '';
+    // toggle reply notice
+    modifyClass(replyNotice, 'hidden');
   }
 
   // record reply target when "reply to this comment" is pressed
   (function toggleReplyNotice() {
+    let comment, reply_id, reply_name, reply_thread;
+    reply_id = elem('.reply_id', form);
+    reply_name = elem('.reply_name', form);
+    reply_thread = elem('.reply_thread', form);
     if (comments) {
       comments.addEventListener('click', function (evt){
-        if (evt.target && containsClass(evt.target, 'comment_reply-btn')) {
-          // open the form in it's closed
-          if (!containsClass(form, open)) {
-            pushClass(form, open);
-            pushClass(button, toggled);
-            button.textContent  = '{{ i18n "cancel" }}';
-          }
-          resetReplyTarget();
-          let comment = evt.target.parentNode;
-          let threadID = comment.getElementsByClassName('comment_threadID')[0].textContent;
-          elem('.reply_thread').value = threadID;
-          elem('.reply_id').value = comment.id;
+        if (evt.target && containsClass(evt.target, 'reply_btn')) {
+          comment = evt.target.parentNode;
+          let threadID = elem('.comment_thread', comment).textContent;
+          reply_thread.value = threadID;
+          reply_id.value = comment.id;
           let replyName = comment.getElementsByClassName('comment_name_span')[0].textContent;
-          elem('.reply_name').value = replyName;
-
-          // display reply target avatar and name
-          deleteClass(replyNoticeTag, 'hidden');
-          elem('.comment_form .reply_name').textContent = replyName;
-          let avatarTag = createEl('img');
-          avatarTag.className = 'comment_pic';
-          avatarTag.src = comment.getElementsByClassName('comment_pic')[0].src;
-          let replyNameTag = replyNoticeTag.getElementsByClassName('reply-name')[0];
-          replyNoticeTag.insertBefore(avatarTag, replyNameTag);
-
-          // add button for removing reply target (static method would give error msg)
-          let closeReplyBtnTag = createEl('a');
-          closeReplyBtnTag.className = 'reply_close';
-          closeReplyBtnTag.textContent = '\u274C';
-          // handle removal of reply target when '×' is pressed
-          closeReplyBtnTag.addEventListener('click', function(){
-            resetReplyTarget();
-          });
-          replyNoticeTag.appendChild(closeReplyBtnTag);
+          reply_name.value = replyName;
+          elem('.reply_name').textContent = replyName;
         }
       });
     }
@@ -278,7 +264,7 @@ function elemAttribute(elem, attr, value = null) {
 }
 
 (function makeExternalLinks(){
-  let links = document.querySelectorAll('a');
+  let links = elems('a');
   if(links) {
     Array.from(links).forEach(function(link){
       let target, rel, blank, noopener, attr1, attr2, url, isExternal;
@@ -302,7 +288,6 @@ function elemAttribute(elem, attr, value = null) {
 let headingNodes = [], results, link, icon, current, id,
 tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
 
-
 current = document.URL;
 
 tags.forEach(function(tag){
@@ -325,41 +310,37 @@ headingNodes.forEach(function(node){
 });
 
 const copyToClipboard = str => {
-  // Create a <textarea> element
-  const el = createEl('textarea');
-  // Set its value to the string that you want copied
-  el.value = str;
-  // Make it readonly to be tamper-proof
-  el.setAttribute('readonly', '');
-  // Move outside the screen to make it invisible
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
-  // Append the <textarea> element to the HTML document
-  document.body.appendChild(el);
-  // Check if there is any content selected previously
-  const selected =
-  document.getSelection().rangeCount > 0
-  ? document.getSelection().getRangeAt(0)   // Store selection if found
-  : false;                                  // Mark as false to know no selection existed before
-  el.select();                              // Select the <textarea> content
-  document.execCommand('copy'); // Copy - only works as a result of a user action (e.g. click events)
-  document.body.removeChild(el);                  // Remove the <textarea> element
-  if (selected) {                                 // If a selection existed before copying
-    document.getSelection().removeAllRanges();    // Unselect everything on the HTML document
-    document.getSelection().addRange(selected);   // Restore the original selection
+  let copy, doc, selection, selected;
+  copy = createEl('textarea');
+  copy.value = str;
+  copy.setAttribute('readonly', '');
+  copy.style.position = 'absolute';
+  copy.style.left = '-9999px';
+  selection = document.getSelection();
+  doc = document.documentElement;
+  doc.appendChild(copy);
+  // check if there is any content selected previously
+  selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+  copy.select();
+  document.execCommand('copy');
+  doc.removeChild(copy);
+  if (selected) { // if a selection existed before copying
+    selection.removeAllRanges(); // unselect existing selection
+    selection.addRange(selected); // restore the original selection
   }
 }
 
 (function copyHeadingLink() {
-  let deeplink = 'link';
-  let deeplinks = document.querySelectorAll(`.${deeplink}`);
+  let deeplink, deeplinks, newLink, target;
+  deeplink = 'link';
+  deeplinks = elems(`.${deeplink}`);
   if(deeplinks) {
-    document.body.addEventListener('click', function(event)
+    document.addEventListener('click', function(event)
     {
-      let target = event.target;
+      target = event.target;
       if (target && target.classList.contains(deeplink) || target.parentNode.classList.contains(deeplink)) {
         event.preventDefault();
-        let newLink = target.href != undefined ? target.href : target.parentNode.href;
+        newLink = target.href != undefined ? target.href : target.parentNode.href;
         copyToClipboard(newLink);
       }
     });

@@ -2,14 +2,6 @@
   &s {
     position: relative;
   }
-  &_form {
-    height:0;
-    opacity: 0;
-    margin: 0 0 1rem;
-    transform: translateY(250px);
-    transition: opacity 0.3s ease-in , transform 0.3s ease-in;
-    border-radius: 0.67rem;
-  }
   &_reply{
     margin-left: 2rem;
   }
@@ -20,6 +12,12 @@
   flex-direction: column;
   width: 100%;
   background: transparent;
+  height:0;
+  opacity: 0;
+  margin: 0 0 1rem;
+  transform: translateY(250px);
+  transition: opacity 0.3s ease-in , transform 0.3s ease-in;
+  border-radius: 0.67rem;
   &_open{
     height: initial;
     transform: translateY(0);
@@ -50,23 +48,22 @@
   &_label{
     display:none;
   }
-}
-.reply_notice{
-  .comment_pic{
-    max-width: 3rem;
-    max-height: 3rem;
-    margin-left: 0.6rem;
-    margin-right: 0.6rem;
+  &_submit {
+    margin: 0;
   }
 }
-.reply_arrow {
-  font-size: 1.5rem;
-  font-weight: normal;
-  vertical-align: middle;
-}
-.reply_close{
-  padding-left: 0.6rem;
-  color: $theme;
+
+.reply{
+  &_btn {
+    width: 2rem;
+    height: 2rem;
+    background-image: url($reply-icon-path);
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
 }
 
 .modal {

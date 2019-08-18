@@ -64,5 +64,7 @@
   other = "Sorry, there was an error with the submission!"
 [reply]
   other = "Reply"
+[replyTo]
+  other = "Replying to"
 [moreFrom]
   other = "More from {{ .Count }}"

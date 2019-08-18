@@ -4,8 +4,7 @@
 
   <!-- Start comment form display reply target -->
   <p class='reply_notice hidden'>
-    <span class='reply_arrow'>↷</span>
-    <span class='reply_name comment_name'></span>
+    {{ i18n "replyTo" }} @<span class='reply_name'></span>
   </p>
   <!-- End comment form display reply target -->
 
@@ -27,18 +26,16 @@
 
   {{- with $vs.reCaptcha -}}
     <div class = 'g-recaptcha' data-sitekey = '{{ .sitekey }}' data-callback='enableSubmitComment'></div>
-
     <script type="text/javascript">
       function enableSubmitComment(){
         document.getElementById('submitComment').disabled = false;
       }
     </script>
-
     <script async src = 'https://www.google.com/recaptcha/api.js'></script>
   {{- end -}}
 
-  <div>
+  <div class = 'btn_group'>
     <input type = 'submit' id = 'submitComment' value = '{{ i18n "btnSubmit" }}' class = 'btn form_submit' {{- if $vs.reCaptcha }} disabled {{- end }}>
-    <input type = 'reset' value='{{ i18n "btnReset" }}' class='btn form_reset'>
+    <div class=' form_reset btn_close'>x</div>
   </div>
 </form>

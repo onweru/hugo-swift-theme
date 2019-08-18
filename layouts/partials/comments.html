@@ -16,8 +16,8 @@
               <div class = 'comment_author comment_name'><span class = 'comment_name_span'>{{ .name }}</span></div>
             </div>
             <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
-            <div class = 'comment_threadID hidden'>{{ ._id }}</div>
-            <a class='btn comment_reply-btn' href='#comments-form'>{{ i18n "reply" }}</a>
+            <div class = 'comment_thread hidden'>{{ ._id }}</div>
+            <div class = 'reply_btn'></div>
           </article>
 
           {{ range $comments }}
@@ -26,11 +26,11 @@
                 <img src = 'https://www.gravatar.com/avatar/{{ .email }}?s=100' alt = 'user icon' class = 'comment_pic'>
                   <div class = 'comment_meta'>
                   <a href='#{{ ._id }}'><div class = 'comment_heading pale' data-time = '{{ .date }}'></div></a>
-                  <div class = 'comment_author comment_name'><span class = 'comment_name_span'>{{ .name }}</span><span> ↷ </span><a href='#{{ .replyID }}' class='reply-target'>{{ .replyName }}</a></div>
+                  <div class = 'comment_author comment_name'><span class = 'comment_name_span'>{{ .name }}</span><span> ↷ </span><a href='#{{ .replyID }}' class='reply_target'>{{ .replyName }}</a></div>
                 </div>
                 <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
-                <div class = 'comment_threadID hidden'>{{ .replyThread }}</div>
-                <a class='btn comment_reply-btn' href='#comments-form'>{{ i18n "reply" }}</a>
+                <div class = 'comment_thread hidden'>{{ .replyThread }}</div>
+                <div class = 'reply_btn'></div>
               </article>
             {{ end }}
           {{ end }}
