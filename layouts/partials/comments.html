@@ -9,20 +9,20 @@
       {{ range $comments }}
         {{ if not .replyThread }}
           {{ $.Scratch.Set "threadID" ._id }}
-          <article id = '{{ ._id }}' class = 'comment'>
+          <div id = '{{ ._id }}' class = 'comment'>
             <img src = 'https://www.gravatar.com/avatar/{{ .email }}?s=100' alt = 'user icon' class = 'comment_pic'>
             <div class = 'comment_meta'>
               <a href='#{{ ._id }}'><div class = 'comment_heading pale' data-time = '{{ .date }}'></div></a>
-              <div class = 'comment_author comment_name'><span class = 'comment_name_span'>{{ .name }}</span></div>
+              <div class = 'comment_author comment_name'>{{ .name }}</div>
             </div>
             <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
             <div class = 'comment_thread hidden'>{{ ._id }}</div>
-            <div class = 'reply_btn'></div>
-          </article>
+            <div class = 'reply_btn icon'></div>
+          </div>
 
           {{ range $comments }}
             {{ if eq .replyThread ($.Scratch.Get "threadID") }}
-              <article id = '{{ ._id }}' class = 'comment comment_reply'>
+              <div id = '{{ ._id }}' class = 'comment comment_reply'>
                 <img src = 'https://www.gravatar.com/avatar/{{ .email }}?s=100' alt = 'user icon' class = 'comment_pic'>
                   <div class = 'comment_meta'>
                   <a href='#{{ ._id }}'><div class = 'comment_heading pale' data-time = '{{ .date }}'></div></a>
@@ -30,8 +30,8 @@
                 </div>
                 <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
                 <div class = 'comment_thread hidden'>{{ .replyThread }}</div>
-                <div class = 'reply_btn'></div>
-              </article>
+                <div class = 'reply_btn icon'></div>
+              </div>
             {{ end }}
           {{ end }}
         {{ end }}
@@ -40,11 +40,4 @@
   {{ end }}
 
   {{ partial "comments-form.html" . }}
-  <article class = 'modal'>
-    <div class = 'modal_inner'>
-      <h2 class = 'modal_title'></h2>
-      <div class = 'modal_text'></div>
-      <button class = 'modal_close'>{{ i18n "close" }}</button>
-    </div>
-  </article>
-</div>
+</div> 
