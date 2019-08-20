@@ -5,6 +5,7 @@ $copy-icon-aft: '{{ i18n "link_copied" }}';
 $prev-icon-path: '{{ absURL "images/icons/previous.svg" }}';
 $next-icon-path: '{{ absURL "images/icons/next.svg" }}';
 $reply-icon-path: '{{ absURL "images/icons/reply.svg"  }}';
+$close-icon-path: '{{ absURL "images/icons/close.svg"  }}';
 
 @import
 'fonts',
