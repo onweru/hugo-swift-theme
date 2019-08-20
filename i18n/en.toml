@@ -68,3 +68,7 @@
   other = "Replying to"
 [moreFrom]
   other = "More from {{ .Count }}"
+[discard]
+  other = "discard"
+[discardComment]
+  other = "Discard Comment"
