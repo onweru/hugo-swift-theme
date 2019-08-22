@@ -66,3 +66,7 @@
   other = "Répondre"
 [moreFrom]
   other = "Plus de billets sur {{ .Count }}"
+[discard]
+  other = "effacer"
+[discardComment]
+  other = "Effacer commentaire"

@@ -66,3 +66,7 @@
   other = "回覆"
 [moreFrom]
   other = "更多 {{ .Count }} 文章"
+[discard]
+  other = "清除"
+[discardComment]
+  other = "清除留言"
