@@ -13,7 +13,7 @@
             <img src = 'https://www.gravatar.com/avatar/{{ .email }}?s=100' alt = 'user icon' class = 'comment_pic'>
             <div class = 'comment_meta'>
               <a href='#{{ ._id }}'><div class = 'comment_heading pale' data-time = '{{ .date }}'></div></a>
-              <div class = 'comment_author comment_name'>{{ .name }}</div>
+              <div class = 'comment_author comment_name'><span class="comment_name_span">{{ .name }}</span></div>
             </div>
             <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
             <div class = 'comment_thread hidden'>{{ ._id }}</div>
