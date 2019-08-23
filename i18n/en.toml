@@ -52,8 +52,6 @@
   other = "${timeAgo}&nbsp;${timeTag} AGO"
 [close]
   other = "Close"
-[cancel]
-  other = "Cancel"
 [successTitle]
   other = "Review submitted"
 [successMsg]
@@ -62,10 +60,6 @@
   other = "Error"
 [errMsg]
   other = "Sorry, there was an error with the submission!"
-[reply]
-  other = "Reply"
-[replyTo]
-  other = "Replying to"
 [moreFrom]
   other = "More from {{ .Count }}"
 [discard]
