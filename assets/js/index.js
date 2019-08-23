@@ -7,12 +7,20 @@
 
   const doc = document.documentElement;
   const staticman = Object.create(null);
-  
-  {{ with .Site.Params.staticman.recaptcha -}}
+  {{ with .Site.Params.staticman -}}
+  const endpoint = '{{ .endpoint | default "https://staticman-frama.herokuapp.com" }}';
+  const gitProvider = '{{ .gitprovider }}';
+  const username = '{{ .username }}';
+  const repository = '{{ .repository }}';
+  const branch = '{{ .branch }}';
+
+  // store reCAPTCHA v2 site key and secret
+  {{ with .recaptcha -}}
   staticman.siteKey = '{{ .sitekey }}';
   staticman.secret = '{{ .secret }}';
   {{ end -}}
-  
+  {{ end -}}
+
   const translations = {
     success: {
       title: '{{ i18n "successTitle" }}',
@@ -31,57 +39,57 @@
     submit: '{{ i18n "btnSubmit" }}',
     submitted: '{{ i18n "btnSubmitted" }}'
   };
-  
+
   function isObj(obj) {
     return (obj && typeof obj === 'object' && obj !== null) ? true : false;
   }
-  
+
   function createEl(element = 'div') {
     return document.createElement(element);
   }
-  
+
   function elem(selector, parent = document){
     let elem = parent.querySelector(selector);
     return elem != false ? elem : false;
   }
-  
+
   function elems(selector, parent = document) {
     let elems = parent.querySelectorAll(selector);
     return elems.length ? elems : false;
   }
-  
+
   function pushClass(el, targetClass) {
     if (isObj(el) && targetClass) {
       elClass = el.classList;
       elClass.contains(targetClass) ? false : elClass.add(targetClass);
     }
   }
-  
+
   function deleteClass(el, targetClass) {
     if (isObj(el) && targetClass) {
       elClass = el.classList;
       elClass.contains(targetClass) ? elClass.remove(targetClass) : false;
     }
   }
-  
+
   function modifyClass(el, targetClass) {
     if (isObj(el) && targetClass) {
       elClass = el.classList;
       elClass.contains(targetClass) ? elClass.remove(targetClass) : elClass.add(targetClass);
     }
   }
-  
+
   function containsClass(el, targetClass) {
     if (isObj(el) && targetClass && el !== document ) {
       return el.classList.contains(targetClass) ? true : false;
     }
   }
-  
+
   function isChild(node, parentClass) {
     let objectsAreValid = isObj(node) && parentClass && typeof parentClass == 'string';
     return (objectsAreValid && node.closest(parentClass)) ? true : false;
   }
-  
+
   function elemAttribute(elem, attr, value = null) {
     if (value) {
       elem.setAttribute(attr, value);
@@ -90,7 +98,7 @@
       return value ? value : false;
     }
   }
-  
+
   function deleteChars(str, subs) {
     let newStr = str;
     if (Array.isArray(subs)) {
@@ -112,7 +120,7 @@
     var year = date.getFullYear();
     elem('.year').innerHTML = year;
   })();
-  
+
   (function() {
     let bar = 'nav_bar-wrap';
     let navBar = elem(`.${bar}`);
@@ -122,33 +130,33 @@
     let drop = 'nav-drop';
     let pop = 'nav-pop';
     let navDrop = elem(`.${drop}`);
-    
+
     function toggleMenu(){
       let menuOpen, menuPulled, status;
       modifyClass(navDrop, pop);
       modifyClass(navBar, hidden);
       menuOpen = containsClass(nav, open);
       menuPulled = containsClass(nav, exit);
-      
+
       status = menuOpen || menuPulled ? true : false;
-      
+
       status ? modifyClass(nav, exit) : modifyClass(nav, open);
       status ? modifyClass(nav, open) : modifyClass(nav, exit);
     }
-    
+
     navBar.addEventListener('click', function() {
       toggleMenu();
     });
     elem('.nav-close').addEventListener('click', function() {
       toggleMenu();
     });
-    
+
     elem('.nav-drop').addEventListener('click', function(e) {
       e.target === this ? toggleMenu() : false;
     });
-    
+
   })();
-  
+
   function convertToUnderScoreCase(str) {
     let char, newChar, newStr;
     newStr = '';
@@ -166,10 +174,10 @@
       return newStr;
     }
   }
-  
+
   function createModal(children, parent) {
     let body, modal, title;
-    
+
     modal = createEl();
     pushClass(modal, 'modal');
     body = createEl();
@@ -191,7 +199,7 @@
     parent.append(modal);
     pushClass(doc, 'modal_show');
   }
-  
+
   function fillModal(obj) {
     let el, targetClass, modal;
     modal = elem('.modal');
@@ -202,18 +210,18 @@
       el.innerHTML = content;
     }
   }
-  
+
   (function comments(){
     let comments, form, replyNotice, open;
-    
+
     comments = elem('.comments');
     form = elem('.form');
     button = elem('.form_toggle');
     replyNotice = elem('.reply_notice')
     open = 'form_open';
-    
+
     let successOutput, errorOutput;
-    
+
     successOutput = {
       modalTitle: translations.success.title,
       modalText: translations.success.text,
@@ -224,7 +232,7 @@
       modalText: translations.error.text,
       modalClose: translations.error.close
     };
-    
+
     function feedbackModal() {
       let body, button, children;
       body = createEl();
@@ -238,7 +246,7 @@
       ];
       return children;
     }
-    
+
     function confirmModal() {
       // confirm if you want to exit form
       let group, button, cancel;
@@ -256,7 +264,7 @@
       group.appendChild(cancel);
       return group;
     }
-    
+
     function handleForm(form) {
 
       function formValues() {
@@ -276,24 +284,24 @@
         });
         return obj;
       }
-      
+
       (function submitForm() {
         form.addEventListener('submit', function (event) {
           event.preventDefault();
-  
+
           let fields, recaptchaResponse, submit, url;
-          url = url = form.action;
+          url = [endpoint, 'v3/entry', gitProvider, username, repository, branch, 'comments'].join('/');
           fields = formValues();
           submit = elem('.form_submit', form);
           recaptchaResponse = elem('[name="g-recaptcha-response"]', form);
-          
+
           submit.value = translations.submitted;
-          
+
           function formActions(info) {
             showModal(info);
             submit.value = translations.submit;
           }
-          
+
           let data = {
             fields: {
               name: fields.name,
@@ -307,14 +315,14 @@
               slug: fields.slug
             }
           };
-    
+
           if (staticman.secret){
             data.options.reCaptcha = {};
             data.options.reCaptcha.siteKey = staticman.siteKey;
             data.options.reCaptcha.secret = staticman.secret;
             data["g-recaptcha-response"] = recaptchaResponse.value;
           }
-          
+
           fetch(url, {
             method: "POST",
             body: JSON.stringify(data),
@@ -341,7 +349,7 @@
         reply_name = elem('.reply_name', form);
         reply_thread = elem('.reply_thread', form);
         reply_to = elem('.reply_to', form);
-        
+
         obj = {
           id: reply_id,
           name: reply_name,
@@ -359,7 +367,7 @@
 
         comment = trigger.parentNode;
         id = comment.id;
-        name = elem('.comment_name', comment);
+        name = elem('.comment_name_span', comment);
         thread = elem('.comment_thread', comment);
         reply_fields.thread.value = thread.textContent;
         reply_fields.id.value = id;
@@ -397,7 +405,7 @@
         let isFormCloseBtn, isFormToggleBtn, isModalCloseBtn, isResetFormBtn, isReplyBt;
 
         target = event.target;
-        fields = fields = formValues();
+        fields = formValues();
         formIsEmpty = isBlank(fields.name) && isBlank(fields.comment) && isBlank(fields.email) ? true : false;
         hiddenValuesEmpty = isBlank(fields.reply_id) ? true : false;
 
@@ -414,7 +422,7 @@
         if (isFormCloseBtn) {
           form.reset();
         } 
-        
+
         if (isResetFormBtn) {
           if (formIsEmpty) {
             hiddenValuesEmpty ? false : resetReplyValues();
@@ -429,7 +437,7 @@
             fillModal(obj);
           }
         } 
-        
+
         if (isModalCloseBtn) {
           modal = target.closest('.modal');
           modal.remove();
@@ -437,18 +445,17 @@
         }
       });
     }
-    
+
     form ? handleForm(form) : false;
-    
+
     function showModal(obj) {
       let feedbackBody;
       feedback = feedbackModal();
       createModal(feedback, comments);
       fillModal(obj);
     }
-    
+
   })();
-  
 
   (function makeExternalLinks(){
     let links = elems('a');
@@ -464,24 +471,24 @@
           noopener = 'noopener';
           attr1 = elemAttribute(link, target);
           attr2 = elemAttribute(link, noopener);
-          
+
           attr1 ? false : elemAttribute(link, target, blank);
           attr2 ? false : elemAttribute(link, noopener, noopener);
         }
       });
     }
   })();
-  
+
   let headingNodes = [], results, link, icon, current, id,
   tags = ['h2', 'h3', 'h4', 'h5', 'h6'];
-  
+
   current = document.URL;
-  
+
   tags.forEach(function(tag){
     results = document.getElementsByTagName(tag);
     Array.prototype.push.apply(headingNodes, results);
   });
-  
+
   headingNodes.forEach(function(node){
     link = createEl('a');
     icon = createEl('img');
@@ -495,7 +502,7 @@
       pushClass(node, 'link_owner');
     }
   });
-  
+
   const copyToClipboard = str => {
     let copy, selection, selected;
     copy = createEl('textarea');
@@ -515,7 +522,7 @@
       selection.addRange(selected); // restore the original selection
     }
   }
-  
+
   (function copyHeadingLink() {
     let deeplink, deeplinks, newLink, parent, target;
     deeplink = 'link';
@@ -533,7 +540,7 @@
       });
     }
   })();
-  
+
   (function copyLinkToShare() {
     let  copy, copied, excerpt, isCopyIcon, isInExcerpt, link, page, postCopy, postLink, target;
     copy = 'copy';
@@ -541,7 +548,7 @@
     excerpt = 'excerpt';
     postCopy = 'post_copy';
     postLink = 'post_card';
-    
+
     doc.addEventListener('click', function(event) {
       target = event.target;
       isCopyIcon = containsClass(target, copy);
@@ -560,7 +567,7 @@
       }
     });
   })();
-  
+
   (function hideAside(){
     let aside, title, posts;
     aside = elem('.aside');
@@ -570,6 +577,6 @@
       posts.length < 1 ? title.remove() : false;
     }
   })();
-  
+
   // add new code above this line
 })();

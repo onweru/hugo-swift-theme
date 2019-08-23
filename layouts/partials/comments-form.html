@@ -1,9 +1,9 @@
 {{ $vs := .Site.Params.staticman }}
 <span class = 'form_toggle btn'>{{ i18n "comment" }}</span>
-<form class = 'form' action = '{{ $vs.endpoint }}/{{ $vs.gitProvider }}/{{ $vs.username }}/{{ $vs.repository }}/{{ $vs.branch }}' method = 'POST'>
+<form class = 'form' method = 'POST'>
   <!-- Start comment form display reply target -->
   <p class='reply_notice'>
-    {{ i18n "replyTo" }} @<span class='reply_to'></span>
+    <span class='reply_to'></span>
   </p>
   <!-- End comment form display reply target -->
 
