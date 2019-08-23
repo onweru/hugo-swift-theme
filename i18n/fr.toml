@@ -52,8 +52,6 @@
   other = "IL Y A ${timeAgo}&nbsp;${timeTag}"
 [close]
   other = "Fermer"
-[cancel]
-  other = "Annuler"
 [successTitle]
   other = "Commentaire envoyé"
 [successMsg]
@@ -62,8 +60,6 @@
   other = "Erreur"
 [errMsg]
   other = "Désolé, une erreur s'est produite lors de l'envoi du commentaire !"
-[reply]
-  other = "Répondre"
 [moreFrom]
   other = "Plus de billets sur {{ .Count }}"
 [discard]
