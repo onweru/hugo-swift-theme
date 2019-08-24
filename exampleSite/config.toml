@@ -17,7 +17,7 @@ pygmentsCodefencesGuessSyntax = true
   # twitter = "" # twitter handle e.g @weru
 
 # [params.staticman]
-#   endpoint = "https://api.staticman.net"  # URL of your own API deployment (without trailing slash), default: "https://api.staticman.net"
+#   endpoint = ""  # URL of your own API deployment (without trailing slash), default: "https://staticman-frama.herokuapp.com"
 #   gitProvider = "github"  # Either "github" or "gitlab"
 #   username = "username"  # GitHub/GitLab user name
 #   repository = "repo"  # GitHub/GitLab user name
