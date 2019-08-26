@@ -8,7 +8,7 @@
   const doc = document.documentElement;
   const staticman = Object.create(null);
   {{ with .Site.Params.staticman -}}
-  const endpoint = '{{ .endpoint | default "https://staticman-frama.herokuapp.com" }}';
+  const endpoint = '{{ .endpoint | default "https://staticman3.herokuapp.com" }}';
   const gitProvider = '{{ .gitprovider }}';
   const username = '{{ .username }}';
   const repository = '{{ .repository }}';
