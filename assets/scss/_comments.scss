@@ -37,7 +37,7 @@
     border: 1px solid #eee;
     &:focus,
     &:hover{
-      border:1px solid $theme;
+      border:1px solid var(--theme);
     }
   }
   &_comment {

@@ -26,6 +26,9 @@
   &_owner:hover & {
     opacity: 0.9;
   }
+  img {
+    margin: 0;
+  }
 }
 .solo {
   grid-column: 1/-1;

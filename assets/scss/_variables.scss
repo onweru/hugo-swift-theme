@@ -1,10 +1,5 @@
 $padding: 10px;
 $margin: 25px;
-$theme: #04a763;
-$light: #fff;
-$dark: #131313;
-$text: #343434;
-$linear: linear-gradient(to right bottom, darken($theme, 10%), $theme);
 :root {
   --light: #fff;
   --dark: #131313;
@@ -14,11 +9,13 @@ $linear: linear-gradient(to right bottom, darken($theme, 10%), $theme);
   --bg: var(--light);
   --text: var(--dark);
   --font: 'Metropolis', sans-serif;
+  --theme: #04a763;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: var(--dark);
     --text: var(--light);
     --accent: var(--bubble);
+    // --theme: rgb(48,209,88);
   }
 }

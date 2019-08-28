@@ -1,7 +1,6 @@
 .post{
   margin:0 auto;
   padding: 1rem 1.5rem;
-  width:100%;
   max-width:750px;
   margin-top: 1.5rem;
   h1,h2,h3{
@@ -37,7 +36,7 @@
       }
     }
     a{
-      color: $theme;
+      color: var(--theme);
       padding-bottom:7.5px;
       &:hover {
         text-decoration: underline;
@@ -58,7 +57,7 @@
     color:#fff;
     height:48vh;
     min-height: 360px;
-    background-color:$dark;
+    background-color: var(--bg);
     margin-top:60px;
     padding: 30px;
     display: flex;
@@ -113,15 +112,15 @@
     font-weight: 500;
     display: inline-grid;
     grid-template-columns: auto 1fr;
-    background-color: $light;
+    background-color: var(--light);
     padding: 0;
     align-items: center;
     border-radius: 0.3rem;
-    color: $dark;
+    color: var(--dark);
     text-transform: capitalize;
     a {
       &:hover {
-        color: $theme;
+        color: var(--theme);
         text-decoration: underline;
         opacity: 0.9;
       }
@@ -134,8 +133,8 @@
   &_tag {
     font-size: 0.75rem !important;
     font-weight: 500;
-    background: $theme;
-    color: $light;
+    background: var(--theme);
+    color: var(--light);
     padding: 0.25rem 0.67rem !important;
     text-transform: uppercase;
     display: inline-flex;
@@ -147,20 +146,20 @@
   &_author {
     padding: 0.2rem 0.75rem;
     a {
-      color: $theme;
+      color: var(--theme);
       text-decoration: underline;
     }
   }
   &_time {
-    background: $theme;
+    background: var(--theme);
     display: inline-grid;
     padding: 0.2rem 0.75rem;
-    color: $light;
+    color: var(--light);
   }
   &_card {
     display: block;
     position:relative;
-    background-color:$dark;
+    background-color: var(--dark);
     border-radius: 0.5rem 0.5rem 0 0;
     background-size:cover;
     background-position:center;
@@ -176,7 +175,7 @@
       z-index: 1;
     }
     &:hover::after {
-      background-color:rgba($dark,0.3);
+      background-color:rgba(0,0,0,0.3);
     }
   }
   &_thumbnail {
@@ -190,6 +189,8 @@
   justify-content: center;
   align-content: center;
   margin: 30px auto 0 auto;
+  padding: 0 1.5rem;
+  overflow: scroll;
   &, &_item {
     justify-content: center;
     align-items: center;
@@ -200,8 +201,8 @@
     display: inline-flex;
     margin-left: 5px;
     margin-right: 5px;
-    background: $theme;
-    color: $light;
+    background-color: var(--theme);
+    color: var(--light);
     border-radius: 50%;
     margin-bottom: 30px;
     &:hover {

@@ -1,13 +1,13 @@
 .footer{
-  padding:0;
-  color:$light;
+  padding: 0;
+  color: var(--light);
   margin:0;
-  background: $dark;
+  background: var(--dark);
   width:100%;
   font-size: 1.05rem;
-  min-height:75px;
+  min-height: 75px;
   a {
-    color: $theme;
+    color: var(--theme);
     opacity: 0.8;
     transition: opacity 0.3s ease-in-out;
     &:hover {

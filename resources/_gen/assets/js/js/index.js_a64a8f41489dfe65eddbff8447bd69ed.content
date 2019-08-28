@@ -7,37 +7,23 @@
 
   const doc = document.documentElement;
   const staticman = Object.create(null);
-  {{ with .Site.Params.staticman -}}
-  const endpoint = '{{ .endpoint | default "https://staticman3.herokuapp.com" }}';
-  const gitProvider = '{{ .gitprovider }}';
-  const username = '{{ .username }}';
-  const repository = '{{ .repository }}';
-  const branch = '{{ .branch }}';
-
-  // store reCAPTCHA v2 site key and secret
-  {{ with .recaptcha -}}
-  staticman.siteKey = '{{ .sitekey }}';
-  staticman.secret = '{{ .secret }}';
-  {{ end -}}
-  {{ end -}}
-
   const translations = {
     success: {
-      title: '{{ i18n "successTitle" }}',
-      text: '{{ i18n "successMsg" }}',
-      close: '{{ i18n "close" }}'
+      title: 'Review submitted',
+      text: 'Thanks for your review! It will be shown on the site once it has been approved.',
+      close: 'Close'
     },
     error: {
-      title: '{{ i18n "errTitle" }}',
-      text: '{{ i18n "errMsg" }}',
-      close: '{{ i18n "close" }}'
+      title: 'Error',
+      text: 'Sorry, there was an error with the submission!',
+      close: 'Close'
     },
     discard: {
-      title: '{{ i18n "discardComment" }}',
-      button: '{{ i18n "discard" }}'
+      title: 'Discard Comment',
+      button: 'discard'
     },
-    submit: '{{ i18n "btnSubmit" }}',
-    submitted: '{{ i18n "btnSubmitted" }}'
+    submit: 'Submit',
+    submitted: 'Submitted'
   };
 
   function isObj(obj) {
@@ -473,7 +459,7 @@
           attr2 = elemAttribute(link, noopener);
 
           attr1 ? false : elemAttribute(link, target, blank);
-          attr2 ? false : elemAttribute(link, rel, noopener);
+          attr2 ? false : elemAttribute(link, noopener, noopener);
         }
       });
     }
@@ -492,7 +478,7 @@
   headingNodes.forEach(function(node){
     link = createEl('a');
     icon = createEl('img');
-    icon.src = '{{ absURL "images/icons/link.svg" }}';
+    icon.src = '//localhost:1313/images/icons/link.svg';
     link.className = 'link';
     link.appendChild(icon);
     id = node.getAttribute('id');

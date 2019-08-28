@@ -1,8 +1,8 @@
 .intro{
   margin: 4rem 0 1rem;
-  background: $dark;
+  background: var(--dark);
   padding: 2rem 1.5rem;
-  color: $light;
+  color:  var(--light);
   &_inner{
     @include viewport(59rem);
     margin: 0 auto;
@@ -41,7 +41,7 @@
   margin: 1.5rem 0;
   border-radius: 1rem;
   background-color: var(--bg);
-  box-shadow: 0 1rem 4rem rgba($dark,0.17);
+  box-shadow: 0 1rem 4rem rgba(0,0,0,0.17);
   iframe{
     left:0;
     top:0;
@@ -62,8 +62,8 @@
   &::before, &::after {
     content: "";
     position: absolute;
-    background: $theme;
-    color: $light;
+    background: var(--theme);
+    color:  var(--light);
     opacity: 0;
     transition: opacity 0.25s ease-in;
   }
@@ -94,7 +94,7 @@
   margin: 1.5rem 0;
   background-color: var(--accent);
   border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 2rem rgba($dark, 0.12);
+  box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.12);
   &_name {
     color: var(--text) !important;
     font-size: 1.25rem;
@@ -129,7 +129,7 @@
   z-index: 9999;
   &_close{
     margin: 25px 0;
-    color:$light;
+    color: var(--light);
     border: 0;
     cursor: pointer;
     padding:$padding/2 $padding*1.5;
@@ -141,7 +141,7 @@
     background: var(--accent);
     max-width: 540px;
     padding: 1.5rem;
-    box-shadow: 0 1.5rem 6rem rgba($dark, 0.12);
+    box-shadow: 0 1.5rem 6rem rgba(0,0,0,0.12);
     border-radius: 1rem;
   }
   &_show {
@@ -155,7 +155,7 @@
       width: 100%;
       height: 100%;
       z-index: 999;
-      background-color: rgba($dark, 0.6);
+      background-color: rgba(0,0,0,0.6);
     }
   }
   &_show &{
@@ -173,7 +173,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($light, 0.7);
+    background-color: rgba(255,255,255,0.7);
     z-index: 10;
   }
 }
@@ -182,8 +182,8 @@
   font-size: 1rem;
   margin: 1rem 0 1.5rem;
   padding: 0.5rem 2rem;
-  background: linear-gradient(to right, darken($theme, 10%), $theme);
-  box-shadow: 0 1rem 4rem rgba($dark,0.5);
+  background: var(--theme);
+  box-shadow: 0 1rem 4rem rgba(0,0,0,0.5);
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
@@ -193,7 +193,7 @@
   &, &_group {
     width: 12rem;
     display: inline-block;
-    color: $light;
+    color:  var(--light);
   }
   &_group {
     position: relative;
