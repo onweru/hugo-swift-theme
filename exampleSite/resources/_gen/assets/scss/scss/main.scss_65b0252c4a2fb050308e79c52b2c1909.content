@@ -3,42 +3,42 @@
   font-family: 'Metropolis';
   font-style: normal;
   font-weight: 400;
-  src: local("Metropolis Regular"), local("Metropolis-Regular"), url("https://example.com/fonts/Metropolis-Regular.woff2") format("woff2"), url("https://example.com/fonts/Metropolis-Regular.woff") format("woff");
+  src: local("Metropolis Regular"), local("Metropolis-Regular"), url("http://localhost:1313/fonts/Metropolis-Regular.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-Regular.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Metropolis';
   font-style: normal;
   font-weight: 300;
-  src: local("Metropolis Light"), local("Metropolis-Light"), url("https://example.com/fonts/Metropolis-Light.woff2") format("woff2"), url("https://example.com/fonts/Metropolis-Light.woff") format("woff");
+  src: local("Metropolis Light"), local("Metropolis-Light"), url("http://localhost:1313/fonts/Metropolis-Light.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-Light.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Metropolis';
   font-style: italic;
   font-weight: 300;
-  src: local("Metropolis Light Italic"), local("Metropolis-LightItalic"), url("https://example.com/fonts/Metropolis-LightItalic.woff2") format("woff2"), url("https://example.com/fonts/Metropolis-LightItalic.woff") format("woff");
+  src: local("Metropolis Light Italic"), local("Metropolis-LightItalic"), url("http://localhost:1313/fonts/Metropolis-LightItalic.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-LightItalic.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Metropolis';
   font-style: normal;
   font-weight: 500;
-  src: local("Metropolis Medium"), local("Metropolis-Medium"), url("https://example.com/fonts/Metropolis-Medium.woff2") format("woff2"), url("https://example.com/fonts/Metropolis-Medium.woff") format("woff");
+  src: local("Metropolis Medium"), local("Metropolis-Medium"), url("http://localhost:1313/fonts/Metropolis-Medium.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-Medium.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Metropolis';
   font-style: italic;
   font-weight: 500;
-  src: local("Metropolis Medium Italic"), local("Metropolis-MediumItalic"), url("https://example.com/fonts/Metropolis-MediumItalic.woff2") format("woff2"), url("https://example.com/fonts/Metropolis-MediumItalic.woff") format("woff");
+  src: local("Metropolis Medium Italic"), local("Metropolis-MediumItalic"), url("http://localhost:1313/fonts/Metropolis-MediumItalic.woff2") format("woff2"), url("http://localhost:1313/fonts/Metropolis-MediumItalic.woff") format("woff");
 }
 
 @font-face {
   font-family: 'Cookie';
   font-style: normal;
   font-weight: 400;
-  src: local("Cookie-Regular"), url("https://example.com/fonts/cookie-v10-latin-regular.woff2") format("woff2"), url("https://example.com/fonts/cookie-v10-latin-regular.woff") format("woff");
+  src: local("Cookie-Regular"), url("http://localhost:1313/fonts/cookie-v10-latin-regular.woff2") format("woff2"), url("http://localhost:1313/fonts/cookie-v10-latin-regular.woff") format("woff");
 }
 
 :root {
@@ -50,6 +50,7 @@
   --bg: var(--light);
   --text: var(--dark);
   --font: 'Metropolis', sans-serif;
+  --theme: #04a763;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -137,7 +138,7 @@ blockquote::before {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #04a763;
+  background: var(--theme);
 }
 
 blockquote p {
@@ -162,11 +163,11 @@ h1, h2, h3, h4, h5 {
   padding: 5px 0;
   margin: 15px 0;
   color: inherit;
+  line-height: 1.35;
 }
 
 h1 {
   font-size: 200%;
-  font-weight: 400;
 }
 
 h2 {
@@ -223,9 +224,9 @@ aside h3 {
 
 .intro {
   margin: 4rem 0 1rem;
-  background: #131313;
+  background: var(--dark);
   padding: 2rem 1.5rem;
-  color: #fff;
+  color: var(--light);
 }
 
 .intro_inner {
@@ -268,7 +269,7 @@ aside h3 {
   margin: 1.5rem 0;
   border-radius: 1rem;
   background-color: var(--bg);
-  box-shadow: 0 1rem 4rem rgba(19, 19, 19, 0.17);
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.17);
 }
 
 .video iframe {
@@ -284,7 +285,7 @@ aside h3 {
   position: relative;
   width: 1.5rem;
   height: 1.5rem;
-  background-image: url(https://example.com/images/icons/copy.svg);
+  background-image: url(http://localhost:1313/images/icons/copy.svg);
   background-size: 100%;
   cursor: pointer;
 }
@@ -292,8 +293,8 @@ aside h3 {
 .copy::before, .copy::after {
   content: "";
   position: absolute;
-  background: #04a763;
-  color: #fff;
+  background: var(--theme);
+  color: var(--light);
   opacity: 0;
   transition: opacity 0.25s ease-in;
 }
@@ -326,7 +327,7 @@ aside h3 {
   margin: 1.5rem 0;
   background-color: var(--accent);
   border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 2rem rgba(19, 19, 19, 0.12);
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.12);
 }
 
 .author_name,
@@ -373,7 +374,7 @@ aside h3 {
 
 .modal_close {
   margin: 25px 0;
-  color: #fff;
+  color: var(--light);
   border: 0;
   cursor: pointer;
   padding: 5px 15px;
@@ -386,7 +387,7 @@ aside h3 {
   background: var(--accent);
   max-width: 540px;
   padding: 1.5rem;
-  box-shadow: 0 1.5rem 6rem rgba(19, 19, 19, 0.12);
+  box-shadow: 0 1.5rem 6rem rgba(0, 0, 0, 0.12);
   border-radius: 1rem;
 }
 
@@ -403,7 +404,7 @@ aside h3 {
   width: 100%;
   height: 100%;
   z-index: 999;
-  background-color: rgba(19, 19, 19, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .modal_show .modal {
@@ -431,8 +432,8 @@ aside h3 {
   font-size: 1rem;
   margin: 1rem 0 1.5rem;
   padding: 0.5rem 2rem;
-  background: linear-gradient(to right, #037545, #04a763);
-  box-shadow: 0 1rem 4rem rgba(19, 19, 19, 0.5);
+  background: var(--theme);
+  box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.5);
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
@@ -444,7 +445,7 @@ aside h3 {
 .btn, .btn_group {
   width: 12rem;
   display: inline-block;
-  color: #fff;
+  color: var(--light);
 }
 
 .btn_group {
@@ -467,7 +468,7 @@ aside h3 {
   align-items: center;
   text-align: center;
   font-size: 1rem;
-  background-image: url("https://example.com/images/icons/close.svg");
+  background-image: url("http://localhost:1313/images/icons/close.svg");
   background-size: 36% !important;
   border-left: 1px solid var(--bg);
   z-index: 2;
@@ -517,6 +518,10 @@ aside h3 {
   opacity: 0.9;
 }
 
+.link img {
+  margin: 0;
+}
+
 .solo {
   grid-column: 1/-1;
 }
@@ -525,7 +530,7 @@ aside h3 {
   position: absolute;
   top: 0;
   width: 100%;
-  transition: height 0.4s ease-in-out;
+  transition: height 0.4s cubic-bezier(0.52, 0.16, 0.24, 1);
   z-index: 999;
 }
 
@@ -566,7 +571,7 @@ aside h3 {
 }
 
 .nav-body {
-  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.17);
+  box-shadow: 0 1.5rem 6rem rgba(0, 0, 0, 0.17);
   position: fixed;
   right: 10px;
   z-index: 1;
@@ -576,29 +581,26 @@ aside h3 {
   transition: top 0.33s linear;
   background: transparent;
   background-color: var(--accent);
-  width: 33.3%;
   width: 16rem;
   padding: 100px 0;
-  min-height: 67vh;
-  margin-top: 0.5rem;
+  min-height: 100vh;
   z-index: 1;
-  border-radius: 0.33rem;
 }
 
 .nav-body:hover {
-  box-shadow: 0 0 5rem rgba(0, 0, 0, 0.255);
+  box-shadow: 0 1.5rem 6rem rgba(0, 0, 0, 0.27);
 }
 
 .nav-body a {
   display: block;
   padding: 12.5px 25px;
   margin-bottom: 2px;
-  border-bottom: 1px solid rgba(19, 19, 19, 0.04);
+  border-bottom: 1px solid var(--accent);
   transition: color 0.25s ease-in-out;
 }
 
 .nav-body a:hover {
-  color: #04a763;
+  color: var(--theme);
 }
 
 .nav-brand {
@@ -639,14 +641,14 @@ aside h3 {
 }
 
 .nav-drop {
-  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
   top: 0;
   bottom: 0;
   z-index: 1000;
 }
 
 .nav-exit {
-  animation: hideMenu 0.5s ease-out forwards;
+  animation: hideMenu 0.5s cubic-bezier(0.52, 0.16, 0.24, 1) forwards;
 }
 
 .nav-menu {
@@ -671,10 +673,11 @@ aside h3 {
 .nav-pop {
   position: fixed;
   width: 100vw;
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .nav-open {
-  animation: showMenu 0.5s ease-out forwards;
+  animation: showMenu 0.5s cubic-bezier(0.52, 0.16, 0.24, 1) forwards;
 }
 
 .nav_item {
@@ -684,7 +687,6 @@ aside h3 {
 .post {
   margin: 0 auto;
   padding: 1rem 1.5rem;
-  width: 100%;
   max-width: 750px;
   margin-top: 1.5rem;
 }
@@ -728,7 +730,7 @@ aside h3 {
 }
 
 .post_content a {
-  color: #04a763;
+  color: var(--theme);
   padding-bottom: 7.5px;
 }
 
@@ -752,7 +754,7 @@ aside h3 {
   color: #fff;
   height: 48vh;
   min-height: 360px;
-  background-color: #131313;
+  background-color: var(--bg);
   margin-top: 60px;
   padding: 30px;
   display: flex;
@@ -822,16 +824,16 @@ aside h3 {
   font-weight: 500;
   display: inline-grid;
   grid-template-columns: auto 1fr;
-  background-color: #fff;
+  background-color: var(--light);
   padding: 0;
   align-items: center;
   border-radius: 0.3rem;
-  color: #131313;
+  color: var(--dark);
   text-transform: capitalize;
 }
 
 .post_meta a:hover {
-  color: #04a763;
+  color: var(--theme);
   text-decoration: underline;
   opacity: 0.9;
 }
@@ -844,8 +846,8 @@ aside h3 {
 .post_tag {
   font-size: 0.75rem !important;
   font-weight: 500;
-  background: #04a763;
-  color: #fff;
+  background: var(--theme);
+  color: var(--light);
   padding: 0.25rem 0.67rem !important;
   text-transform: uppercase;
   display: inline-flex;
@@ -861,21 +863,21 @@ aside h3 {
 }
 
 .post_author a {
-  color: #04a763;
+  color: var(--theme);
   text-decoration: underline;
 }
 
 .post_time {
-  background: #04a763;
+  background: var(--theme);
   display: inline-grid;
   padding: 0.2rem 0.75rem;
-  color: #fff;
+  color: var(--light);
 }
 
 .post_card {
   display: block;
   position: relative;
-  background-color: #131313;
+  background-color: var(--dark);
   border-radius: 0.5rem 0.5rem 0 0;
   background-size: cover;
   background-position: center;
@@ -894,7 +896,7 @@ aside h3 {
 }
 
 .post_card:hover::after {
-  background-color: rgba(19, 19, 19, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .post_thumbnail {
@@ -907,6 +909,8 @@ aside h3 {
   justify-content: center;
   align-content: center;
   margin: 30px auto 0 auto;
+  padding: 0 1.5rem;
+  overflow: scroll;
 }
 
 .pager, .pager_item {
@@ -920,8 +924,8 @@ aside h3 {
   display: inline-flex;
   margin-left: 5px;
   margin-right: 5px;
-  background: #04a763;
-  color: #fff;
+  background-color: var(--theme);
+  color: var(--light);
   border-radius: 50%;
   margin-bottom: 30px;
 }
@@ -937,11 +941,11 @@ aside h3 {
 }
 
 .pager_prev {
-  background-image: url(https://example.com/images/icons/previous.svg);
+  background-image: url(http://localhost:1313/images/icons/previous.svg);
 }
 
 .pager_next {
-  background-image: url(https://example.com/images/icons/next.svg);
+  background-image: url(http://localhost:1313/images/icons/next.svg);
 }
 
 .pager_active {
@@ -973,18 +977,25 @@ aside h3 {
   margin: 30px auto;
 }
 
+.waves_inner {
+  min-width: 18rem;
+  min-height: 9rem;
+}
+
 .footer {
   padding: 0;
-  color: #fff;
+  color: var(--light);
   margin: 0;
-  background: #131313;
+  background: var(--dark);
   width: 100%;
   font-size: 1.05rem;
   min-height: 75px;
+  position: relative;
+  z-index: 1001;
 }
 
 .footer a {
-  color: #04a763;
+  color: var(--theme);
   opacity: 0.8;
   transition: opacity 0.3s ease-in-out;
 }
@@ -1048,7 +1059,7 @@ aside h3 {
 }
 
 .form_input:focus, .form_input:hover {
-  border: 1px solid #04a763;
+  border: 1px solid var(--theme);
 }
 
 .form_comment {
@@ -1068,7 +1079,7 @@ aside h3 {
 .reply_btn {
   width: 1.75rem;
   height: 1.75rem;
-  background-image: url("https://example.com/images/icons/reply.svg");
+  background-image: url("http://localhost:1313/images/icons/reply.svg");
   cursor: pointer;
   margin-top: 1rem;
 }

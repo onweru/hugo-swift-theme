@@ -459,7 +459,7 @@
           attr2 = elemAttribute(link, noopener);
 
           attr1 ? false : elemAttribute(link, target, blank);
-          attr2 ? false : elemAttribute(link, noopener, noopener);
+          attr2 ? false : elemAttribute(link, rel, noopener);
         }
       });
     }
@@ -478,7 +478,7 @@
   headingNodes.forEach(function(node){
     link = createEl('a');
     icon = createEl('img');
-    icon.src = 'https://example.com/images/icons/link.svg';
+    icon.src = 'http://localhost:1313/images/icons/link.svg';
     link.className = 'link';
     link.appendChild(icon);
     id = node.getAttribute('id');

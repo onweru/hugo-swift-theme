@@ -2,7 +2,7 @@
   position:absolute;
   top:0;
   width:100%;
-  transition:height 0.4s ease-in-out;
+  transition:height 0.4s cubic-bezier(0.52, 0.16, 0.24, 1);
   z-index:999;
   &_bar {
     width: 100%;
@@ -38,7 +38,7 @@
     }
   }
   &-body{
-    @include shadow;
+    box-shadow: 0 1.5rem 6rem rgba(0,0,0,0.17);
     position:fixed;
     right:10px;
     z-index:1;
@@ -48,18 +48,18 @@
     transition:top 0.33s linear;
     background:transparent;
     background-color: var(--accent);
-    width:33.3%;
     width: 16rem;
     padding: 100px 0;
-    min-height: 67vh;
-    margin-top: 0.5rem;
+    min-height: 100vh;
     z-index:1;
-    border-radius: 0.33rem;
+    &:hover {
+      box-shadow: 0 1.5rem 6rem rgba(0,0,0,0.27);
+    }
     a{
       display:block;
       padding:12.5px 25px;
       margin-bottom:2px;
-      border-bottom:1px solid rgba(0,0,0,0.04);
+      border-bottom:1px solid var(--accent);
       transition:color 0.25s ease-in-out;
       &:hover{
         color: var(--theme);
@@ -69,7 +69,6 @@
   &-brand{
     font-family: 'Cookie';
     font-size:2em !important;
-    // max-width:250px;
     padding-top:0 !important;
     padding-bottom:0 !important;
   }
@@ -83,7 +82,7 @@
     width: 100%;
     cursor:pointer;
     padding:25px;
-    &:after,
+    &:after, 
     &:before{
       content: '';
       width: 18px;
@@ -101,13 +100,13 @@
     }
   }
   &-drop {
-    background: rgba(0,0,0,0.15);
+    cursor: pointer;
     top:0;
     bottom:0;
     z-index:1000;
   }
   &-exit{
-    animation: hideMenu 0.5s ease-out forwards;
+    animation: hideMenu 0.5s cubic-bezier(0.52, 0.16, 0.24, 1) forwards;
   }
   &-menu {
     position: relative;
@@ -129,9 +128,10 @@
   &-pop{
     position: fixed;
     width:100vw;
+    background: rgba(0,0,0,0.05);
   }
   &-open {
-    animation: showMenu 0.5s ease-out forwards;
+    animation: showMenu 0.5s cubic-bezier(0.52, 0.16, 0.24, 1) forwards;
   }
   &_item {
     text-transform: capitalize;

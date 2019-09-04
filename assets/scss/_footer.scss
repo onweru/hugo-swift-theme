@@ -6,6 +6,8 @@
   width:100%;
   font-size: 1.05rem;
   min-height: 75px;
+  position: relative;
+  z-index: 1001;
   a {
     color: var(--theme);
     opacity: 0.8;
