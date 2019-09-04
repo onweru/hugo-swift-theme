@@ -8,7 +8,9 @@
   <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
   <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
   <meta name = 'SKYPE_TOOLBAR' content = 'SKYPE_TOOLBAR_PARSER_COMPATIBLE' />
+  {{- if (ne hugo.Environment "development") -}}
   {{- partial "analytics.html" . }}
+  {{ end }}
   {{- partial "opengraph.html" . }}
   {{- partial "favicon.html" . }}
   <link rel='canonical' href='{{ .Permalink }}'>
