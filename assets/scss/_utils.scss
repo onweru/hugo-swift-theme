@@ -33,3 +33,15 @@
 .solo {
   grid-column: 1/-1;
 }
+.never {
+  min-height: 60vh;
+  background: url($never-icon-path);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0 1.5rem;
+  margin-top: 6rem;
+  &_title {
+    text-align: left;
+  }
+}

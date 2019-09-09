@@ -6,6 +6,8 @@ $prev-icon-path: '{{ absURL "images/icons/previous.svg" }}';
 $next-icon-path: '{{ absURL "images/icons/next.svg" }}';
 $reply-icon-path: '{{ absURL "images/icons/reply.svg"  }}';
 $close-icon-path: '{{ absURL "images/icons/close.svg"  }}';
+$never-icon-path: '{{ absURL "images/sitting.svg"  }}';
+
 
 @import
 'fonts',

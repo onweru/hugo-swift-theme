@@ -578,5 +578,15 @@
     }
   })();
 
+  (function goBack() {
+    let backBtn = elem('.btn_back');
+    let history = window.history;
+    if (backBtn) {
+      backBtn.addEventListener('click', function(){
+        history.back();
+      });
+    }
+  })();
+
   // add new code above this line
 })();
