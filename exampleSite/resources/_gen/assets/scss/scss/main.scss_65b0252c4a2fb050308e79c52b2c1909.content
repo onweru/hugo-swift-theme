@@ -526,6 +526,20 @@ aside h3 {
   grid-column: 1/-1;
 }
 
+.never {
+  min-height: 60vh;
+  background: url("http://localhost:1313/images/sitting.svg");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0 1.5rem;
+  margin-top: 6rem;
+}
+
+.never_title {
+  text-align: left;
+}
+
 .nav {
   position: absolute;
   top: 0;
