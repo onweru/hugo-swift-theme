@@ -87,7 +87,7 @@ For all content published using markdown, deeplinks will be added to the pages
 so that you can share with precision :smiley: Just   hover on a heading and the
 link button will pop. Click it to copy.
 
-### Dark Mode
+## Dark Mode
 
 Today most operating systems & browsers support dark mode. Like twitter, which
 automatically turns into dark mode when the user chooses darkmode, this theme
@@ -95,7 +95,7 @@ does the same thing.
 
 ![Dark Mode](https://github.com/onweru/hugo-swift-theme/blob/master/images/darkmode.jpg)
 
-### License
+## License
 
 The code is available under the
 [MIT license](https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md).
