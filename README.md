@@ -50,7 +50,38 @@ By default, [Staticman](https://staticman.net) comments are disabled.
 To enable them, you may refer to the
 [Staticman config Wiki](https://github.com/onweru/hugo-swift-theme/wiki/staticman-config).
 
-### Deeplinks
+## Written By Block
+
+### How do I include a `written by` ?
+
+  1. Copy [this authors yaml file](https://github.com/onweru/hugo-swift-theme/blob/master/exampleSite/data/authors.yml) from the `exampleSite` to your data directory.
+
+  ```yaml
+  - name: "yourName"
+    photo: "myAvatar.jpg"
+    url: "https://myURLofChoice.domain"
+    bio: "It's time to flex. Write a short or not-so-short summary about yourself."
+  ```
+
+  2. Specify the name in your content files
+
+  ```markdown
+  ...
+  author: "yourName"
+  ...
+  ```
+### What if I want to exclude the `written by` from some articles?
+
+Don't include an `author` in your article front matter.
+
+The *authors.yml* file helps yoy:
+
+  1. Write all your author information in one place. This way, you only specify the author name on your content files (posts). The rest of the data i.e photo, url & bio are automatically pulled from the data file.
+
+  2. In certain situations, you may have different people publishing articles on your blog. For example, you could have someone guest blog. Or may be you have a blog co-author.
+
+
+## Deeplinks
 
 For all content published using markdown, deeplinks will be added to the pages
 so that you can share with precision :smiley: Just   hover on a heading and the
@@ -64,7 +95,7 @@ does the same thing.
 
 ![Dark Mode](https://github.com/onweru/hugo-swift-theme/blob/master/images/darkmode.jpg)
 
-## License
+### License
 
 The code is available under the
 [MIT license](https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md).
