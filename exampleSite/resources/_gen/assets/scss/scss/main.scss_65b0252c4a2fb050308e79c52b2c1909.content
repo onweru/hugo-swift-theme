@@ -754,6 +754,7 @@ aside h3 {
 
 .post_content ol, .post_content ul {
   padding: 0.5rem 0 0.5rem 1.2rem;
+  list-style-type: initial;
 }
 
 .post_content li {
