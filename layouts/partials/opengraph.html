@@ -1,49 +1,68 @@
-<meta name = 'keywords' content = '{{ .Site.Title }}'>
-<meta property = 'og:locale' content = 'en_US' />
-<meta property = 'og:type' content = 'article' />
-<meta property = 'og:title' content = '{{ .Title }}' />
-<meta property = 'og:description' content = '{{ with .Summary}}{{ . | truncate 150 }}{{ else }}{{ .Site.Params.description }}{{ end }}'>
-<meta property = 'og:url' content = '{{ .Permalink }}' />
-{{- with .Params.image }}
-<meta property = 'og:image' content = '{{ absURL (printf "images/%s" .) }}'/>
-{{- else }}
-<meta property = 'og:image' content = '{{ absURL (printf "images/%s" .Site.Params.logo) }}'/>
+{{- $summary := .Summary | truncate 160 }}
+{{- with .Params.description }}
+  {{- $summary = (. | truncate 160) }}
 {{- end }}
+{{- $site := .Site.Title }}
+{{- $title := .Title }}
+{{- $params := .Site.Params }}
+{{- $permalink := .Permalink }}
+{{- $logo := absURL (printf "images/%s" $params.logo) }}
+{{- $image := absURL (printf "images/%s" $params.image) }}
+{{- $author := $params.author }}
+{{- with .Params.author }}
+  {{ $author := . }}
+{{- end }}
+{{- with .Params.image }}
+  {{- $image = absURL (printf "images/%s" .)  }}
+{{- end }}
+<meta name = 'keywords' content = '{{ $site }}'>
+<meta property = 'og:locale' content = 'en_US' />
+{{- if .IsHome }}
+<meta property="og:type" content="website">
+{{- else }}
+<meta property="og:type" content="article">
+{{- end }}
+<meta property = 'og:title' content = '{{ $title }}' />
+<meta name="description" content="{{ $summary }}">
+<meta property = 'og:description' content = '{{ $summary }}'>
+<meta property = 'og:url' content = '{{ $permalink }}' />
+<meta property = 'og:image' content = '{{ $image }}'/>
+<meta name = 'twitter:card' content = 'summary_large_image' />
+<meta name = 'twitter:creator' content = '{{ $params.twitter }}'>
+<meta name = 'twitter:title' content = '{{ .Title }}' />
+<meta property = 'twitter:description'  content = '{{ $summary }}'/>
+<meta name = 'twitter:image' content = '{{ $image }}' />
 {{- if eq .Section "blog" -}}
   {{- $date := ( .Date.Format "2006-02-01") -}}
-  <meta property = 'article:published_time' content = '{{ htmlUnescape $date }}' />
+  {{- $date := (time .Date) }}
+  {{- $lastMod := (time .Lastmod) }}
   <script type = "application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "BlogPosting",
-      "mainEntityOfPage":"{{ .Permalink }}",
-      "name": "{{ .Site.Title }}",
-      "headline": {{ .Title }},
-      "description": {{ .Summary | truncate 160 }},
-      "url": "{{ .Permalink }}",
-      "datePublished": "{{ $date }}",
-      "dateModified": "{{ $date }}",
+      "mainEntityOfPage":"{{ $permalink }}",
+      "name": "{{ $site }}",
+      "headline": {{ $title }},
+      "description": {{ $summary }},
+      "url": "{{ $permalink }}",
+      "datePublished": {{ $date  }},
+      "dateModified": {{ $lastMod }},
       "author": {
         "@type": "Person",
-        "name": "{{ .Params.author }}"
+        "name": "{{ $author }}"
       },
       "image":{
         "@type":"ImageObject",
-        "url": "{{ absURL (printf "images/%s" .Params.image ) }}"
+        "url": "{{ $image }}"
       },
       "publisher": {
         "@type": "Organization",
         "logo": {
           "@type":"ImageObject",
-          "url": "{{ absURL (printf "images/%s" .Site.Params.logo) }}"
+          "url": "{{ $logo }}"
         },
-        "name": "{{ .Site.Title }}"
+        "name": "{{ $site }}"
       }
     }
   </script>
-  <meta name = 'twitter:card' content = 'summary_large_image' />
-  <meta name = 'twitter:creator' content = '{{ .Site.Params.twitter }}'>
-  <meta name = 'twitter:title' content = '{{ .Title }}' />
-  <meta property = 'twitter:description'  content = '{{ .Summary | truncate 250 }}'/>
-  <meta name = 'twitter:image' content = '{{ absURL (printf "images/%s" .Params.image) }}' />
 {{- end }}

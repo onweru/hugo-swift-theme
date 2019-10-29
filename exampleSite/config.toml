@@ -15,6 +15,9 @@ pygmentsCodefencesGuessSyntax = true
 
   # ga_verify = "" # google verification code e.g 5jb-rxeBfITeJQKOuUss3ud6FPGTxXkCho-ZN5qlrZg
   # twitter = "" # twitter handle e.g @weru
+  # logo = "logo.png"
+  # author = "Weru" # default author
+  # image = "placeholder-image.png" # used whenever a page image is not set
 
 # [params.staticman]
 #   endpoint = ""  # URL of your own API deployment (without trailing slash), default: "https://staticman-frama.herokuapp.com"

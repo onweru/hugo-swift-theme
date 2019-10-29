@@ -1,4 +1,4 @@
-(function fileClosure(){ 
+function fileClosure(){ 
   // everything in this file should be declared within this closure (function).
 
   // global variables
@@ -589,4 +589,5 @@
   })();
 
   // add new code above this line
-})();
+}
+window.addEventListener('load', fileClosure());
