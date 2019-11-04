@@ -15,7 +15,6 @@
 {{- with .Params.image }}
   {{- $image = absURL (printf "images/%s" .)  }}
 {{- end }}
-<meta name = 'keywords' content = '{{ $site }}'>
 <meta property = 'og:locale' content = 'en_US' />
 {{- if .IsHome }}
 <meta property="og:type" content="website">
