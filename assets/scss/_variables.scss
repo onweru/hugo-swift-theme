@@ -18,3 +18,8 @@ $margin: 25px;
     --accent: var(--bubble);
   }
 }
+
+%narrow {
+  max-width: 750px;
+  margin: 0 auto;
+}

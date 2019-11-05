@@ -1,7 +1,6 @@
 .post{
-  margin:0 auto;
+  @extend %narrow;
   padding: 1rem 1.5rem;
-  max-width:750px;
   margin-top: 1.5rem;
   h1,h2,h3{
     margin:15px auto;
@@ -44,7 +43,7 @@
     }
     ol, ul {
       padding: 0.5rem 0 0.5rem 1.2rem;
-      list-style-type: initial;
+      // list-style-type: initial;
     }
     li {
       padding: 0.33rem 0;
@@ -142,7 +141,7 @@
     border-radius: 5px;
   }
   &_title{
-    margin:5px 0;;
+    @extend %narrow;
   }
   &_author {
     padding: 0.2rem 0.75rem;

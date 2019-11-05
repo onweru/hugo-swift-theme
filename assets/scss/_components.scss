@@ -11,6 +11,9 @@
     position: relative;
     background-color: var(--bubble);
     border-radius: 1rem;
+    section {
+      @extend %narrow;
+    }
   }
   &_headline{
     margin: 0 auto;
