@@ -1,23 +1,23 @@
-{{ $scratch := newScratch }}
-{{ if isset .Params "image" }}
-  {{ $scratch.Set "image" .Params.image }}
-{{ else }}
-  {{ $scratch.Set "image" "thumbnail.svg" }}
-{{ end }}
-{{ $image := $scratch.Get "image" }}
-{{ $bg := (path.Join "images" $image | absLangURL) }}
+{{- $scratch := newScratch }}
+{{- if isset .Params "image" }}
+  {{- $scratch.Set "image" .Params.image }}
+{{- else }}
+  {{- $scratch.Set "image" "thumbnail.svg" }}
+{{- end }}
+{{- $image := $scratch.Get "image" }}
+{{- $bg := (path.Join "images" $image | absLangURL) }}
 <li class = 'post_item'>
   <a class = 'post_card' href='{{ .RelPermalink }}' title = '{{ .Title }}' style = 'background-image: url({{ $bg }});'>
   </a>
   <div class = 'excerpt'>
     <div class = 'excerpt_meta'>
-    {{ with .Params.tags -}}
-      {{ range first 1 . }}
-      {{ $tag := . | urlize }}
+    {{- with .Params.tags -}}
+      {{- range first 1 . }}
+      {{- $tag := . | urlize }}
       <a href = '{{ absURL (printf "tags/%s" $tag) }}' class = 'post_tag'>
-        {{ . }}
+        {{- . }}
       </a>
-      {{ end }}
+      {{- end }}
     {{- end }}
       <div class = 'post_copy copy'></div>
     </div>

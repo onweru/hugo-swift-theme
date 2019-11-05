@@ -7,9 +7,9 @@
   {{- end }}
   <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
   <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
-  {{- if (ne hugo.Environment "development") -}}
+  {{- if (ne hugo.Environment "development") }}
   {{- partial "analytics.html" . }}
-  {{ end }}
+  {{- end }}
   {{- partial "opengraph.html" . }}
   {{- partial "favicon.html" . }}
   <link rel='canonical' href='{{ .Permalink }}'>
