@@ -34,15 +34,17 @@ git submodule add https://github.com/onweru/hugo-swift-theme.git themes/hugo-swi
 
 You can configure the site using as follows:
 
-1. **General Information** and **Staticman config**
+1. ### General Information** and **Staticman config
 
     Use the file `config.toml`.
-
-2. **menu**, **footer**
+2. ### menu, footer
 
     See the **data** files inside the `data/` directory.
 
-> Follow the `exampleSite/`.
+    > Follow the `exampleSite/`.
+3. Customize Theme colors
+    You can do so easily in the [variables sass partial](https://github.com/onweru/hugo-swift-theme/blob/e5af8a1414cd8e1ec5a0817f8e5eb8c8c98e2676/assets/sass/_variables.sass#L13-L21). Use names (e.g red, blue, darkgoldenrod), rgb, rgba, hsla or hex values.
+    
 
 ## Staticman Comments
 

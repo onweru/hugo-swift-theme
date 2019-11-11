@@ -4,7 +4,7 @@ licenselink = "https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md
 description = "A simple open source theme for publishing with hugo"
 homepage = "https://github.com/onweru/hugo-swift-theme"
 tags = ["blog", "staticman", "simple", "dark", "minimalist", "fast", "light"]
-features = ["blog", "staticman", "simple", "dark", "minimalist", "fast", "light"]
+features = ["blog", "staticman", "simple", "dark", "minimalist", "fast"]
 min_version = 0.42
 
 [author]
