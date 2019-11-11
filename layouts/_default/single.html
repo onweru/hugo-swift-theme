@@ -14,7 +14,7 @@
   <article class='post_content'>
     {{- .Content }}
     <div class = 'post_extra'>
-      <div class = 'copy'></div>
+      {{- partial "copy.html" . }}
     </div>
     {{- partial "author.html" . }}
   </article>

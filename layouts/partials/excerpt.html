@@ -19,7 +19,7 @@
       </a>
       {{- end }}
     {{- end }}
-      <div class = 'post_copy copy'></div>
+    {{- partial "copy.html" . }}
     </div>
     <h3 class = 'post_link'>
       <a href='{{ .RelPermalink }}'>{{ .Title  }}</a>
