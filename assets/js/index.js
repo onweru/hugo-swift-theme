@@ -542,7 +542,7 @@ function fileClosure(){
   })();
 
   (function copyLinkToShare() {
-    let  copy, copied, excerpt, isCopyIcon, isInExcerpt, link, page, postCopy, postLink, target;
+    let  copy, copied, excerpt, isCopyIcon, isInExcerpt, link, postCopy, postLink, target;
     copy = 'copy';
     copied = 'copy_done';
     excerpt = 'excerpt';
