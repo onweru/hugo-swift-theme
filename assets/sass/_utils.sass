@@ -33,6 +33,7 @@
 
 .never 
   min-height: 60vh
+  background-image: url($never-icon-path)
   background-position: right bottom
   background-repeat: no-repeat
   background-size: contain
@@ -40,3 +41,21 @@
   margin-top: 6rem
   &_title 
     text-align: left
+    
+@keyframes showMenu
+  0%
+    top: 100%
+    opacity: 0
+  
+  100%
+    top: 0
+    opacity: 1
+      
+@keyframes hideMenu
+  0%
+    top: 0
+    opacity: 1
+  
+  100%
+    top: 100%
+    opacity: 0
