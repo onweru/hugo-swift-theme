@@ -50,11 +50,13 @@
   
 .copy 
   position: relative
-  width: 1.5rem
-  height: 1.5rem
-  background-image: url($copy-icon-path)
-  background-size: 100%
   cursor: pointer
+  height: 1.5rem
+  width: 1.5rem
+  svg
+    fill: var(--theme)
+    width: 100%
+    height: 100%
   &::before, &::after 
     content: ""
     position: absolute

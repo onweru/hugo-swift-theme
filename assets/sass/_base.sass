@@ -83,9 +83,10 @@ h5
 h6
   font-size: 100%
 
-img 
+img, svg 
   max-width: 100%
   vertical-align: middle
+img 
   height: auto
   margin: 1rem auto
   padding: 0
@@ -127,7 +128,6 @@ ol
     padding-left: 0.5rem !important
     &::before
       content: counter(my-awesome-counter)
-      color: var(--light)
       font-size: 1.1rem
       display: inline-grid
       align-items: center
@@ -138,8 +138,11 @@ ol
       line-height: var(--size)
       width: var(--size)
       height: var(--size)
-      top: 1rem
-      background: var(--theme)
-      opacity: 0.8
+      background: var(--text)
+      color: var(--theme)
+      // opacity: 0.5
       border-radius: 50%
       text-align: center
+      top: 0.25rem
+    &.align::before
+        top: 1rem

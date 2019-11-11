@@ -115,6 +115,18 @@ function fileClosure(){
     return (!str || str.trim().length === 0);
   }
 
+  function isMatch(element, selectors) {
+    if(isObj(element)) {
+      if(selectors.isArray) {
+        let matching = selectors.map(function(selector){
+          return element.matches(selector)
+        })
+        return matching.includes(true);
+      }
+      return element.matches(selectors)
+    }
+  }
+
   (function updateDate() {
     var date = new Date();
     var year = date.getFullYear();
@@ -503,6 +515,15 @@ function fileClosure(){
     }
   });
 
+  let inlineListItems = elems('ol li');
+  if(inlineListItems) {
+    inlineListItems.forEach(function(listItem){
+      let firstChild = listItem.children[0]
+      let containsHeading = isMatch(firstChild, tags);
+      containsHeading ? pushClass(listItem, 'align') : false;
+    })
+  }
+
   const copyToClipboard = str => {
     let copy, selection, selected;
     copy = createEl('textarea');
@@ -552,8 +573,10 @@ function fileClosure(){
     doc.addEventListener('click', function(event) {
       target = event.target;
       isCopyIcon = containsClass(target, copy);
-      isInExcerpt = containsClass(target, postCopy);
-      if (isCopyIcon) {
+      let isWithinCopyIcon = target.closest(`.${copy}`);
+      if (isCopyIcon || isWithinCopyIcon) {
+        let icon = isCopyIcon ? isCopyIcon : isWithinCopyIcon;
+        isInExcerpt =  containsClass(icon, postCopy);
         if (isInExcerpt) {
           link = target.closest(`.${excerpt}`).previousElementSibling;
           link = containsClass(link, postLink)? elemAttribute(link, 'href') : false;
@@ -562,7 +585,7 @@ function fileClosure(){
         }
         if(link) {
           copyToClipboard(link);
-          pushClass(target, copied);
+          pushClass(icon, copied);
         }
       }
     });
