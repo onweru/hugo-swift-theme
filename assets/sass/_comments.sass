@@ -1,0 +1,78 @@
+.comment 
+  &s 
+    position: relative
+  
+  &_reply 
+    margin-left: 2rem
+  
+.form 
+  display: flex
+  flex-direction: column
+  width: 100%
+  background: transparent
+  height: 0
+  opacity: 0
+  margin: 0 0 1rem
+  transform: translateY(250px)
+  transition: opacity 0.3s ease-in , transform 0.3s ease-in
+  border-radius: 0.67rem
+  &_open 
+    height: initial
+    transform: translateY(0)
+    opacity: 1
+  
+  &_input 
+    margin: $padding 0
+    font-size: 1rem !important
+    padding: $padding $padding*1.5 !important
+    -webkit-appearance: none
+    border-radius: 25px
+    outline: none
+    transition: all 0.3s ease-out
+    width: 100%
+    max-width: 480px
+    box-shadow: 0 5px 15px 0 rgba(158, 174, 221, 0.2)
+    border: 1px solid #eee
+    &:focus,
+    &:hover
+      border: 1px solid var(--theme)
+    
+  &_comment 
+    resize: none
+    border-radius: 15px
+    min-height: 2.5rem !important
+  
+  &_label 
+    display: none
+  
+  &_submit 
+    margin: 0
+  
+.reply 
+  &_btn 
+    width: 1.75rem
+    height: 1.75rem
+    background-image: url($reply-icon-path)
+    cursor: pointer
+    margin-top: 1rem
+  
+  &_to::before 
+    content: '↷ @'
+
+.g-recaptcha 
+  display: grid
+  width: 100%
+  background: transparent
+  border: none
+  border-radius: 0.25rem
+  margin: 1.25rem 0 1.5rem
+  > div,
+  iframe 
+    display: grid
+    width: 100% !important
+    height: 6rem !important
+  
+  iframe 
+    transform: scale(1.03)
+    padding: 0 0.75rem
+  

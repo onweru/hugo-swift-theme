@@ -1,0 +1,25 @@
+.footer
+  padding: 0
+  color: var(--light)
+  margin: 0
+  background: var(--dark)
+  width: 100%
+  font-size: 1.05rem
+  min-height: 75px
+  position: relative
+  z-index: 1001
+  a 
+    color: var(--theme)
+    opacity: 0.8
+    transition: opacity 0.3s ease-in-out
+    &:hover 
+      text-decoration: underline
+      opacity: 1
+    
+  &_inner
+    display: flex
+    justify-content: space-between
+    padding: 1.5rem
+    @media screen and (max-width: 567px) 
+      flex-direction: column
+    
