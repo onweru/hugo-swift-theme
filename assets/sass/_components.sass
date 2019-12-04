@@ -96,14 +96,19 @@
     color: var(--text) !important
     font-size: 1.25rem
     text-transform: capitalize
+
+  &_name, &_pic
+    border: none !important
   
   &_pic 
-    border-radius: 50%
-    padding: 0.33rem
-    margin: 0 0 0 -0.33rem
-  
+    padding: 0 0.33rem
+    overflow: hidden
+    img
+      border-radius: 50%
+      margin: 0
+
   &_bio 
-    padding-bottom: 0 !important
+    padding: 0 !important
     line-height: 1.33
   
   &_heading 
