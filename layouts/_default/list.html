@@ -1,9 +1,9 @@
 {{- define "main" }}
-  {{- partial "intro.html" . }}
+  {{- partial "intro" . }}
   <ul class='posts wrap' id = 'posts'>
     {{- range (.Paginate .Pages).Pages }}
-      {{ partial "excerpt.html" . }}
+      {{ partial "excerpt" . }}
     {{- end }}
   </ul>
-  {{- partial "pager.html" . }}
+  {{- partial "pager" . }}
 {{- end }}

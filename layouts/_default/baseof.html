@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang='{{ .Lang }}'>
-  {{- partial "head.html" . }}
+  {{- partial "head" . }}
   <body>
-    {{- partial "nav.html" . }}
+    {{- partial "nav" . }}
     <main>
       {{- block "main" . }}{{ end }}
     </main>
-    {{- partial "icons.html" }}
-    {{- partial "footer.html" . }}
+    {{- partial "icons" }}
+    {{- partial "footer" . }}
   </body>
 </html>

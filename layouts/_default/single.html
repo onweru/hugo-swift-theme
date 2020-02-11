@@ -14,15 +14,15 @@
   <article class='post_content'>
     {{- .Content }}
     <div class = 'post_extra'>
-      {{- partial "copy.html" . }}
+      {{- partial "copy" . }}
     </div>
-    {{- partial "author.html" . }}
+    {{- partial "author" . }}
   </article>
   {{- if .Site.Params.Staticman }}
-    {{- partial "comments.html" . }}
+    {{- partial "comments" . }}
   {{- end }}
   <aside>
-    {{- partial "aside.html" . }}
+    {{- partial "aside" . }}
   </aside>
 </div>
 <script src = '{{ absURL "js/autosize.min.js" }}'></script>
