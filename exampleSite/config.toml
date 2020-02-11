@@ -18,6 +18,7 @@ pygmentsCodefencesGuessSyntax = true
   # logo = "logo.png"
   # author = "Weru" # default author
   # image = "placeholder-image.png" # used whenever a page image is not set
+  # blogDir = "blogFolderName" # uncomment and edit to exclude normal pages ... see issue #57
 
 # [params.staticman]
 #   endpoint = ""  # URL of your own API deployment (without trailing slash), default: "https://staticman-frama.herokuapp.com"
