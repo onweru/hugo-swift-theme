@@ -6,6 +6,7 @@ function fileClosure(){
   hidden = 'hidden';
 
   const doc = document.documentElement;
+  const parentURL = '{{ .Site.BaseURL }}';
   const staticman = Object.create(null);
   {{ with .Site.Params.staticman -}}
   const endpoint = '{{ .endpoint | default "https://staticman3.herokuapp.com" }}';
@@ -475,7 +476,7 @@ function fileClosure(){
       Array.from(links).forEach(function(link){
         let target, rel, blank, noopener, attr1, attr2, url, isExternal;
         url = elemAttribute(link, 'href');
-        isExternal = (url && typeof url == 'string' && url.startsWith('http')) && !containsClass(link, 'nav_item') && !isChild(link, '.post_item') && !isChild(link, '.pager') ? true : false;
+        isExternal = (url && typeof url == 'string' && url.startsWith('http')) && !url.startsWith(parentURL) ? true : false;
         if(isExternal) {
           target = 'target';
           rel = 'rel';
