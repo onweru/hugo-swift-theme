@@ -612,6 +612,22 @@ function fileClosure(){
     }
   })();
 
+  (function postsPager(){
+    const pager = elem('.pagination');
+    if (pager) {
+      pushClass(pager, 'pager');
+      const pagerLinks = elems('a', pager);
+      const pagerItems = elems('li', pager);
+      pagerLinks.forEach(function(link){
+        pushClass(link, 'pager_link')
+      });
+
+      pagerItems.forEach(function(item){
+        pushClass(item, 'pager_item')
+      });
+    }
+  })();
+
   // add new code above this line
 }
 window.addEventListener('load', fileClosure());
