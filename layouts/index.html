@@ -1,13 +1,3 @@
 {{ define "main" }}
-  {{ partial "intro" . }}
-  {{ $pages := .Site.RegularPages }}
-  {{ with .Site.Params.blogDir }}
-    {{ $pages = where $.Site.RegularPages "Section" "blog" }}
-  {{ end }}
-  <ul class='posts wrap' id = 'posts'>
-    {{- range (.Paginate $pages).Pages }}
-      {{ partial "excerpt" . }}
-    {{- end }}
-  </ul>
-  {{ partial "pager" . }}
+  {{ partial "archive" . }}
 {{ end }}
