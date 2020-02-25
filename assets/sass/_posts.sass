@@ -176,41 +176,30 @@
   margin: 30px auto 0 auto
   padding: 0 1.5rem
   overflow: scroll
-  &, &_item 
+  &, &_link 
     justify-content: center
     align-items: center
   
-  &_item 
-    height: 36px
-    width: 36px
-    display: inline-flex
-    margin-left: 5px
-    margin-right: 5px
+  &_link
+    display: flex
     background-color: var(--theme)
     color: var(--light)
-    border-radius: 50%
-    margin-bottom: 30px
     &:hover 
       opacity: 0.5
-    
-  &_prev, &_next 
-    position: relative
-    background-color: var(--theme)
-    &::after
-      content: ""
-      background-image: url($next-icon-path)
-      background-size: 40%
-      background-position: 50% 50%
-      background-repeat: no-repeat;
-      position: absolute
-      left: 0
-      top: 0
-      bottom: 0
-      right: 0
-  &_prev 
-    transform: rotate(180deg)
-  &_active
-    opacity: 0.5
+  &_item, &_link
+    height: 36px
+    width: 36px
+    border-radius: 50%
+  &_item
+    margin-left: 5px
+    margin-right: 5px
+    margin-bottom: 30px
+    // overflow: hidden
+    &:first-child, &:last-child
+      display: none
+      
+    &.active, &.disabled
+      opacity: 0.5
   
 .excerpt
   padding: 0 10px 1.5rem 10px
