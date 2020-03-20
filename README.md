@@ -118,6 +118,7 @@ This theme ships with two custom shortcodes (they both use positional parameters
     ```
     ...
     {{< picture "lightModeImage.png" "darkModeImage.png" "Image alt text" >}}
+    ...
     ```
 
 ## License
