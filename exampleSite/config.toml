@@ -1,6 +1,6 @@
 baseurl = "https://example.com/"  # Include trailing slash
 title = "Hugo Themes"
-theme = "swift"
+theme = "hugo-swift-theme"
 author = "Steve Francia"
 copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
 canonifyurls = true
