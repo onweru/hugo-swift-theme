@@ -616,8 +616,11 @@ function fileClosure(){
     const pager = elem('.pagination');
     if (pager) {
       pushClass(pager, 'pager');
-      const pagerLinks = elems('a', pager);
       const pagerItems = elems('li', pager);
+      const pagerLinks = Array.from(pagerItems).map(function(item){
+        return item.firstElementChild;
+      });
+      
       pagerLinks.forEach(function(link){
         pushClass(link, 'pager_link')
       });
