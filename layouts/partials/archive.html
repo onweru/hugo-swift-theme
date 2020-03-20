@@ -4,7 +4,7 @@
   {{ $pages = .Site.RegularPages }}
 {{ end }}
 {{ with .Site.Params.blogDir }}
-  {{ $pages = where $.Site.RegularPages "Section" "blog" }}
+  {{ $pages = where $.Site.RegularPages "Section" . }}
 {{ end }}
 <ul class='posts wrap' id = 'posts'>
   {{- range (.Paginate $pages).Pages }}
