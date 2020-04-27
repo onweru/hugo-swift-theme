@@ -59,7 +59,8 @@ To enable them, you may refer to the
   1. Copy [this authors yaml file](https://github.com/onweru/hugo-swift-theme/blob/master/exampleSite/data/authors.yml) from the `exampleSite` to your data directory.
 
   ```yaml
-  - name: "yourName"
+  - name: "yourName" # if fullName 👇🏻 isn't set, name will be displayed on author card
+    fullName: "John Doe" # optional. If set, it will be display on author card
     photo: "myAvatar.jpg"
     url: "https://myURLofChoice.domain"
     bio: "It's time to flex. Write a short or not-so-short summary about yourself."
