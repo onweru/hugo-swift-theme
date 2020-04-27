@@ -60,7 +60,7 @@ To enable them, you may refer to the
 
   ```yaml
   - name: "yourName" # if fullName 👇🏻 isn't set, name will be displayed on author card
-    fullName: "John Doe" # optional. If set, it will be display on author card
+    fullName: "John Doe" # optional. If set, it will display on author card
     photo: "myAvatar.jpg"
     url: "https://myURLofChoice.domain"
     bio: "It's time to flex. Write a short or not-so-short summary about yourself."
