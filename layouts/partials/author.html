@@ -6,7 +6,7 @@
       <img src = '{{ absURL (printf "images/%s.jpg" $author) }}' alt = ''>
     </a>
     <div class = 'author_meta'>
-      <a class = 'author_name' href = '{{ .url }}' title = "{{ i18n "author_profile" .name }}">{{ .name }}</a>
+      <a class = 'author_name' href = '{{ .url }}' title = "{{ i18n "author_profile" .name }}">{{ with .fullName }}{{ . }}{{ else }}{{ .name }}{{ end }}</a>
       <p class = 'pale author_bio solo'>{{ .bio }}</p>
     </div>
   </div>
