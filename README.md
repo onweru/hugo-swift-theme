@@ -20,6 +20,10 @@ facilitate the `features` outlined below:
 * [Staticman](#staticman-comments)
   * [reCAPTCHA](https://developers.google.com/recaptcha/docs/display)
 
+## Prerequisites
+
+This theme uses `sass`. Ensure you have the [extended version of hugo](https://github.com/gohugoio/hugo/releases) installed or in your pipeline.
+
 ## Installation
 
 Add this theme as a Git submodule inside your Hugo site folder:
@@ -27,8 +31,6 @@ Add this theme as a Git submodule inside your Hugo site folder:
 ```bash
 git submodule add https://github.com/onweru/hugo-swift-theme.git themes/hugo-swift-theme
 ```
-
-> Theme hugo sass and hugo-extended version.
 
 ## Configuration
 
