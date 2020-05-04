@@ -6,8 +6,6 @@
   other = "Link Copied"
 [written_by]
   other = "Written by"
-[author_profile]
-  other = "{{ . }}'s profile"
 [btnReset]
   other = "Reset"
 [btnSubmit]

@@ -6,8 +6,6 @@
   other = "已复制"
 [written_by]
   other = "作者："
-[author_profile]
-  other = "{{ . }} 的个人档案"
 [btnReset]
   other = "重设"
 [btnSubmit]
