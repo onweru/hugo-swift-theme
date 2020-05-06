@@ -79,7 +79,7 @@ To enable them, you may refer to the
 
 Don't include an `author` in your article front matter.
 
-The *authors.yml* file helps yoy:
+The *authors.yml* file helps you:
 
   1. Write all your author information in one place. This way, you only specify the author name on your content files (posts). The rest of the data i.e photo, url & bio are automatically pulled from the data file.
 
