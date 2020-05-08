@@ -3,8 +3,9 @@
 {{ if .IsHome }}
   {{ $pages = .Site.RegularPages }}
 {{ end }}
-{{ with .Site.Params.blogDir }}
-  {{ $pages = where $.Site.RegularPages "Section" . }}
+{{- $filteredPosts := .Site.Params.blogDir }}
+{{ if and $filteredPosts .IsHome }}
+  {{ $pages = where $.Site.RegularPages "Section" $filteredPosts }}
 {{ end }}
 <ul class='posts wrap' id = 'posts'>
   {{- range (.Paginate $pages).Pages }}
