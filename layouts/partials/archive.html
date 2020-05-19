@@ -1,15 +1,15 @@
-{{- $filteredPosts := .Site.Params.blogDir }}
 {{- partial "intro" . }}
-{{ $pages := .Pages }}
-{{ if .IsHome }}
-  {{ $pages = .Site.RegularPages }}
-  {{ if $filteredPosts }}
-    {{ $pages = where $.Site.RegularPages "Section" $filteredPosts }}
-  {{ end }}
-{{ end }}
+{{- $filteredPosts := .Site.Params.blogDir }}
+{{- $pages := .Pages }}
+{{- if .IsHome }}
+  {{- $pages = .Site.RegularPages }}
+  {{- if $filteredPosts }}
+    {{- $pages = where $.Site.RegularPages "Section" $filteredPosts }}
+  {{- end }}
+{{- end }}
 <ul class='posts wrap' id = 'posts'>
   {{- range (.Paginate $pages).Pages }}
-    {{ partial "excerpt" . }}
+    {{- partial "excerpt" . }}
   {{- end }}
 </ul>
 {{- template "_internal/pagination.html" . }}
