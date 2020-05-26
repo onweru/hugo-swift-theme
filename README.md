@@ -70,9 +70,9 @@ To enable them, you may refer to the
 
   2. Specify the name in your content files
 
-  ```markdown
+  ```yaml
   ...
-  author: "yourName"
+  author: "yourName" # case sensitive. must match the name value in your saved data 
   ...
   ```
 ### What if I want to exclude the `written by` from some articles?
