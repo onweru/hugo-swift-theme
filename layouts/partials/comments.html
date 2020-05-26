@@ -3,10 +3,10 @@
   {{- $entryId := md5 .File.Path -}}
   {{ if .Site.Data.comments }}
     {{- $comments := index $.Site.Data.comments $entryId -}}
-    {{ if not $comments }}
+    {{- if not $comments }}
       <p>{{ i18n "noComment" }}</p>
-    {{ else }}
-      {{ range $comments }}
+    {{- else }}
+      {{- range $comments }}
         {{ if not .replyThread }}
           {{ $.Scratch.Set "threadID" ._id }}
           <div id = '{{ ._id }}' class = 'comment'>
