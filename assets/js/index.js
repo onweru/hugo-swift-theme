@@ -568,7 +568,6 @@ function fileClosure(){
     copy = 'copy';
     copied = 'copy_done';
     excerpt = 'excerpt';
-    postCopy = 'post_copy';
     postLink = 'post_card';
 
     doc.addEventListener('click', function(event) {
@@ -577,7 +576,7 @@ function fileClosure(){
       let isWithinCopyIcon = target.closest(`.${copy}`);
       if (isCopyIcon || isWithinCopyIcon) {
         let icon = isCopyIcon ? isCopyIcon : isWithinCopyIcon;
-        isInExcerpt =  containsClass(icon, postCopy);
+        isInExcerpt = icon.closest(`.${excerpt}`);
         if (isInExcerpt) {
           link = target.closest(`.${excerpt}`).previousElementSibling;
           link = containsClass(link, postLink)? elemAttribute(link, 'href') : false;
