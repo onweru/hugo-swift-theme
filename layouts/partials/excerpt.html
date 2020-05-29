@@ -7,7 +7,7 @@
 {{- $image := $scratch.Get "image" }}
 {{- $bg := (path.Join "images" $image | absLangURL) }}
 <li class = 'post_item'>
-  <a class = 'post_card' href='{{ .RelPermalink }}' title = '{{ .Title }}' style = 'background-image: url({{ $bg }});'>
+  <a class = 'post_card' href='{{ .Permalink }}' title = '{{ .Title }}' style = 'background-image: url({{ $bg }});'>
   </a>
   <div class = 'excerpt'>
     <div class = 'excerpt_meta'>
@@ -22,7 +22,7 @@
     {{- partial "copy" . }}
     </div>
     <h3 class = 'post_link'>
-      <a href='{{ .RelPermalink }}'>{{ .Title  }}</a>
+      <a href='{{ .Permalink }}'>{{ .Title  }}</a>
     </h3>
     <p class = 'pale'>{{ .Summary | truncate 90 }}</p>
   </div>
