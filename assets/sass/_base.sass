@@ -6,8 +6,13 @@
 
 body, html 
   scroll-behavior: smooth
-  font-kerning: normal
   -webkit-text-size-adjust: 100%
+  font-kerning: normal
+  -webkit-font-feature-settings: "kern" 1
+  text-rendering: optimizeLegibility
+  text-rendering: geometricPrecision
+  -webkit-text-size-adjust: 100%
+  font-size: 100%
 
 body
   font-family: var(--font)
@@ -96,9 +101,14 @@ ul
   -webkit-padding-start: 0
   -moz-padding-start: 0
 
-b, strong, em 
+b, strong 
   font-weight: 500
 
+em, i
+  font-weight: 400 !important
+  font-family: var(--italic)
+  font-size: 0.933em
+  color: var(--theme)
 hr 
   border: none
   padding: 0.5px
