@@ -1,0 +1,68 @@
+[designed_by]
+  other = "Diseñado por  <a href = '{{ .url }}' title = 'Perfil de Linkedin'>{{ .name }}</a>"
+[share_story]
+  other = "Compartir Historia"
+[link_copied]
+  other = "Enlace Copiado"
+[written_by]
+  other = "Escrito por"
+[author_profile]
+  other = "Perfil de {{ . }}"
+[btnReset]
+  other = "Resetear"
+[btnSubmit]
+  other = "Enviar"
+[btnSubmitted]
+  other = "Enviado"
+[comment]
+  other = "Commentario"
+[noComment]
+  other = "Sin comentario"
+[email]
+  other = "Email"
+[name]
+  other = "Nombre"
+[typeInComment]
+  other = "Error en un comentario..."
+[moreDay]
+  other = "DÍAS"
+[moreHr]
+  other = "HORAS"
+[moreMin]
+  other = "MINUTOS"
+[moreMonth]
+  other = "MESES"
+[moreWk]
+  other = "SEMANAS"
+[moreYr]
+  other = "AÑOS"
+[oneDay]
+  other = "DÍA"
+[oneHr]
+  other = "HORA"
+[oneMin]
+  other = "MINUTO"
+[oneMonth]
+  other = "MES"
+[oneWk]
+  other = "SEMANA"
+[oneYr]
+  other = "AÑO"
+[timeAgoStr]
+  other = "HACE ${timeAgo}&nbsp;${timeTag}"
+[close]
+  other = "Cerrar"
+[successTitle]
+  other = "Reseña enviada"
+[successMsg]
+  other = "¡Gracias por tu reseña! Será visible en la web cuando haya sido aprobada."
+[errTitle]
+  other = "Error"
+[errMsg]
+  other = "¡Lo sentimos, hay un error en el envío!"
+[moreFrom]
+  other = "Más de {{ .Count }}"
+[discard]
+  other = "descartar"
+[discardComment]
+  other = "Descartar Comentario"
