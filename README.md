@@ -114,7 +114,7 @@ This theme ships with two custom shortcodes (they both use positional parameters
     ```
 
 2. __Picture__
-    You want to use darkmode images when darkmode is enabled on a device and a regular image on lightmode? It takes 3 positional parameter
+    You want to use darkmode images when darkmode is enabled on a device and a regular image on lightmode? It takes 3 positional parameters
 
     Store these images in the `static/images` directory. 
     
@@ -123,6 +123,21 @@ This theme ships with two custom shortcodes (they both use positional parameters
     {{< picture "lightModeImage.png" "darkModeImage.png" "Image alt text" >}}
     ...
     ```
+
+3. __Gallery__
+    Include inline galleries within your articles. These galleries can contain `N` number of images. It take 2 positional parameters. 
+    
+    The 1st parameter is required. It is _comma-separated list_ (`,`) of your images' paths.
+    
+    The 2nd parameter is optional. It is _double-collon-separated list_ (`::`) of your images' alt/description/captions text. It's always a good SEO practice to include alt text for your images.
+
+    ```
+    ...
+    {{< gallery "image1Path.png,image3Path.webp,image4Path.jpg" "A PNG gallery image::A WEBP gallery image::A JPEG gallery image" >}}
+    ...
+    ```
+
+    > For legibility, you may include a space after the delimiters `,` & `::`
 
 ## License
 
