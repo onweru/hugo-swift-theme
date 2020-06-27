@@ -125,7 +125,7 @@ This theme ships with two custom shortcodes (they both use positional parameters
     ```
 
 3. __Gallery__
-    Include inline galleries within your articles. These galleries can contain `N` number of images. It take 2 positional parameters. 
+    Include inline galleries within your articles. These galleries can contain `N` number of images. It takes 2 positional parameters. 
     
     The 1st parameter is required. It is _comma-separated list_ (`,`) of your images' paths.
     
