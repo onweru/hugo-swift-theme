@@ -13,10 +13,10 @@ facilitate the `features` outlined below:
 
 * Blog
 * Pagination
-* Responsive
 * Deeplinks
 * Dark Mode
 * Syntax Highlighting
+* Gallery Support
 * [Staticman](#staticman-comments)
   * [reCAPTCHA](https://developers.google.com/recaptcha/docs/display)
 
