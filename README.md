@@ -36,7 +36,7 @@ git submodule add https://github.com/onweru/hugo-swift-theme.git themes/hugo-swi
 
 You can configure the site using as follows:
 
-1. ### General Information** and **Staticman config
+1. ### Global Settings & Staticman
 
     Use the file `config.toml`.
 2. ### menu, footer
