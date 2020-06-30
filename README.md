@@ -58,7 +58,7 @@ To enable them, you may refer to the
 
 ### How do I include a `written by` ?
 
-  1. Copy [this authors yaml file](https://github.com/onweru/hugo-swift-theme/blob/master/exampleSite/data/authors.yml) from the `exampleSite` to your data directory.
+  1. Copy [this authors yaml file](https://github.com/onweru/hugo-swift-theme/blob/master/exampleSite/data/authors.yml) from the `exampleSite` into your sites `./data` directory.
 
   ```yaml
   - name: "yourName" # if fullName 👇🏻 isn't set, name will be displayed on author card
@@ -137,7 +137,7 @@ This theme ships with two custom shortcodes (they both use positional parameters
     ...
     ```
 
-    > For legibility, you may include a space after the delimiters `,` & `::`
+    > For legibility, you can include a space after the delimiters `,` & `::`
 
 ## License
 
