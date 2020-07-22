@@ -629,6 +629,16 @@ function fileClosure(){
       });
     }
   })();
+   
+     
+  (function lazyLoadImages() {
+     const images = elems('img');
+     images.forEach(function(image){
+       // supported natively by most modern browsers. 
+       image.loading = "lazy";
+     });
+  })();
+  
 
   // add new code above this line
 }
