@@ -17,6 +17,7 @@ facilitate the `features` outlined below:
 * Dark Mode
 * Syntax Highlighting
 * Gallery Support
+* Native lazy loading of images
 * [Staticman](#staticman-comments)
   * [reCAPTCHA](https://developers.google.com/recaptcha/docs/display)
 
