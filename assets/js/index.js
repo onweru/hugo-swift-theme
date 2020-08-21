@@ -619,7 +619,7 @@ function fileClosure(){
       const pagerLinks = Array.from(pagerItems).map(function(item){
         return item.firstElementChild;
       });
-      
+
       pagerLinks.forEach(function(link){
         pushClass(link, 'pager_link')
       });
@@ -629,16 +629,19 @@ function fileClosure(){
       });
     }
   })();
-   
-     
-  (function lazyLoadImages() {
-     const images = elems('img');
-     images.forEach(function(image){
-       // supported natively by most modern browsers. 
-       image.loading = "lazy";
-     });
+
+  (function lazy() {
+    function lazyLoadMedia(element) {
+      let mediaItems = elems(element);
+      if(mediaItems) {
+        Array.from(mediaItems).forEach(function(item, index) {
+        item.loading = "lazy";
+        });
+      }
+    }
+    lazyLoadMedia('iframe');
+    lazyLoadMedia('img');
   })();
-  
 
   // add new code above this line
 }
