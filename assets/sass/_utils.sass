@@ -13,25 +13,25 @@
   max-width: 1024px
   margin: 0 auto
 
-.mt 
+.mt
   margin-top: 7rem
 
-.link 
+.link
   display: inline-block
   width: 2.5rem
   margin: 0 0.25rem
   padding: 0 0.25rem
   opacity: 0
   transition: opacity 0.3s cubic-bezier(0.39, 0.575, 0.565, 1)
-  &_owner:hover & 
+  &_owner:hover &
     opacity: 0.9
-  img 
+  img
     margin: 0
 
-.solo 
+.solo
   grid-column: 1/-1
 
-.never 
+.never
   min-height: 60vh
   background-image: url($never-icon-path)
   background-position: right bottom
@@ -39,23 +39,23 @@
   background-size: contain
   padding: 0 1.5rem
   margin-top: 6rem
-  &_title 
+  &_title
     text-align: left
-    
+
 @keyframes showMenu
   0%
     top: 100%
     opacity: 0
-  
+
   100%
     top: 0
     opacity: 1
-      
+
 @keyframes hideMenu
   0%
     top: 0
     opacity: 1
-  
+
   100%
     top: 100%
     opacity: 0

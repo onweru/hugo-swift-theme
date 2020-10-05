@@ -11,26 +11,26 @@
     position: relative
     background-color: var(--bubble)
     border-radius: 1rem
-    section 
+    section
       @extend %narrow
-    
+
   &_headline
     margin: 0 auto
     font-weight: 300
-  
-  &_desc 
+
+  &_desc
     opacity: 0.8
     text-align: center
-  
+
 @media screen and (min-width: 769px)
   .nav-menu a
     display: inline-block
     height: initial
     text-align: left
-  
+
   .mobile
     display:none
-  
+
 .video
   overflow: hidden
   padding-bottom: 56.25%
@@ -47,8 +47,8 @@
     width: 100%
     position: absolute
     transform: scale(1.03)
-  
-.copy 
+
+.copy
   position: relative
   cursor: pointer
   height: 1.5rem
@@ -57,14 +57,14 @@
     fill: var(--theme)
     width: 100%
     height: 100%
-  &::before, &::after 
+  &::before, &::after
     content: ""
     position: absolute
     background: var(--theme)
     color:  var(--light)
     opacity: 0
     transition: opacity 0.25s ease-in
-  
+
   &::before
     content: attr(data-share);
     font-size: 0.8rem
@@ -74,52 +74,52 @@
     text-align: center
     top: -2rem
     right: 0
-  
-  &_done::before 
+
+  &_done::before
     content: attr(data-copied)
-  
+
   &:hover::before,
-  &:hover::after 
+  &:hover::after
     opacity: 1
-  
+
 .author,
-.comment 
+.comment
   display: grid
   grid-template-columns: 4rem 1fr
-  grid-gap: 0 0.75rem 
+  grid-gap: 0 0.75rem
   padding: 1rem
   margin: 1.5rem 0
   background-color: var(--accent)
   border-radius: 0.5rem
   box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.12)
-  &_name 
+  &_name
     color: var(--text) !important
     font-size: 1.25rem
     text-transform: capitalize
 
   &_name, &_pic
     border: none !important
-  
-  &_pic 
+
+  &_pic
     padding: 0 0.33rem
     overflow: hidden
     img
       border-radius: 50%
       margin: 0
 
-  &_bio 
+  &_bio
     padding: 0 !important
     line-height: 1.33
-  
-  &_heading 
+
+  &_heading
     font-size: 0.7rem
-  
-  &_meta 
+
+  &_meta
     display: flex
     flex-flow: column
     justify-content: center
-  
-.modal 
+
+.modal
   display: none
   position: fixed
   bottom: 0
@@ -133,7 +133,7 @@
     border: 0
     cursor: pointer
     padding:$padding/2 $padding*1.5
-  
+
   &_inner
     display: inline-flex
     flex-direction: column
@@ -143,11 +143,11 @@
     padding: 1.5rem
     box-shadow: 0 1.5rem 6rem rgba(0,0,0,0.12)
     border-radius: 1rem
-  
-  &_show 
+
+  &_show
     overflow: hidden
     position: relative
-    &::before 
+    &::before
       position: absolute
       content: ''
       top: 0
@@ -155,18 +155,18 @@
       width: 100%
       height: 100%
       z-index: 999
-      background-color: rgba(0,0,0,0.6) 
-  
+      background-color: rgba(0,0,0,0.6)
+
   &_show &
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
-  
-  &_title 
+
+  &_title
     margin: 0 !important
-  
-  &::before 
+
+  &::before
     position: absolute
     top: 0
     left: 0
@@ -174,8 +174,8 @@
     height: 100%
     background-color: rgba(255,255,255,0.7)
     z-index: 10
-  
-.btn 
+
+.btn
   font-size: 1rem
   margin: 1rem 0 1.5rem
   padding: 0.5rem 2rem
@@ -187,19 +187,19 @@
   border-radius: 3rem
   border: none
   outline: none
-  &, &_group 
+  &, &_group
     width: 12rem
     display: inline-block
     color:  var(--light)
-  
-  &_group 
+
+  &_group
     position: relative
     margin: 1rem 0
-  
+
   &_group &
     margin: 0
-  
-  &_close 
+
+  &_close
     content: "X"
     width: 2.5rem
     position: absolute
@@ -216,8 +216,8 @@
     z-index: 2
     cursor: pointer
     margin: 0
-  
-.icon 
+
+.icon
   background-size: 75%
   background-position: center
   background-repeat: no-repeat

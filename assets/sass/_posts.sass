@@ -7,22 +7,22 @@
     text-align: left
     text-transform: initial
     padding: 0.25rem 0 0 0
-  
+
   p
     padding-bottom: 0.5rem
     padding-top: 0.5rem
     font-size: 1.05rem
-  
+
   &s
     display: flex
     justify-content: space-between
     flex-flow: row wrap
     width: 100%
     align-items: stretch
-  
-  &s:not(.aside) 
+
+  &s:not(.aside)
     padding: 0 30px
-  
+
   &_content
     h4
       margin: 5px 0
@@ -37,10 +37,9 @@
       &:hover
         opacity: 0.7
 
-    ol, ul 
+    ol, ul
       padding: 0.5rem 0 0.5rem 1.2rem
-      // list-style-type: initial
-    li 
+    li
       padding: 0.33rem 0
   &_header
     background-size: cover
@@ -57,7 +56,7 @@
     justify-content: center
     align-items: center
     flex-direction: column
-    &::after 
+    &::after
       content: ""
       position: absolute
       top: 0
@@ -66,36 +65,36 @@
       bottom: 0
       z-index: 1
       background: rgba(10, 15, 30, 0.72)
-    
-    h1 
+
+    h1
       color: inherit
-    h1, p, h4 
+    h1, p, h4
       position: relative
       z-index: 2
 
-  &_copy 
+  &_copy
     opacity: 0
     transition: opacity 0.3s ease-out
-  
+
   &_item
     @include shadow
     margin: 1.25rem 0
     border-radius: 10px
     overflow: hidden
     width: 100%
-    @media screen and (min-width:667px) 
+    @media screen and (min-width:667px)
       width: 47%
 
   &_item:hover &_copy
     opacity: 1
-  
+
   &_link
     padding: 2.5px 0
     font-size: 1.25em
     margin: 2.5px 0
     text-align: left
-  
-  &_meta 
+
+  &_meta
     overflow: hidden
     opacity: 0.8
     font-size: 0.84rem
@@ -108,17 +107,17 @@
     border-radius: 0.3rem
     color: var(--dark)
     text-transform: capitalize
-    a 
-      &:hover 
+    a
+      &:hover
         color: var(--theme)
         text-decoration: underline
         opacity: 0.9
 
-  &_extra 
+  &_extra
     display: flex
     justify-content: flex-end
-  
-  &_tag 
+
+  &_tag
     font-size: 0.75rem !important
     font-weight: 500
     background: var(--theme)
@@ -127,24 +126,24 @@
     text-transform: uppercase
     display: inline-flex
     border-radius: 5px
-  
+
   &_title
     text-align: center
     @extend %narrow
-  
-  &_author 
+
+  &_author
     padding: 0.2rem 0.75rem
-    a 
+    a
       color: var(--theme)
       text-decoration: underline
-    
-  &_time 
+
+  &_time
     background: var(--theme)
     display: inline-grid
     padding: 0.2rem 0.75rem
     color: var(--light)
-  
-  &_card 
+
+  &_card
     display: block
     position: relative
     background-color: var(--dark)
@@ -153,7 +152,7 @@
     background-position: center
     overflow: hidden
     height: 10rem
-    &::after 
+    &::after
       content: ''
       position: absolute
       left: 0
@@ -162,29 +161,29 @@
       top: 0
       z-index: 1
 
-    &:hover::after 
+    &:hover::after
       background-color:rgba(0,0,0,0.3)
-    
-  &_thumbnail 
+
+  &_thumbnail
     width: 100%
     margin: 0
 
-.pager 
+.pager
   display: flex
   justify-content: center
   align-content: center
   margin: 30px auto 0 auto
   padding: 0 1.5rem
   overflow: auto
-  &, &_link 
+  &, &_link
     justify-content: center
     align-items: center
-  
+
   &_link
     display: flex
     background-color: var(--theme)
     color: var(--light)
-    &:hover 
+    &:hover
       opacity: 0.5
   &_item, &_link
     height: 36px
@@ -194,22 +193,20 @@
     margin-left: 5px
     margin-right: 5px
     margin-bottom: 30px
-    // overflow: hidden
     &:first-child, &:last-child
       display: none
-      
+
     &.active, &.disabled
       opacity: 0.5
-  
+
 .excerpt
   padding: 0 10px 1.5rem 10px
   position: relative
   z-index: 1
-  &_meta 
+  &_meta
     display: flex
     justify-content: space-between
     align-items: center
     transform: translateY(-2.5rem)
     position: relative
     z-index: 5
-  

@@ -199,7 +199,7 @@ function fileClosure(){
     pushClass(title, 'modal_title');
     body.appendChild(title);
     // add html specific to modal
-    if (isObj(children)) {   
+    if (isObj(children)) {
       if (Array.isArray(children)) {
         children.map(function(child){
           body.appendChild(child);
@@ -449,12 +449,12 @@ function fileClosure(){
             createModal(confirm, comments);
             fillModal(obj);
           }
-        } 
+        }
 
         if (isModalCloseBtn) {
           modal = target.closest('.modal');
           modal.remove();
-          deleteClass(doc, 'modal_show');    
+          deleteClass(doc, 'modal_show');
         }
       });
     }
