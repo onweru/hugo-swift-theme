@@ -42,12 +42,11 @@ You can configure the site using as follows:
     Use the file `config.toml`.
 2. ### menu, footer
 
-    See the **data** files inside the `data/` directory.
+    See the **config.toml** file's menu areas.
 
     > Follow the `exampleSite/`.
 3. Customize Theme colors
     You can do so easily in the [variables sass partial](https://github.com/onweru/hugo-swift-theme/blob/e5af8a1414cd8e1ec5a0817f8e5eb8c8c98e2676/assets/sass/_variables.sass#L13-L21). Use names (e.g red, blue, darkgoldenrod), rgb, rgba, hsla or hex values.
-    
 
 ## Staticman Comments
 
@@ -61,12 +60,13 @@ To enable them, you may refer to the
 
   1. Copy [this authors yaml file](https://github.com/onweru/hugo-swift-theme/blob/master/exampleSite/data/authors.yml) from the `exampleSite` into your sites `./data` directory.
 
-  ```yaml
-  - name: "yourName" # if fullName 👇🏻 isn't set, name will be displayed on author card
-    fullName: "John Doe" # optional. If set, it will display on author card
-    photo: "myAvatar.jpg"
-    url: "https://myURLofChoice.domain"
-    bio: "It's time to flex. Write a short or not-so-short summary about yourself."
+  ```toml
+    [[params.authors]]
+      name = "yourName" # if fullName 👇🏻 isn't set, name will be displayed on author card
+      fullName = "Your Full Name" # optional. If set, it will display on author card
+      bio = "It's time to flex. Write a short or not-so-short summary about yourself."
+      photo = "myPhotoFile.jpg"
+      url = "https://myURLofChoice.domain"
   ```
 
   2. Specify the name in your content files
@@ -80,7 +80,7 @@ To enable them, you may refer to the
 
 Don't include an `author` in your article front matter.
 
-The *authors.yml* file helps you:
+The `[[.Params.authors]]` interface in the config.toml file helps you:
 
   1. Write all your author information in one place. This way, you only specify the author name on your content files (posts). The rest of the data i.e photo, url & bio are automatically pulled from the data file.
 
@@ -107,7 +107,7 @@ This theme ships with two custom shortcodes (they both use positional parameters
 
 1. __Video__
     This shortcode can be used to embed a youtube video with custom styling. It takes a solo positional parameter.
-    
+
     ```
     ...
     {{< video "youtubeVideoID" >}}
@@ -117,8 +117,8 @@ This theme ships with two custom shortcodes (they both use positional parameters
 2. __Picture__
     You want to use darkmode images when darkmode is enabled on a device and a regular image on lightmode? It takes 3 positional parameters
 
-    Store these images in the `static/images` directory. 
-    
+    Store these images in the `static/images` directory.
+
     ```
     ...
     {{< picture "lightModeImage.png" "darkModeImage.png" "Image alt text" >}}
@@ -126,10 +126,10 @@ This theme ships with two custom shortcodes (they both use positional parameters
     ```
 
 3. __Gallery__
-    Include inline galleries within your articles. These galleries can contain `N` number of images. It takes 2 positional parameters. 
-    
+    Include inline galleries within your articles. These galleries can contain `N` number of images. It takes 2 positional parameters.
+
     The 1st parameter is required. It's a _comma-separated list_ (`,`) of your images' paths.
-    
+
     The 2nd parameter is optional. It's a _double-collon-separated list_ (`::`) of your images' alt/description/captions text. It's always a good SEO practice to include alt text for your images.
 
     ```
