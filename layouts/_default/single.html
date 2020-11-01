@@ -6,9 +6,9 @@
   {{ $scratch.Set "image" "thumbnail.svg" }}
 {{- end }}
 {{- $image := $scratch.Get "image" }}
-{{- $bg := (path.Join "images" $image | absLangURL) }}
+{{- $bg := (path.Join "images" $image) }}
 {{ $p := .Site.Params }}
-<section class = 'post_header' style = 'background-image:url({{ $bg }});'>
+<section class = 'post_header' style = 'background-image:url({{ absURL $bg }});'>
   <h1 class='post_title'>{{ .Title }}</h1>
   {{- with .Params.brief }}
     <p>{{ . }}</p>
