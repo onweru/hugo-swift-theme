@@ -1,0 +1,5 @@
+{{- $grids := .Get 0 }}
+{{- $modifiers := .Get 1 }}
+<div class="grid_{{ $grids }}{{ with $modifiers }} {{ . }}{{ end }}">
+  {{ .Inner }}
+</div>

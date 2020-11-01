@@ -1,0 +1,4 @@
+{{- $modifiers := .Get 0 }}
+<div{{ with $modifiers }}class="{{ . }}"{{ end }}>
+  {{ markdownify .Inner }}
+</div>
