@@ -233,3 +233,31 @@
     margin: 0 0 1rem
   &_image
     margin: 0 auto
+
+.crypto
+  display: grid
+  grid-gap: 1rem
+  margin-bottom: 2.5rem
+  &_row
+    display: grid
+    grid-template-columns: 6rem 1fr 1.5rem
+    grid-gap: 1.5rem
+    padding: 1rem 0
+    &:not(:last-child)
+      border-bottom: 1px solid var(--accent)
+  &_address
+    max-width: calc(100% - 100px)
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+    &:focus, &:hover
+      text-overflow: initial
+      overflow: auto
+  &_copy
+    cursor: pointer
+    &.active
+      opacity: 0.33
+    svg
+      fill: var(--theme)
+      height: 1.5rem
+      width: 1.5rem

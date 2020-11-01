@@ -63,3 +63,23 @@
 .align
   h2, h3, h4, h5, h6
     margin: 0.33rem 0 !important
+
+%grid
+  display: grid
+  grid-template-columns: 1fr
+
+[class*='grid_']
+  grid-gap: 2rem
+
+.grid_2, .grid_3, .grid_4
+  @extend %grid
+
+@media screen and (min-width: 42rem)
+  .grid_2
+    grid-template-columns: 1fr 1fr
+
+  .grid_3
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr))
+
+  .grid_4
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr))
