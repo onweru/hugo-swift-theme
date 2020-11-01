@@ -643,6 +643,23 @@ function fileClosure(){
     lazyLoadMedia('img');
   })();
 
+  doc.addEventListener('click', function(event){
+    const target = event.target;
+    const cryptoCopy = '.crypto_copy';
+    const copied = 'active';
+    let isCopyCrypto = target.matches(cryptoCopy);
+    const isInCopyCrypto = target.closest(cryptoCopy);
+    if(isCopyCrypto || isInCopyCrypto) {
+      if(isInCopyCrypto) {
+        isCopyCrypto = isInCopyCrypto;
+      }
+      const address = isCopyCrypto.previousElementSibling.dataset.address;
+      copyToClipboard(address);
+      console.log(isCopyCrypto, address)
+      pushClass(isCopyCrypto, copied);
+    }
+  });
+
   // add new code above this line
 }
 window.addEventListener('load', fileClosure());
