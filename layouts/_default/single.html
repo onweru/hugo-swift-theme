@@ -7,8 +7,12 @@
 {{- end }}
 {{- $image := $scratch.Get "image" }}
 {{- $bg := (path.Join "images" $image | absLangURL) }}
+{{ $p := .Site.Params }}
 <section class = 'post_header' style = 'background-image:url({{ $bg }});'>
   <h1 class='post_title'>{{ .Title }}</h1>
+  {{- with .Params.brief }}
+    <p>{{ . }}</p>
+  {{- end }}
 </section>
 <div class = 'post'>
   <article class='post_content'>
@@ -18,12 +22,14 @@
     </div>
     {{- partial "author" . }}
   </article>
-  {{- if .Site.Params.Staticman }}
+  {{- if $p.Staticman }}
     {{- partial "comments" . }}
   {{- end }}
+  {{ if in $p.mainSections .Type }}
   <aside>
     {{- partial "aside" . }}
   </aside>
+  {{ end }}
 </div>
 <script src = '{{ absURL "js/autosize.min.js" }}'></script>
 {{- $timeagoScr := resources.Get "js/timeago.js" | resources.ExecuteAsTemplate "js/timeago.js" . }}

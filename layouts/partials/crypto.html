@@ -1,0 +1,12 @@
+{{- $cryptoAddresses := .Site.Params.crypto }}
+{{- with $cryptoAddresses }}
+<div class="crypto">
+  {{- range . }}
+  <div class="crypto_row">
+    <span class="crypto_name">{{ .name }}</span>
+    <span class="crypto_address" contenteditable="true" data-address="{{ .address }}">{{ .address }}</span>
+    <span class="crypto_copy">{{ partial "sprite" (dict "icon" "copy") }}</span>
+  </div>
+  {{- end }}
+</div>
+{{- end }}

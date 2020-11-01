@@ -1,4 +1,4 @@
-{{- $authors := .Site.Data.authors }}
+{{- $authors := .Site.Params.authors }}
 {{- $pageAuthor := .Params.author }}
 {{- with $authors }}
   {{- $author := index (where . "name" $pageAuthor) 0 }}

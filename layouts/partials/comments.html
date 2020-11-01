@@ -15,7 +15,7 @@
               <a href='#{{ ._id }}'><div class = 'comment_heading pale' data-time = '{{ .date }}'></div></a>
               <div class = 'comment_author comment_name'><span class="comment_name_span">{{ .name }}</span></div>
             </div>
-            <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
+            <p class = 'solo comment_bio pale'>{{ markdownify .comment }}</p>
             <div class = 'comment_thread hidden'>{{ ._id }}</div>
             <div class = 'reply_btn icon'></div>
           </div>
@@ -28,7 +28,7 @@
                   <a href='#{{ ._id }}'><div class = 'comment_heading pale' data-time = '{{ .date }}'></div></a>
                   <div class = 'comment_author comment_name'><span class = 'comment_name_span'>{{ .name }}</span><span> ↷ </span><a href='#{{ .replyID }}' class='reply_target'>{{ .replyName }}</a></div>
                 </div>
-                <p class = 'solo comment_bio pale'>{{ .comment | markdownify }}</p>
+                <p class = 'solo comment_bio pale'>{{ markdownify .comment }}</p>
                 <div class = 'comment_thread hidden'>{{ .replyThread }}</div>
                 <div class = 'reply_btn icon'></div>
               </div>
