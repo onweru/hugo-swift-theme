@@ -1,9 +1,9 @@
 [designed_by]
   other = "Conçu par  <a href = '{{ .url }}' title = 'Profil Linkedin'>{{ .name }}</a>"
 [share_story]
-  other = "Partager l'histoire"
+  other = "copie"
 [link_copied]
-  other = "Lien copié"
+  other = "copié"
 [written_by]
   other = "Ecrit par"
 [btnReset]
@@ -59,7 +59,7 @@
 [errMsg]
   other = "Désolé, une erreur s'est produite lors de l'envoi du commentaire !"
 [moreFrom]
-  other = "Plus de billets sur {{ .Count }}"
+  other = "Plus de billets sur"
 [discard]
   other = "effacer"
 [discardComment]

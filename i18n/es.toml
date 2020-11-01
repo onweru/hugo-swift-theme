@@ -1,9 +1,9 @@
 [designed_by]
   other = "Diseñado por  <a href = '{{ .url }}' title = 'Perfil de Linkedin'>{{ .name }}</a>"
 [share_story]
-  other = "Compartir Historia"
+  other = "Copiar"
 [link_copied]
-  other = "Enlace Copiado"
+  other = "Copiado"
 [written_by]
   other = "Escrito por"
 [author_profile]
@@ -61,7 +61,7 @@
 [errMsg]
   other = "¡Lo sentimos, hay un error en el envío!"
 [moreFrom]
-  other = "Más de {{ .Count }}"
+  other = "Más de"
 [discard]
   other = "descartar"
 [discardComment]

@@ -1,9 +1,10 @@
 [designed_by]
   other = "Designed by  <a href = '{{ .url }}' title = 'Linkedin Profile'>{{ .name }}</a>"
+
 [share_story]
-  other = "Share Story"
+  other = "Copy"
 [link_copied]
-  other = "Link Copied"
+  other = "Copied"
 [written_by]
   other = "Written by"
 [btnReset]
@@ -59,7 +60,7 @@
 [errMsg]
   other = "Sorry, there was an error with the submission!"
 [moreFrom]
-  other = "More from {{ .Count }}"
+  other = "More from"
 [discard]
   other = "discard"
 [discardComment]
