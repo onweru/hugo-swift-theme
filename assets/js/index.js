@@ -655,7 +655,6 @@ function fileClosure(){
       }
       const address = isCopyCrypto.previousElementSibling.dataset.address;
       copyToClipboard(address);
-      console.log(isCopyCrypto, address)
       pushClass(isCopyCrypto, copied);
     }
   });
