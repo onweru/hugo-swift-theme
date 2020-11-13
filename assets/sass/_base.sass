@@ -156,3 +156,26 @@ ol
       border-right: 2px solid var(--theme)
     &.align::before
       top: 1rem
+
+
+th, td
+  padding: 0.5rem
+  font-weight: 400 !important
+  &:not(:first-child)
+    padding-left: 1.5rem
+
+thead
+  background: var(--theme)
+  color: var(--light)
+  font-weight: 400
+  text-align: left
+
+tbody
+  tr
+    &:nth-child(even)
+      background-color: var(--accent) !important
+      box-shadow: 0 1rem 0.75rem -0.75rem rgba(0,0,0,0.07)
+
+table
+  margin: 1.5rem 0
+  width:  100%
