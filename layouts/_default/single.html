@@ -14,13 +14,15 @@
     <p>{{ . }}</p>
   {{- end }}
 </section>
-<div class = 'post'>
+<div class = '{{ if .Params.full }}wrap{{ else }}post{{ end }}'>
   <article class='post_content'>
     {{- .Content }}
+    {{ if in $p.mainSections .Type }}
     <div class = 'post_extra'>
       {{- partial "copy" . }}
     </div>
     {{- partial "author" . }}
+    {{ end }}
   </article>
   {{- if $p.Staticman }}
     {{- partial "comments" . }}
