@@ -83,3 +83,18 @@
 
   .grid_4
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr))
+
+@for $i from 1 through 4
+  $size: $i * 1.5rem
+  $x-size: $size * 0.5
+  .pt-#{$i}
+    padding-top: $size
+
+  .pb-#{$i}
+    padding-bottom: $size
+
+  .mt-#{$i}
+    margin-top: $size
+
+  .mb-#{$i}
+    margin-bottom: $size
