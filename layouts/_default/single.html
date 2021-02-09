@@ -8,13 +8,15 @@
 {{- $image := $scratch.Get "image" }}
 {{- $bg := (path.Join "images" $image) }}
 {{ $p := .Site.Params }}
+{{- if ne .Params.hideBanner true }}
 <section class = 'post_header' style = 'background-image:url({{ absURL $bg }});'>
   <h1 class='post_title'>{{ .Title }}</h1>
   {{- with .Params.brief }}
     <p>{{ . }}</p>
   {{- end }}
 </section>
-<div class = '{{ if .Params.full }}wrap{{ else }}post{{ end }}'>
+{{- end }}
+<div class = '{{ if .Params.full }}wrap post{{ else }}post{{ end }}'>
   <article class='post_content'>
     {{- .Content }}
     {{ if in $p.mainSections .Type }}
