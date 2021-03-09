@@ -21,7 +21,7 @@
     {{- .Content }}
     {{ if in $p.mainSections .Type }}
     <div class = 'post_extra'>
-      {{- partial "copy" . }}
+      {{- partialCached "copy" . }}
     </div>
     {{- partial "author" . }}
     {{ end }}
