@@ -209,7 +209,9 @@ function fileClosure(){
   const cryptoRow = ".crypto_row";
   const cryptoRows = elems(cryptoRow);
   if(cryptoRows.length) {
-    cryptoAddressQR(cryptoRows[0].dataset.address);
+    let firstRow = cryptoRows[0];
+    cryptoAddressQR(firstRow.dataset.address);
+    markActive(firstRow);
   }
 
   doc.addEventListener('click', function(event){
@@ -222,7 +224,7 @@ function fileClosure(){
       if(isCopyCrypto) {
         copyToClipboard(address);
       }
-      // pushClass(isCrypto, active);
+      markActive(isCrypto);
       cryptoAddressQR(address);
     }
   });

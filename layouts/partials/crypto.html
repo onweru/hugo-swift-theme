@@ -1,7 +1,7 @@
 {{- $cryptoAddresses := .Site.Params.crypto }}
 {{- with $cryptoAddresses }}
 <script src="/js/qrcode.js"></script>
-<div class="crypto">
+<div class="crypto pt-1">
   <div class="crypto_rows">
     {{- range . }}
     {{- $taddress := T "address" }}

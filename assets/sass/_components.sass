@@ -243,8 +243,21 @@
     grid-template-columns: 6rem 1fr
     padding: 1rem 0
     grid-gap: 1.5rem
+    position: relative
+    align-items: center
+    cursor: pointer
+    opacity: 0.75
     &.active
-      background: var(--accent)
+      opacity: 1
+    &.active::after
+      content: ""
+      position: absolute
+      right: -1rem
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 0.5rem 1rem 0.5rem 0
+      border-color: transparent var(--accent) transparent transparent
     &, &s
       display: grid
     &:not(:last-child)
@@ -263,8 +276,6 @@
     &, svg
       height: 1.5rem
       width: 1.5rem
-    &.active
-      opacity: 0.33
     svg
       fill: var(--theme)
   &_qr

@@ -48,6 +48,20 @@ function isChild(node, parentClass) {
   return (objectsAreValid && node.closest(parentClass)) ? true : false;
 }
 
+function getSiblings(el) {
+  return Array.prototype.filter.call(el.parentNode.children, function(child){
+    return child !== el;
+  });
+}
+
+function markActive(el, activeClass = active) {
+  const siblings = getSiblings(el);
+  pushClass(el, activeClass);
+  if(siblings.length) {
+    siblings.forEach(element => deleteClass(element, activeClass));
+  }
+}
+
 function elemAttribute(elem, attr, value = null) {
   if (value) {
     elem.setAttribute(attr, value);
