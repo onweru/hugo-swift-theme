@@ -238,11 +238,15 @@
   display: grid
   grid-gap: 1rem
   margin-bottom: 2.5rem
+  grid-template-columns: 10rem 1fr
   &_row
-    display: grid
-    grid-template-columns: 6rem 1fr 1.5rem
-    grid-gap: 1.5rem
+    grid-template-columns: 6rem 1fr
     padding: 1rem 0
+    grid-gap: 1.5rem
+    &.active
+      background: var(--accent)
+    &, &s
+      display: grid
     &:not(:last-child)
       border-bottom: 1px solid var(--accent)
   &_address
@@ -255,9 +259,23 @@
       overflow: auto
   &_copy
     cursor: pointer
+    display: block
+    &, svg
+      height: 1.5rem
+      width: 1.5rem
     &.active
       opacity: 0.33
     svg
       fill: var(--theme)
-      height: 1.5rem
-      width: 1.5rem
+  &_qr
+    display: none
+  &_pad
+    background: var(--accent)
+    border-radius: 0.25rem
+    padding: 1rem
+    max-width: 15rem
+    display: flex
+    justify-content: center
+    align-items: center
+  &_pad &_qr
+    display: initial
