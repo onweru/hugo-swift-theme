@@ -1,9 +1,26 @@
-<footer class = 'footer'>
-  <div class = 'footer_inner wrap pale'>
-    <p>&copy;&nbsp;<span class = 'year'></span>&nbsp;{{ .Site.Title }}.
+<footer class="footer">
+  <div class="footer_inner wrap pale">
+    <p>&copy;&nbsp;<span class="year"></span>&nbsp;{{ .Site.Title }}.
     {{ i18n "designed_by" .Site.Params.designer | safeHTML }}</p>
   </div>
 </footer>
+
+{{- $commentsScriptPath := "js/comments.js" }}
+{{- $comments := resources.Get $commentsScriptPath | resources.ExecuteAsTemplate $commentsScriptPath . }}
+
+{{- $functionsScriptPath := "js/functions.js" }}
+{{- $functions := resources.Get $functionsScriptPath | resources.ExecuteAsTemplate $functionsScriptPath . }}
+
 {{- $mainScriptPath := "js/index.js" }}
-{{- $scripts := resources.Get $mainScriptPath | resources.ExecuteAsTemplate $mainScriptPath . | resources.Minify | resources.Fingerprint "sha512" }}
-<script src = '{{ $scripts.Permalink }}'></script>
+{{- $main := resources.Get $mainScriptPath | resources.ExecuteAsTemplate $mainScriptPath . }}
+
+{{- $variablesScriptPath := "js/variables.js" }}
+{{- $variables := resources.Get $variablesScriptPath | resources.ExecuteAsTemplate $variablesScriptPath . }}
+
+{{- $bundle := slice $variables $functions $main }}
+{{- if site.Params.Staticman }}
+  {{- $bundle = slice $variables $functions $main $comments }}
+{{- end }}
+{{- $bundle =  $bundle | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint "sha512" -}}
+
+<script type="text/javascript" src="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous"></script>
