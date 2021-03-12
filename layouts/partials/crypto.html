@@ -1,5 +1,6 @@
 {{- $cryptoAddresses := .Site.Params.crypto }}
 {{- with $cryptoAddresses }}
+<script src="/js/qrcode.js"></script>
 <div class="crypto">
   {{- range . }}
   <div class="crypto_row">
@@ -8,5 +9,17 @@
     <span class="crypto_copy" title='{{ T "share_story" }} {{ .name }} {{ T "address" }}' data-address="{{ .address }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
   </div>
   {{- end }}
+  <script>
+    const qrs = document.querySelectorAll(".crypto_qr");
+    if(qrs.length) {
+      qrs.forEach(qr => {
+        const qrCode = new QRious({ element: qr, size: 100, value: qr.dataset.qr });
+        qrCode.set({
+          foreground: 'green',
+          size: 100,
+        });
+      });
+    }
+  </script>
 </div>
 {{- end }}
