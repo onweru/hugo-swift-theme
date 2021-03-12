@@ -2,27 +2,19 @@
 {{- with $cryptoAddresses }}
 <script src="/js/qrcode.js"></script>
 <div class="crypto">
-  {{- range . }}
-  <div class="crypto_row">
-    <span class="crypto_name">{{ .name }}</span>
+  <div class="crypto_rows">
+    {{- range . }}
     {{- $taddress := T "address" }}
     {{- $tcopy := T "address" }}
     {{- $tooltip := printf "%s%s%s" $tcopy .name $taddress }}
-    <canvas class="crypto_qr" data-qr="{{ .address }}"></canvas>
-    <span class="crypto_copy" title="{{ $tooltip }}" data-address="{{ .address }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
+    <div class="crypto_row" data-address="{{ .address }}">
+      <span class="crypto_name">{{ .name }}</span>
+      <span class="crypto_copy" title="{{ $tooltip }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
+    </div>
+    {{- end }}
   </div>
-  {{- end }}
-  <script>
-    const qrs = document.querySelectorAll(".crypto_qr");
-    if(qrs.length) {
-      qrs.forEach(qr => {
-        const qrCode = new QRious({ element: qr, size: 100, value: qr.dataset.qr });
-        qrCode.set({
-          foreground: 'green',
-          size: 100,
-        });
-      });
-    }
-  </script>
+  <div class="crypto_pad">
+    <canvas class="crypto_qr"></canvas>
+  </div>
 </div>
 {{- end }}
