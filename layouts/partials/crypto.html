@@ -5,7 +5,11 @@
   {{- range . }}
   <div class="crypto_row">
     <span class="crypto_name">{{ .name }}</span>
-    <span class="crypto_copy" title='{{ T "share_story" }} {{ .name }} {{ T "address" }}' data-address="{{ .address }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
+    {{- $taddress := T "address" }}
+    {{- $tcopy := T "address" }}
+    {{- $tooltip := printf "%s%s%s" $tcopy .name $taddress }}
+    <canvas class="crypto_qr" data-qr="{{ .address }}"></canvas>
+    <span class="crypto_copy" title="{{ $tooltip }}" data-address="{{ .address }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
   </div>
   {{- end }}
   <script>
