@@ -5,7 +5,12 @@
   {{- with $author }}
     <div class = 'author'>
       <a href = '{{ .url }}' target = "{{ .name }}'s profile" class = 'author_pic'>
-        <img src = '{{ absURL (printf "images/%s" .photo) }}' alt = ''>
+        {{- $imageDir := "images/" }}
+        {{- $imagePath := .photo }}
+        {{- if eq (in .photo "/") false }}
+          {{- $imagePath = printf "%s%s" $imageDir .photo }}
+        {{- end }}
+        <img src = '{{ $imagePath  }}' alt = ''>
       </a>
       <div class = 'author_meta'>
         <a class = 'author_name' href = '{{ .url }}'>{{ with .fullName }}{{ . }}{{ else }}{{ .name }}{{ end }}</a>
