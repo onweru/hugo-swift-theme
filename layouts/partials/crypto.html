@@ -5,7 +5,6 @@
   {{- range . }}
   <div class="crypto_row">
     <span class="crypto_name">{{ .name }}</span>
-    <!-- <span class="crypto_address" contenteditable="true">{{ .address }}</span> -->
     <span class="crypto_copy" title='{{ T "share_story" }} {{ .name }} {{ T "address" }}' data-address="{{ .address }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
   </div>
   {{- end }}
