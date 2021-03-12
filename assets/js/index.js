@@ -653,7 +653,7 @@ function fileClosure(){
       if(isInCopyCrypto) {
         isCopyCrypto = isInCopyCrypto;
       }
-      const address = isCopyCrypto.previousElementSibling.dataset.address;
+      const address = isCopyCrypto.dataset.address;
       copyToClipboard(address);
       pushClass(isCopyCrypto, copied);
     }
