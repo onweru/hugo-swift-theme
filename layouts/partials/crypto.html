@@ -8,7 +8,13 @@
     {{- $tcopy := T "address" }}
     {{- $tooltip := printf "%s%s%s" $tcopy .name $taddress }}
     <div class="crypto_row" data-address="{{ .address }}">
-      <span class="crypto_name">{{ .name }}</span>
+      {{- $sn := .shortName -}}
+      <span class="crypto_name">
+        <span>
+          <img src="{{ .icon }}" alt="{{ $sn }} logo" class="crypto_logo" />
+        </span>
+        {{ $sn }}
+      </span>
       <span class="crypto_copy" title="{{ $tooltip }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
     </div>
     {{- end }}
