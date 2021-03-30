@@ -238,6 +238,7 @@
   display: grid
   grid-gap: 1rem
   margin-bottom: 2.5rem
+  position: relative
   &_logo
     height: 2.25rem
     border-radius: 50%
@@ -249,9 +250,6 @@
     position: relative
     align-items: center
     cursor: pointer
-    opacity: 0.75
-    &.active
-      opacity: 1
     &.active::after
       content: ""
       position: absolute
@@ -273,24 +271,25 @@
     &:focus, &:hover
       text-overflow: initial
       overflow: auto
-  &_copy
+  svg
     cursor: pointer
     display: block
-    &, svg
-      height: 1.5rem
-      width: 1.5rem
-    svg
-      fill: var(--theme)
+    height: 1.5rem
+    width: 1.5rem
+    fill: var(--theme)
   &_qr
     display: none
   &_pad
-    border-left: 3px solid var(--accent)
-    border-right: 3px solid var(--accent)
-    border-radius: 0.25rem
     padding: 1rem
     max-width: 15rem
-    display: flex
-    justify-content: center
-    align-items: center
+    display: none
+    &.active
+      position: absolute
+      display: grid
+      border-radius: 0.25rem
+      background: var(--accent)
+      box-shadow: 0 1rem 4rem rgba(0,0,0,0.12)
   &_pad &_qr
     display: initial
+  &_pad &_title 
+    border-bottom: 1px solid var(--bg)
