@@ -1,7 +1,11 @@
+[address]
+  other = "Address"
 [designed_by]
   other = "Conçu par  <a href = '{{ .url }}' title = 'Profil Linkedin'>{{ .name }}</a>"
-[share_story]
+[copy]
   other = "copie"
+[scan]
+  other = "Scan"
 [link_copied]
   other = "copié"
 [written_by]

@@ -201,7 +201,7 @@ function fileClosure(){
   function cryptoAddressQR(address, el = qr) {
     const qrCode = new QRious({ element: el, size: 125, value: address});
     qrCode.set({
-      foreground: "green",
+      foreground: "#ef7f1a",
       size: 125,
     });
   }

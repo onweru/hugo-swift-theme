@@ -5,8 +5,10 @@
   <div class="crypto_rows">
     {{- range . }}
     {{- $taddress := T "address" }}
-    {{- $tcopy := T "address" }}
-    {{- $tooltip := printf "%s%s%s" $tcopy .name $taddress }}
+    {{- $tcopy := T "copy" }}
+    {{- $tscan := T "scan" }}
+    {{- $tcopy = printf "%s %s %s" $tcopy .name $taddress }}
+    {{- $tscan = printf "%s %s %s" $tscan .name $taddress }}
     <div class="crypto_row" data-address="{{ .address }}">
       {{- $sn := .shortName -}}
       <span class="crypto_name">
@@ -15,7 +17,8 @@
         </span>
         {{ $sn }}
       </span>
-      <span class="crypto_copy" title="{{ $tooltip }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
+      <span class="crypto_copy" title="{{ $tcopy }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
+      <span class="crypto_scan" title="{{ $tscan }}">Scan</span>
     </div>
     {{- end }}
   </div>

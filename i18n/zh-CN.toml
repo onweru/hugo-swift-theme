@@ -1,7 +1,11 @@
+[address]
+  other = "Address"
 [designed_by]
   other = "由 <a href = '{{ .url }}' title = '领英个人档案'>{{ .name }}</a> 设计"
-[share_story]
+[copy]
   other = "复制"
+[scan]
+  other = "Scan"
 [link_copied]
   other = "已复制"
 [written_by]
