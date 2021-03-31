@@ -21,6 +21,6 @@
 {{- if site.Params.Staticman }}
   {{- $bundle = slice $variables $functions $main $comments }}
 {{- end }}
-{{- $bundle =  $bundle | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint "sha512" -}}
+{{- $bundle =  $bundle | resources.Concat "js/bundle.js" | resources.Fingerprint "sha512" -}}
 
 <script type="text/javascript" src="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous"></script>

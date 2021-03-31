@@ -9,7 +9,7 @@
     {{- $tscan := T "scan" }}
     {{- $tcopy = printf "%s %s %s" $tcopy .name $taddress }}
     {{- $tscan = printf "%s %s %s" $tscan .name $taddress }}
-    <div class="crypto_row" data-address="{{ .address }}">
+    <div class="crypto_row" data-title="{{ .name }}" data-address="{{ .address }}">
       {{- $sn := .shortName -}}
       <span class="crypto_name">
         <span>
@@ -18,11 +18,12 @@
         {{ $sn }}
       </span>
       <span class="crypto_copy" title="{{ $tcopy }}">{{ partial "sprite" (dict "icon" "copy") }}</span>
-      <span class="crypto_scan" title="{{ $tscan }}">Scan</span>
+      <span class="crypto_scan" title="{{ $tscan }}">{{ partial "sprite" (dict "icon" "scan") }}</span>
     </div>
     {{- end }}
   </div>
   <div class="crypto_pad">
+    <h3 class="crypto_title"></h3>
     <canvas class="crypto_qr"></canvas>
   </div>
 </div>
