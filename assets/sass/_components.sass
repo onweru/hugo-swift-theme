@@ -250,6 +250,8 @@
     position: relative
     align-items: center
     cursor: pointer
+    &.active
+      opacity: 0.7
     &.active::after
       content: ""
       position: absolute
@@ -280,16 +282,21 @@
   &_qr
     display: none
   &_pad
-    padding: 1rem
-    max-width: 15rem
+    padding: 1.5rem
     display: none
     &.active
       position: absolute
-      display: grid
+      display: flex
+      flex-flow: column
+      align-items: center
+      justify-content: center
       border-radius: 0.25rem
       background: var(--accent)
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      max-width: 100%
       box-shadow: 0 1rem 4rem rgba(0,0,0,0.12)
   &_pad &_qr
     display: initial
-  &_pad &_title 
-    border-bottom: 1px solid var(--bg)

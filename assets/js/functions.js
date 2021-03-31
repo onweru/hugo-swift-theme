@@ -102,7 +102,7 @@ function isMatch(element, selectors) {
 function exactMatch(target, criteria) {
   const isTarget = target.matches(criteria);
   const isWithinTarget = target.closest(criteria);
-  return isTarget ? isTarget : isWithinTarget;
+  return isTarget ? isTarget : isWithinTarget;;
 }
 
 const copyToClipboard = str => {

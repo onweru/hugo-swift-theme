@@ -38,3 +38,5 @@ const translations = {
   submit: '{{ T "btnSubmit" }}',
   submitted: '{{ T "btnSubmitted" }}'
 };
+
+const tAddress = '{{ T "address" }}';

@@ -199,33 +199,40 @@ function fileClosure(){
   const qr = elem(".crypto_qr");
 
   function cryptoAddressQR(address, el = qr) {
-    const qrCode = new QRious({ element: el, size: 125, value: address});
+    const qrCode = new QRious({ element: el, size: 225, value: address});
     qrCode.set({
       foreground: "#ef7f1a",
-      size: 125,
+      size: 225,
     });
   }
 
-  const cryptoRow = ".crypto_row";
-  const cryptoRows = elems(cryptoRow);
-  if(cryptoRows.length) {
-    let firstRow = cryptoRows[0];
-    cryptoAddressQR(firstRow.dataset.address);
-    markActive(firstRow);
+  function activeCryptoTitle(el) {
+    const cryptoTitle = `${el.dataset.title} ${tAddress}`;  
+    const cryptoTitleEl = elem(".crypto_title");
+    cryptoTitleEl.textContent = cryptoTitle;
   }
+
+  const cryptoRow = ".crypto_row";
 
   doc.addEventListener('click', function(event){
     const target = event.target;
     const cryptoCopy = ".crypto_copy";
+    const cryptoScan = ".crypto_scan";
     const isCrypto = exactMatch(target, cryptoRow);
+    const cryptoPad = qr.parentNode;
     if(isCrypto) {
       const isCopyCrypto = exactMatch(target, cryptoCopy);
-      const address = isCrypto.dataset.address;
-      if(isCopyCrypto) {
-        copyToClipboard(address);
+      const isScanCrypto = exactMatch(target, cryptoScan);
+      if(isCrypto.dataset) {
+        const address = isCrypto.dataset.address;
+        isCopyCrypto ? copyToClipboard(address) : false;
+        isScanCrypto ? pushClass(cryptoPad, active) : false;
+        markActive(isCrypto);
+        cryptoAddressQR(address);
+        activeCryptoTitle(isCrypto);
       }
-      markActive(isCrypto);
-      cryptoAddressQR(address);
+    } else {
+      containsClass(cryptoPad, active) ? modifyClass(cryptoPad, active) : false;
     }
   });
 
