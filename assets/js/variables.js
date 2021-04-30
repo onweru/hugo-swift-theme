@@ -3,7 +3,7 @@ const hidden = "hidden";
 const active = "active";
 
 const doc = document.documentElement;
-const parentURL = "{{ .Site.BaseURL }}";
+const parentURL = window.location.protocol + "//" + window.location.host + "/";
 const staticman = Object.create(null);
 {{ with .Site.Params.staticman -}}
   {{ $staticmanLink := "https://staticman3.herokuapp.com" }}
