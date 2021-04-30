@@ -187,7 +187,7 @@ function fileClosure(){
     function lazyLoadMedia(element) {
       let mediaItems = elems(element);
       if(mediaItems) {
-        Array.from(mediaItems).forEach(function(item, index) {
+        Array.from(mediaItems).forEach(function(item) {
         item.loading = "lazy";
         });
       }
@@ -219,20 +219,47 @@ function fileClosure(){
     const cryptoCopy = ".crypto_copy";
     const cryptoScan = ".crypto_scan";
     const isCrypto = exactMatch(target, cryptoRow);
-    const cryptoPad = qr.parentNode;
-    if(isCrypto) {
-      const isCopyCrypto = exactMatch(target, cryptoCopy);
-      const isScanCrypto = exactMatch(target, cryptoScan);
-      if(isCrypto.dataset) {
-        const address = isCrypto.dataset.address;
-        isCopyCrypto ? copyToClipboard(address) : false;
-        isScanCrypto ? pushClass(cryptoPad, active) : false;
-        markActive(isCrypto);
-        cryptoAddressQR(address);
-        activeCryptoTitle(isCrypto);
+    if(qr) {
+      const cryptoPad = qr.parentNode;
+      if(isCrypto) {
+        const isCopyCrypto = exactMatch(target, cryptoCopy);
+        const isScanCrypto = exactMatch(target, cryptoScan);
+        if(isCrypto.dataset) {
+          const address = isCrypto.dataset.address;
+          isCopyCrypto ? copyToClipboard(address) : false;
+          isScanCrypto ? pushClass(cryptoPad, active) : false;
+          markActive(isCrypto);
+          cryptoAddressQR(address);
+          activeCryptoTitle(isCrypto);
+        }
+      } else {
+        containsClass(cryptoPad, active) ? modifyClass(cryptoPad, active) : false;
       }
-    } else {
-      containsClass(cryptoPad, active) ? modifyClass(cryptoPad, active) : false;
+    }
+  });
+
+  let applied = false;
+  // let fadedUp = false;
+  // let fadedSideways = false;
+  const toFade = elems(".fp");
+  const toFadeSideways = elems(".fs");
+  window.addEventListener("scroll", () => {
+    if(toFade.length) {
+      toFade.forEach((el) => {
+        let blockInPosition = elementInViewport(el);
+        if(blockInPosition) {
+          pushClass(el, "fade_up");
+        }
+      })
+    }
+
+    if(toFadeSideways.length) {
+      toFadeSideways.forEach((el) => {
+        let blockInPosition = elementInViewport(el);
+        if(blockInPosition) {
+          pushClass(el, "fade_left");
+        }
+      })
     }
   });
 

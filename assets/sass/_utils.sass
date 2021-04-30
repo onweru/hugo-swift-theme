@@ -107,3 +107,39 @@
 
   .mb-#{$i}
     margin-bottom: $size
+
+@keyframes fadeUp
+  from
+    opacity: 0
+    transform: translateY(4.5rem)
+  to
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes fadeRight
+  from
+    opacity: 0
+    transform: translateX(4.5rem)
+  to
+    opacity: 1
+    transform: translateX(0)
+
+@keyframes fadeLeft
+  from
+    opacity: 0
+    transform: translateX(-5rem)
+  to
+    opacity: 1
+    transform: translateX(0)
+
+.fade
+  &_up
+    animation: 3s fadeUp var(--easing)
+
+.fade
+  &_right
+    animation: 3s fadeRight var(--easing)
+
+.fade
+  &_left
+    animation: 3s fadeLeft var(--easing)
