@@ -1,5 +1,8 @@
-<div class = 'waves'>
-  <canvas id = 'waves' class = 'waves_inner'></canvas>
+{{ $audio := default site.Params.audio_graphic true }}
+{{ if $audio }}
+<div class="waves">
+  <canvas id="waves" class="waves_inner"></canvas>
 </div>
-<script src =  '{{ absURL "js/sine-waves.min.js" }}'></script>
-<script src = '{{ absURL "js/audio.js" }}'></script>
+<script src={{ absURL "js/sine-waves.min.js" }}></script>
+<script src={{ absURL "js/audio.js" }}></script>
+{{ end }}

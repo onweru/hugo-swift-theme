@@ -1,0 +1,16 @@
+[[main]]
+  name = "About"
+  url = "about/"
+  weight = 2
+[[main]]
+  name = "Development"
+  url = "categories/development/"
+  weight = 3
+[[main]]
+  name = "Golang"
+  url = "categories/golang/"
+  weight = 4
+[[main]]
+  name = "Go"
+  url = "tags/go/"
+  weight = 5

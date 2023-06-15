@@ -1,13 +1,13 @@
 {{- partial "intro" . }}
-{{- $filteredPosts := .Site.Params.blogDir }}
+{{- $filteredPosts := site.Params.blogDir }}
 {{- $pages := .Pages }}
 {{- if .IsHome }}
-  {{- $pages = .Site.RegularPages }}
+  {{- $pages = site.RegularPages }}
   {{- if $filteredPosts }}
-    {{- $pages = where $.Site.RegularPages "Section" $filteredPosts }}
+    {{- $pages = where $pages "Section" $filteredPosts }}
   {{- end }}
 {{- end }}
-<ul class='posts wrap' id = 'posts'>
+<ul class="posts wrap" id=posts>
   {{- range (.Paginate $pages).Pages }}
     {{- partial "excerpt" . }}
   {{- end }}

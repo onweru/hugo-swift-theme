@@ -2,16 +2,16 @@
 {{- with $cryptoAddresses }}
 <script src="/js/qrcode.js"></script>
 <div class="crypto pt-1">
-  <div class="crypto_rows">
+  <div class=crypto_rows>
     {{- range . }}
     {{- $taddress := T "address" }}
     {{- $tcopy := T "copy" }}
     {{- $tscan := T "scan" }}
     {{- $tcopy = printf "%s %s %s" $tcopy .name $taddress }}
     {{- $tscan = printf "%s %s %s" $tscan .name $taddress }}
-    <div class="crypto_row" data-title="{{ .name }}" data-address="{{ .address }}">
+    <div class=crypto_row data-title={{ .name }} data-address={{ .address }}>
       {{- $sn := .shortName -}}
-      <span class="crypto_name">
+      <span class=crypto_name>
         <span>
           <img src="{{ .icon }}" alt="{{ $sn }} logo" class="crypto_logo" />
         </span>
@@ -22,9 +22,9 @@
     </div>
     {{- end }}
   </div>
-  <div class="crypto_pad">
-    <h3 class="crypto_title"></h3>
-    <canvas class="crypto_qr"></canvas>
+  <div class=crypto_pad>
+    <h3 class=crypto_title></h3>
+    <canvas class=crypto_qr></canvas>
   </div>
 </div>
 {{- end }}

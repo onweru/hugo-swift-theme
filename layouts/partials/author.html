@@ -1,20 +1,20 @@
-{{- $authors := .Site.Params.authors }}
+{{- $authors := site.Params.authors }}
 {{- $pageAuthor := .Params.author }}
 {{- with $authors }}
   {{- $author := index (where . "name" $pageAuthor) 0 }}
   {{- with $author }}
-    <div class = 'author'>
-      <a href = '{{ .url }}' target = "{{ .name }}'s profile" class = 'author_pic'>
+    <div class=author>
+      <a href={{ .url }} target="{{ .name }}'s profile" class=author_pic>
         {{- $imageDir := "images/" }}
         {{- $imagePath := .photo }}
         {{- if eq (in .photo "/") false }}
           {{- $imagePath = printf "%s%s" $imageDir .photo }}
         {{- end }}
-        <img src = '{{ $imagePath  }}' alt = ''>
+        <img src={{ $imagePath  }} loading=lazy>
       </a>
-      <div class = 'author_meta'>
-        <a class = 'author_name' href = '{{ .url }}'>{{ with .fullName }}{{ . }}{{ else }}{{ .name }}{{ end }}</a>
-        <p class = 'pale author_bio solo'>{{ .bio }}</p>
+      <div class=author_meta>
+        <a class=author_name href={{ .url }}>{{ with .fullName }}{{ . }}{{ else }}{{ .name }}{{ end }}</a>
+        <p class="pale author_bio solo">{{ .bio }}</p>
       </div>
     </div>
   {{- end }}

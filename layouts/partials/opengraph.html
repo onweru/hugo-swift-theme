@@ -1,36 +1,38 @@
-{{- $summary := .Summary | truncate 160 }}
-{{- with .Params.description }}
-  {{- $summary = (. | truncate 160) }}
+{{- $summary := .Summary }}
+{{- $params := .Params }}
+{{- $config := site.Params }}
+{{- with $params.description }}
+  {{- $summary = . }}
 {{- end }}
-{{- $site := .Site.Title }}
+{{- $summary = truncate 160 $summary }}
+{{- $site := site.Title }}
 {{- $title := .Title }}
-{{- $params := .Site.Params }}
 {{- $permalink := .Permalink }}
-{{- $logo := absURL (printf "images/%s" $params.logo) }}
-{{- $image := absURL (printf "images/%s" $params.image) }}
-{{- $author := $params.author }}
-{{- with .Params.author }}
+{{- $logo := absURL (printf "images/%s" $config.logo) }}
+{{- $image := absURL (printf "images/%s" $config.image) }}
+{{- $author := $config.author }}
+{{- with $params.author }}
   {{ $author := . }}
 {{- end }}
-{{- with .Params.image }}
+{{- with $params.image }}
   {{- $image = absURL (printf "images/%s" .)  }}
 {{- end }}
-<meta property = 'og:locale' content = 'en_US' />
+<meta property="og:locale" content="en_US">
 {{- if .IsHome }}
 <meta property="og:type" content="website">
 {{- else }}
 <meta property="og:type" content="article">
 {{- end }}
-<meta property = 'og:title' content = '{{ $title }}' />
+<meta property="og:title" content="{{ $title }}">
 <meta name="description" content="{{ $summary }}">
-<meta property = 'og:description' content = '{{ $summary }}'>
-<meta property = 'og:url' content = '{{ $permalink }}' />
-<meta property = 'og:image' content = '{{ $image }}'/>
-<meta name = 'twitter:card' content = 'summary_large_image' />
-<meta name = 'twitter:creator' content = '{{ $params.twitter }}'>
-<meta name = 'twitter:title' content = '{{ .Title }}' />
-<meta property = 'twitter:description'  content = '{{ $summary }}'/>
-<meta name = 'twitter:image' content = '{{ $image }}' />
+<meta property="og:description" content="{{ $summary }}">
+<meta property="og:url" content="{{ $permalink }}">
+<meta property="og:image" content="{{ $image }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="{{ $config.twitter }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta property="twitter:description" content="{{ $summary }}">
+<meta name="twitter:image" content="{{ $image }}">
 {{- if eq .Section "blog" -}}
   {{- $date := ( .Date.Format "2006-02-01") -}}
   {{- $date := (time .Date) }}

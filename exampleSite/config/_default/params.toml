@@ -1,0 +1,30 @@
+# ga_analytics = "" # google analytics ID e.g UA-116386578-1
+
+# ga_verify = "" # google verification code e.g 5jb-rxeBfITeJQKOuUss3ud6FPGTxXkCho-ZN5qlrZg
+# twitter = "" # twitter handle e.g @weru
+# logo = "logo.png"
+# author = "Weru" # default author
+# image = "placeholder-image.png" # used whenever a page image is not set
+# blogDir = "blogFolderName" # uncomment and edit to exclude normal pages ... see issue #57
+audio_graphic = true # shows on homepage - defaults to true
+[designer]
+  name = "Weru"
+  url = "https://www.linkedin.com/in/dan-weru-profile/"
+[[authors]]
+  name = "yourName" # can be nickname # if fullName 👇🏻 isn't set, name will be displayed on author card
+  fullName = "Your Full Name" # optional. If set, it will display on author card
+  bio = "It's time to flex. Write a short or not-so-short summary about yourself."
+  photo = "myPhotoFile.jpg"
+  url = "https://myURLofChoice.domain"
+
+# [staticman]
+#   endpoint = ""  # URL of your own API deployment (without trailing slash), default: "https://staticman-frama.herokuapp.com"
+#   gitProvider = "github"  # Either "github" or "gitlab"
+#   username = "username"  # GitHub/GitLab user name
+#   repository = "repo"  # GitHub/GitLab user name
+#   branch = "master"  # Branch holding the source code for your site, should match the `branch` parameter in `staticman.yml`
+#
+#   # If you use reCAPTCHA v2, you must also set these parameters in staticman.yml
+#   [staticman.reCaptcha]
+#     siteKey = ""  # Use your own site key, you need to apply for one on Google
+#     secret  = ""  # ENCRYPT your password by going to https://<staticman-endpoint>/v3/encrypt/<your-site-secret>

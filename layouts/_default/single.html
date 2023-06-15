@@ -7,7 +7,7 @@
 {{- end }}
 {{- $image := $scratch.Get "image" }}
 {{- $bg := (path.Join "images" $image) }}
-{{ $p := .Site.Params }}
+{{ $p := site.Params }}
 {{- if ne .Params.hideBanner true }}
 <section class = 'post_header' style = 'background-image:url({{ absURL $bg }});'>
   <h1 class='post_title'>{{ .Title }}</h1>

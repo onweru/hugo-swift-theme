@@ -6,24 +6,25 @@
 {{- end }}
 {{- $image := $scratch.Get "image" }}
 {{- $bg := (path.Join "images" $image) }}
-<li class = 'post_item fp'>
-  <a class = 'post_card' href='{{ .Permalink }}' title = '{{ .Title }}' style = 'background-image: url({{ absURL $bg }});'>
+<li class="post_item fp">
+  <a class=post_card href={{ .Permalink }} title={{ .Title }} style="background-image: url({{ absURL $bg }});">
   </a>
-  <div class = 'excerpt'>
-    <div class = 'excerpt_meta'>
+  <div class=excerpt>
+    <div class=excerpt_meta>
     {{- with .Params.tags -}}
       {{- range first 1 . }}
-      {{- $tag := . | urlize }}
-      <a href = '{{ absURL (printf "tags/%s" $tag) }}' class = 'post_tag'>
+      {{- $tag := urlize . }}
+      {{- $url := absURL (printf "tags/%s" $tag) }}
+      <a href={{ $url }} class=post_tag>
         {{- . }}
       </a>
       {{- end }}
     {{- end }}
     {{- partial "copy" . }}
     </div>
-    <h3 class = 'post_link'>
-      <a href='{{ .Permalink }}'>{{ .Title  }}</a>
+    <h3 class=post_link>
+      <a href={{ .Permalink }}>{{ .Title  }}</a>
     </h3>
-    <p class = 'pale'>{{ .Summary | truncate 90 }}</p>
+    <p class=pale>{{ truncate 90 .Summary }}</p>
   </div>
 </li>

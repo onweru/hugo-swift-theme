@@ -1,13 +1,14 @@
+{{ $pages := site.RegularPages }}
 <h3>{{ i18n "moreFrom" }} {{ .Site.Title }}</h3>
 <ul class='posts aside'>
-  {{- $kin := (where .Site.RegularPages ".Params.tags" "intersect" .Params.tags) }}
+  {{- $kin := (where $pages ".Params.tags" "intersect" .Params.tags) }}
   {{- $siblings := (where $kin ".Title" "!=" .Title) }}
   {{- with $siblings }}
     {{- range first 2 . }}
       {{- partial "excerpt" . }}
     {{- end }}
   {{- else }}
-    {{- $kin := (where .Site.RegularPages "Section" .Section) }}
+    {{- $kin := (where $pages "Section" .Section) }}
     {{- $siblings := (where $kin ".Title" "!=" .Title) }}
     {{- range first 2 $siblings }}
       {{- partial "excerpt" . }}

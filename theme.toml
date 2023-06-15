@@ -3,8 +3,8 @@ license = "MIT"
 licenselink = "https://github.com/onweru/hugo-swift-theme/blob/master/LICENSE.md"
 description = "A simple open source theme for publishing with hugo"
 homepage = "https://github.com/onweru/hugo-swift-theme"
-tags = ["blog", "staticman", "simple", "dark", "minimalist", "fast", "light"]
-features = ["blog", "staticman", "simple", "dark", "minimalist", "fast"]
+tags = ["blog", "simple", "dark", "minimalist", "fast"]
+features = ["blog", "simple", "dark", "minimalist"]
 min_version = "0.57.0"
 
 [author]
