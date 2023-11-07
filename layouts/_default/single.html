@@ -2,7 +2,7 @@
 {{ $config := site.Params }}
 {{ $bg := partial "func/getImage" . }}
 {{- if ne .Params.hideBanner true }}
-<section class=post_header style = 'background-image:url({{ $bg }});'>
+<section class=post_header style="background-image: url({{ $bg }});">
   <h1 class='post_title'>{{ .Title }}</h1>
   {{- with .Params.brief }}
     <p>{{ . }}</p>

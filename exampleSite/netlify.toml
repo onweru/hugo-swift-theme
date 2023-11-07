@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "hugo --gc --minify"
+command = "tinacms build && hugo --gc --minify"
 
 [context.production.environment]
 HUGO_VERSION = "0.120.3"

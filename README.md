@@ -39,10 +39,10 @@ You can configure the site using as follows:
 
 1. ### Global Settings & Staticman
 
-    Use the file `config.toml`.
+    Use the file `hugo.toml`.
 2. ### menu, footer
 
-    See the **config.toml** file's menu areas.
+    See the **hugo.toml** file's menu areas.
 
     > Follow the `exampleSite/`.
 3. Customize Theme colors
@@ -80,7 +80,7 @@ To enable them, you may refer to the
 
 Don't include an `author` in your article front matter.
 
-The `[[.Params.authors]]` interface in the config.toml file helps you:
+The `[[.Params.authors]]` interface in the hugo.toml file helps you:
 
   1. Write all your author information in one place. This way, you only specify the author name on your content files (posts). The rest of the data i.e photo, url & bio are automatically pulled from the data file.
 
