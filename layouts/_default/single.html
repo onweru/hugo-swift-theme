@@ -1,41 +1,34 @@
 {{- define "main" }}
-{{- $scratch := newScratch }}
-{{- if isset .Params "image" }}
-  {{- $scratch.Set "image" .Params.image }}
-{{- else }}
-  {{ $scratch.Set "image" "thumbnail.svg" }}
-{{- end }}
-{{- $image := $scratch.Get "image" }}
-{{- $bg := (path.Join "images" $image) }}
-{{ $p := site.Params }}
+{{ $config := site.Params }}
+{{ $bg := partial "func/getImage" . }}
 {{- if ne .Params.hideBanner true }}
-<section class = 'post_header' style = 'background-image:url({{ absURL $bg }});'>
+<section class=post_header style = 'background-image:url({{ $bg }});'>
   <h1 class='post_title'>{{ .Title }}</h1>
   {{- with .Params.brief }}
     <p>{{ . }}</p>
   {{- end }}
 </section>
 {{- end }}
-<div class = '{{ if .Params.full }}wrap post{{ else }}post{{ end }}'>
-  <article class='post_content'>
+<div class="{{ if .Params.full }}wrap post{{ else }}post{{ end }}">
+  <article class=post_content>
     {{- .Content }}
-    {{ if in $p.mainSections .Type }}
-    <div class = 'post_extra'>
+    {{ if in $config.mainSections .Type }}
+    <div class=post_extra>
       {{- partialCached "copy" . }}
     </div>
     {{- partial "author" . }}
     {{ end }}
   </article>
-  {{- if and $p.Staticman (ne .Params.full true)  }}
+  {{- if and $config.Staticman (ne .Params.full true)  }}
     {{- partial "comments" . }}
   {{- end }}
-  {{ if in $p.mainSections .Type }}
+  {{ if in $config.mainSections .Type }}
   <aside>
     {{- partial "aside" . }}
   </aside>
   {{ end }}
 </div>
-<script src = '{{ absURL "js/autosize.min.js" }}'></script>
+<script src={{ absURL "js/autosize.min.js" }}></script>
 {{- $timeagoScr := resources.Get "js/timeago.js" | resources.ExecuteAsTemplate "js/timeago.js" . }}
-<script src = '{{ $timeagoScr.Permalink }}'></script>
+<script src={{ $timeagoScr.Permalink }}></script>
 {{- end }}

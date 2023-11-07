@@ -1,13 +1,6 @@
-{{- $scratch := newScratch }}
-{{- if isset .Params "image" }}
-  {{- $scratch.Set "image" .Params.image }}
-{{- else }}
-  {{- $scratch.Set "image" "thumbnail.svg" }}
-{{- end }}
-{{- $image := $scratch.Get "image" }}
-{{- $bg := (path.Join "images" $image) }}
+{{ $bg := partial "func/getImage" . }}
 <li class="post_item fp">
-  <a class=post_card href={{ .Permalink }} title={{ .Title }} style="background-image: url({{ absURL $bg }});">
+  <a class=post_card href={{ .Permalink }} title={{ .Title }} style="background-image: url({{  $bg }});">
   </a>
   <div class=excerpt>
     <div class=excerpt_meta>
