@@ -5,7 +5,7 @@
 # logo = "logo.png"
 # author = "Weru" # default author
 # image = "placeholder-image.png" # used whenever a page image is not set
-# blogDir = "blogFolderName" # uncomment and edit to exclude normal pages ... see issue #57
+blogDir = "posts" # uncomment and edit to exclude normal pages ... see issue #57
 audio_graphic = true # shows on homepage - defaults to true
 [designer]
   name = "Weru"
