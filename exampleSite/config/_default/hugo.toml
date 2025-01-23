@@ -1,13 +1,16 @@
-baseurl = "https://example.com/"  # Include trailing slash
+baseurl = "https://example.com/" # Include trailing slash
 title = "Hugo Themes"
-# theme = "hugo-swift-theme"
-theme = "swift"
+theme = "hugo-swift-theme"
+# theme = "swift"
 author = "Steve Francia"
 copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
 canonifyurls = true
-paginate = 4
 # Enable syntax highlighting
 # comment on delete the following lines 11 ~ 13
 pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
 
+[pagination]
+disableAliases = false
+pagerSize = 6
+path = 'page'
