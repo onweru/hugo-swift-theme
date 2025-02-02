@@ -5,12 +5,15 @@
 <section class=post_header style="background-image: url({{ $bg }});">
   <h1 class='post_title'>{{ .Title }}</h1>
   {{- with .Params.brief }}
-    <p>{{ . }}</p>
+  <p>{{ . }}</p>
   {{- end }}
 </section>
 {{- end }}
 <div class="{{ if .Params.full }}wrap post{{ else }}post{{ end }}">
   <article class=post_content>
+    <span>
+      Published on <em>{{ .Date | time.Format ":date_medium" }}</em>
+    </span>
     {{- .Content }}
     {{ if in $config.mainSections .Type }}
     <div class=post_extra>
@@ -19,8 +22,8 @@
     {{- partial "author" . }}
     {{ end }}
   </article>
-  {{- if and $config.Staticman (ne .Params.full true)  }}
-    {{- partial "comments" . }}
+  {{- if and $config.Staticman (ne .Params.full true) }}
+  {{- partial "comments" . }}
   {{- end }}
   {{ if in $config.mainSections .Type }}
   <aside>
