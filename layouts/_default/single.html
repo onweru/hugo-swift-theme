@@ -11,9 +11,11 @@
 {{- end }}
 <div class="{{ if .Params.full }}wrap post{{ else }}post{{ end }}">
   <article class=post_content>
+    {{ with .Date }}
     <span>
-      Published on <em>{{ .Date | time.Format ":date_medium" }}</em>
+      Published on <em>{{ . | time.Format ":date_medium" }}</em>
     </span>
+    {{ end }}
     {{- .Content }}
     {{ if in $config.mainSections .Type }}
     <div class=post_extra>
