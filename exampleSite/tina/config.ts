@@ -25,10 +25,10 @@ export default defineConfig({
   schema: {
     collections: [
       Page,
-      // Post,
-      // Menu,
-      // Config,
-      // Setting,
+      Post,
+      Menu,
+      Config,
+      Setting,
     ],
   },
   search: {

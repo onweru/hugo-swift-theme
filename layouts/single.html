@@ -1,39 +1,39 @@
 {{- define "main" }}
-{{ $config := site.Params }}
-{{ $bg := partial "func/getImage" . }}
+{{- $config := site.Params }}
+{{- $bg := partial "func/getImage" . }}
 {{- if ne .Params.hideBanner true }}
-<section class=post_header style="background-image: url({{ $bg }});">
-  <h1 class='post_title'>{{ .Title }}</h1>
+<section class="post_header" style="background-image: url({{ $bg }});">
+  <h1 class="post_title">{{ .Title }}</h1>
   {{- with .Params.brief }}
   <p>{{ . }}</p>
   {{- end }}
 </section>
 {{- end }}
 <div class="{{ if .Params.full }}wrap post{{ else }}post{{ end }}">
-  <article class=post_content>
-    {{ with .Date }}
+  <article class="post_content">
+    {{- with .Date }}
     <span>
       Published on <em>{{ . | time.Format ":date_medium" }}</em>
     </span>
-    {{ end }}
+    {{- end }}
     {{- .Content }}
-    {{ if in $config.mainSections .Type }}
-    <div class=post_extra>
+    {{- if in $config.mainSections .Type }}
+    <div class="post_extra">
       {{- partialCached "copy" . }}
     </div>
     {{- partial "author" . }}
-    {{ end }}
+    {{- end }}
   </article>
   {{- if and $config.Staticman (ne .Params.full true) }}
   {{- partial "comments" . }}
   {{- end }}
-  {{ if in $config.mainSections .Type }}
+  {{- if in $config.mainSections .Type }}
   <aside>
     {{- partial "aside" . }}
   </aside>
-  {{ end }}
+  {{- end }}
 </div>
-<script src={{ absURL "js/autosize.min.js" }}></script>
+<script src='{{ absURL "js/autosize.min.js" }}'></script>
 {{- $timeagoScr := resources.Get "js/timeago.js" | resources.ExecuteAsTemplate "js/timeago.js" . }}
-<script src={{ $timeagoScr.Permalink }}></script>
+<script src="{{ $timeagoScr.Permalink }}"></script>
 {{- end }}

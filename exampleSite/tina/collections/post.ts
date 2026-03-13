@@ -16,6 +16,12 @@ const Post: Collection = {
       required: true,
     },
     {
+      type: "datetime",
+      name: "date",
+      label: "Date",
+      required: true,
+    },
+    {
       type: "string",
       name: "description",
       label: "Description",

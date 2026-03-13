@@ -1,9 +1,9 @@
 <div class="nav-drop">
   <div class="nav-body">
-    {{ $mainMenu := .Site.Menus.main }}
-    {{- range  $mainMenu }}
-      {{ $url := .URL }}
-      <a href="{{ if hasPrefix $url "." }}{{ $url }}{{ else }}{{ absURL $url }}{{ end }}" class="nav_item">{{ .Name}}</a>
+    {{- $mainMenu := .Site.Menus.main }}
+    {{- range $mainMenu }}
+      {{- $url := .URL }}
+      <a href="{{ if hasPrefix $url "." }}{{ $url }}{{ else }}{{ absURL $url }}{{ end }}" class="nav_item">{{ .Name }}</a>
     {{- end }}
     <div class="nav-close"></div>
   </div>

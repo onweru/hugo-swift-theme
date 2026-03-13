@@ -2,7 +2,7 @@ import { Collection } from "tinacms";
 
 const Config: Collection = {
   name: "config",
-  label: "Settings",
+  label: "Site Config",
   path: "config/_default",
   format: "toml",
   ui: {
@@ -18,8 +18,8 @@ const Config: Collection = {
     {
       type: "string",
       name: "baseurl",
-      label: "Homepage",
-      description: "e.g https://example.com/"
+      label: "Base URL",
+      description: "e.g. https://example.com/"
     },
     {
       type: "string",
@@ -28,26 +28,23 @@ const Config: Collection = {
     },
     {
       type: "string",
-      name: "theme",
-      label: "Theme / Template Name",
-      list: true, // delete this line when using theme as a non module
-      description: "references theme as module"
+      name: "author",
+      label: "Site Author"
     },
-    // {
-    //   type: "boolean",
-    //   name: "enableRobotsTXT",
-    //   label: "Enable Robots Txt"
-    // },
-    // {
-    //   type: "boolean",
-    //   name: "enableGitInfo",
-    //   label: "Enable Git",
-    //   description: "Helps provide more content metadata"
-    // },
+    {
+      type: "string",
+      name: "copyright",
+      label: "Copyright"
+    },
+    {
+      type: "string",
+      name: "theme",
+      label: "Theme Name"
+    },
     {
       type: "object",
       name: "pagination",
-      label: "Pagination Settings",
+      label: "Pagination",
       fields: [
         {
           type: "boolean",
@@ -59,7 +56,6 @@ const Config: Collection = {
           type: "number",
           name: "pagerSize",
           label: "Items per page",
-          // description: "defaults to 10",
         },
         {
           type: "string",
@@ -69,28 +65,6 @@ const Config: Collection = {
         }
       ]
     },
-    // {
-    //   type: "string",
-    //   name: "disableKinds",
-    //   label: "Disable Kinds",
-    //   list: true,
-    //   description: "https://gohugo.io/configuration/all/#disablekinds"
-    // },
-    // {
-    //   type: "object",
-    //   name: "outputs",
-    //   label: "Outputs",
-    //   description: "https://gohugo.io/configuration/outputs/#outputs-per-page-kind",
-    //   fields: [
-    //     {
-    //       type: "string",
-    //       name: "home",
-    //       label: "Home",
-    //       description: "https://gohugo.io/configuration/outputs/#outputs-per-page-kind",
-    //       list: true
-    //     }
-    //   ]
-    // }
   ]
 }
 

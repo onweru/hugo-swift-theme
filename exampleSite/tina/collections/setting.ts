@@ -2,7 +2,7 @@ import { Collection } from "tinacms";
 
 const Setting: Collection = {
   name: "setting",
-  label: "Other Settings",
+  label: "Theme Settings",
   path: "config/_default",
   format: "toml",
   ui: {
@@ -16,185 +16,111 @@ const Setting: Collection = {
   },
   fields: [
     {
-      type: "boolean",
-      name: "uniqueHomePage",
-      label: "Homepage is unique",
-      description: "change to false to add sidebar to homepage"
-    },
-    {
       type: "string",
-      name: "docSections",
-      label: "Doc Sections",
-      list: true,
-      description: "use the setting to set multiple docs directories."
-    },
-    {
-      type: "string",
-      name: "repo",
-      label: "Repository link"
-    },
-    {
-      type: "string",
-      name: "time_format_blog",
-      label: "Time Format",
-      description: "e.g. Monday, January 02, 2006"
-    },
-    {
-      type: "string",
-      name: "time_format_default",
-      label: "Time format default",
-      description: "e.g January 2, 2006"
+      name: "blogDir",
+      label: "Blog Directory",
+      description: "Content section used as the blog (e.g. posts)"
     },
     {
       type: "boolean",
-      name: "EnableDarkMode",
-      label: "Enable Dark Mode",
-      description: "set to false to disable darkmode by default # user will still have the option to use dark mode"
+      name: "audio_graphic",
+      label: "Show Audio Graphic",
+      description: "Show animated wave on homepage. Defaults to true."
     },
     {
       type: "string",
-      name: "defaultLighingMode",
-      label: "Default Lighting Mode",
-      description: "possible values: \"auto\", \"dark\", \"light\". Defaults to 'auto'"
-    },
-    {
-      type: "number",
-      name: "codeMaxLines",
-      label: "Maximum lines in snippet",
-      description: "sets the maximum number of lines per codeblock. The codeblock will however be scrollable and expandable."
-    },
-    {
-      type: "boolean",
-      name: "showLineNumbers",
-      label: "Show line numbers",
-      description: "show/hide line numbers by default. Switch to `true` if you'd rather have them on."
+      name: "ga_analytics",
+      label: "Google Analytics ID",
+      description: "e.g. UA-116386578-1"
     },
     {
       type: "string",
-      name: "iconsPath",
-      label: "Icons path",
-      description: "By default the template will look for icons under the `icons` directory",
+      name: "ga_verify",
+      label: "Google Site Verification",
     },
     {
-      type: "object",
+      type: "string",
+      name: "twitter",
+      label: "Twitter Handle",
+      description: "e.g. @weru"
+    },
+    {
+      type: "string",
       name: "author",
-      label: "Author",
-      fields: [
-        {
-          type: "string",
-          name: "name",
-          label: "Name",
-        },
-        {
-          type: "string",
-          name: "url",
-          label: "Profile/Portfolio link",
-        }
-      ]
+      label: "Default Author",
     },
     {
-      type: "object",
+      type: "image",
       name: "logo",
       label: "Site Logo",
-      fields: [
-        {
-          type: "image",
-          name: "lightMode",
-          label: "Light mode logo",
-        },
-        {
-          type: "image",
-          name: "darkMode",
-          label: "Dark mode logo",
-        }
-      ]
+    },
+    {
+      type: "image",
+      name: "image",
+      label: "Default Post Image",
+      description: "Used when a post has no image set"
     },
     {
       type: "object",
-      name: "source",
-      label: "Repo details",
+      name: "designer",
+      label: "Designer Attribution",
       fields: [
         {
           type: "string",
           name: "name",
-          label: "Git Platform",
-          description: "e.g bitbucket, github, gitlab"
+          label: "Name"
         },
         {
           type: "string",
           name: "url",
-          label: "repository link",
-        },
-        {
-          type: "image",
-          name: "iconLight",
-          label: "Light mode icon",
-        },
-        {
-          type: "image",
-          name: "iconDark",
-          label: "Dark mode icon",
+          label: "URL"
         }
       ]
-    },
-    {
-      type: "boolean",
-      name: "enableCopyright",
-      label: "Enable copyright",
-      description: "Defaults to 'true'. Enable copyRight Footer Stamp. Takes in attribution.",
     },
     {
       type: "object",
-      name: "search",
-      label: "Search Settings",
+      name: "authors",
+      label: "Authors",
+      list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.fullName || item?.name };
+        }
+      },
       fields: [
         {
-          type: "boolean",
-          name: "on",
-          label: "Enable search"
+          type: "string",
+          name: "name",
+          label: "Username / Nickname",
+          required: true,
+          description: "Used to match posts by the 'author' frontmatter field"
         },
         {
-          type: "boolean",
-          name: "global",
-          label: "Enable global search"
+          type: "string",
+          name: "fullName",
+          label: "Full Name",
+          description: "If set, displayed on the author card instead of name"
         },
         {
-          type: "object",
-          name: "algolia",
-          label: "Algolia search",
-          fields: [
-            {
-              type: "boolean",
-              name: "enable",
-              label: "Enable Algolia search",
-              description: "if not enabled search will default to fusejs"
-            },
-            {
-              type: "string",
-              name: "id",
-              label: "Algolia ID"
-            },
-            {
-              type: "string",
-              name: "index",
-              label: "Algolia search index name",
-            },
-            {
-              type: "string",
-              name: "key",
-              label: "Search-Only API key"
-            }
-          ]
+          type: "string",
+          name: "bio",
+          label: "Bio",
+          ui: {
+            component: "textarea"
+          }
+        },
+        {
+          type: "image",
+          name: "photo",
+          label: "Photo"
+        },
+        {
+          type: "string",
+          name: "url",
+          label: "Profile / Portfolio URL"
         }
       ]
     },
-    {
-      type: "string",
-      name: "otherSearchableFields",
-      list: true,
-      label: "Other searchable fields",
-      description: "As they appear in frontmatter"
-    }
   ]
 };
 
