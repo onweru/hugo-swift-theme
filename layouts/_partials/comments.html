@@ -9,7 +9,7 @@
     {{- else }}
       {{- range $comments }}
         {{- if not .replyThread }}
-          {{- $.Scratch.Set "threadID" ._id }}
+          {{- $threadID := ._id }}
           <div id="{{ ._id }}" class="comment">
             <img src="https://www.gravatar.com/avatar/{{ .email }}?s=100" alt="user icon" class="comment_pic">
             <div class="comment_meta">
@@ -22,7 +22,7 @@
           </div>
 
           {{- range $comments }}
-            {{- if eq .replyThread ($.Scratch.Get "threadID") }}
+            {{- if eq .replyThread $threadID }}
               <div id="{{ ._id }}" class="comment comment_reply">
                 <img src="https://www.gravatar.com/avatar/{{ .email }}?s=100" alt="user icon" class="comment_pic">
                   <div class="comment_meta">

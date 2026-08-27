@@ -1,5 +1,5 @@
 {{ $pages := site.RegularPages }}
-<h3>{{ i18n "moreFrom" }} {{ .Site.Title }}</h3>
+<h3>{{ i18n "moreFrom" }} {{ site.Title }}</h3>
 <ul class='posts aside'>
   {{- $kin := (where $pages ".Params.tags" "intersect" .Params.tags) }}
   {{- $siblings := (where $kin ".Title" "!=" .Title) }}
